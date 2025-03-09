@@ -1,0 +1,26 @@
+{
+  "name": "hiic-ai-landing-page",
+  "version": "1.0.0",
+  "description": "HIIC.ai应用矩阵官方首页",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "dev": "serve",
+    "build": "echo 'No build step required'"
+  },
+  "keywords": [
+    "hiic",
+    "ai",
+    "landing-page",
+    "static-site"
+  ],
+  "author": "HIIC.ai",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "serve": "^14.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 
