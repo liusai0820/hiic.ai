@@ -6,7 +6,7 @@
   "scripts": {
     "start": "serve",
     "dev": "serve",
-    "build": "echo 'No build step required'"
+    "build": "mkdir -p public && echo 'No build step required'"
   },
   "keywords": [
     "hiic",
