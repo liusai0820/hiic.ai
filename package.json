@@ -1,7 +1,7 @@
 {
-  "name": "hiic-ai-landing-page",
+  "name": "hiic-gwy-life-landing-page",
   "version": "1.0.0",
-  "description": "HIIC.ai应用矩阵官方首页",
+  "description": "HIIC.gwy.life应用矩阵官方首页",
   "main": "index.html",
   "scripts": {
     "start": "serve",
@@ -14,7 +14,7 @@
     "landing-page",
     "static-site"
   ],
-  "author": "HIIC.ai",
+  "author": "HIIC.gwy.life",
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {

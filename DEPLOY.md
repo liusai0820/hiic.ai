@@ -1,6 +1,18 @@
-# Vercel部署指南
+# 部署指南
 
-本文档提供将HIIC.ai应用矩阵首页部署到Vercel的详细步骤。
+本文档提供将HIIC.gwy.life应用矩阵首页部署到Vercel的详细步骤。
+
+## 步骤
+
+1. Fork本仓库到您的GitHub账号下
+
+2. 在Vercel上创建新项目，选择从GitHub导入
+
+3. 添加您的自定义域名（例如：hiic.gwy.life）
+
+4. 配置DNS记录，将域名指向Vercel的服务器
+
+5. 等待DNS生效，访问您的网站
 
 ## 前提条件
 
@@ -39,7 +51,7 @@
 
 1. 部署成功后，进入项目设置
 2. 点击"Domains"选项卡
-3. 添加您的自定义域名（例如：hiic.ai）
+3. 添加您的自定义域名（例如：hiic.gwy.life）
 4. 按照Vercel提供的说明配置DNS记录
 
 ## 持续部署
