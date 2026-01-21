@@ -27,7 +27,7 @@ const appDetails: Record<string, { features: string[]; useCases: string[]; tips:
     useCases: ['季度工作汇报', '项目进展报告', '培训课件制作', '商业计划书'],
     tips: '输入越详细的主题描述，生成的内容越精准。建议包含具体的内容要点。',
   },
-  diki: {
+  chain: {
     features: ['智能产业分析', '上下游关系图', '交互式探索', '多格式导出'],
     useCases: ['产业调研报告', '投资分析', '竞争格局分析', '供应链梳理'],
     tips: '可以输入具体的产业名称，如"新能源汽车"、"半导体芯片"等。',
@@ -176,22 +176,20 @@ export function AppDetailModal({
           <div className="flex gap-1 p-1 bg-slate-100 rounded-lg mb-5">
             <button
               onClick={() => setActiveTab('features')}
-              className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-md text-sm font-medium transition-all ${
-                activeTab === 'features'
+              className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-md text-sm font-medium transition-all ${activeTab === 'features'
                   ? 'bg-white text-slate-900 shadow-sm'
                   : 'text-slate-500 hover:text-slate-700'
-              }`}
+                }`}
             >
               <Sparkles className="w-4 h-4" />
               功能特性
             </button>
             <button
               onClick={() => setActiveTab('usecases')}
-              className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-md text-sm font-medium transition-all ${
-                activeTab === 'usecases'
+              className={`flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-md text-sm font-medium transition-all ${activeTab === 'usecases'
                   ? 'bg-white text-slate-900 shadow-sm'
                   : 'text-slate-500 hover:text-slate-700'
-              }`}
+                }`}
             >
               <BookOpen className="w-4 h-4" />
               应用场景
@@ -249,11 +247,10 @@ export function AppDetailModal({
             <button
               onClick={handleVisit}
               disabled={!isOnline}
-              className={`flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-semibold transition-all ${
-                isOnline
+              className={`flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-semibold transition-all ${isOnline
                   ? `${colors.solid} text-white hover:opacity-90 active:scale-[0.98]`
                   : 'bg-slate-100 text-slate-400 cursor-not-allowed'
-              }`}
+                }`}
             >
               {isOnline ? (
                 <>

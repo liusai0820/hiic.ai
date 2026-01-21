@@ -27,7 +27,7 @@ export const apps: App[] = [
     name: 'AI 画 PPT',
     description: '输入主题，一键生成专业演示文稿，支持多种模板风格',
     icon: Presentation,
-    url: 'https://ppt.gwy.life',
+    url: 'https://ppt.hiic.ai',
     category: '办公效率',
     status: 'online',
     visitCount: 328,
@@ -35,11 +35,11 @@ export const apps: App[] = [
     color: 'blue',
   },
   {
-    id: 'diki',
+    id: 'chain',
     name: 'AI 产业链图谱',
     description: '智能分析并生成产业链上下游关系图谱，洞察产业全景',
     icon: GitBranch,
-    url: 'https://diki.gwy.life',
+    url: 'https://chain.hiic.ai',
     category: '数据可视化',
     status: 'online',
     visitCount: 156,
@@ -96,7 +96,7 @@ export const apps: App[] = [
     name: 'AI 智能评审',
     description: '内部项目评审打分系统，支持多维度权重、利益冲突回避、实时大屏展示',
     icon: Award,
-    url: 'https://dafen.gwy.life',
+    url: 'https://dafen.hiic.ai',
     category: '办公效率',
     status: 'online',
     visitCount: 42,
@@ -137,12 +137,12 @@ export const announcements: Announcement[] = [
 ];
 
 export const developer: Developer = {
-  name: 'Lius',
-  title: '技术研究员',
+  name: 'lius',
+  title: 'IndieHackers',
   organization: '深圳国家高技术产业创新中心',
   avatar: '',
   slogan: '用 AI 赋能每一位同事，让工作更高效',
-  email: 'ai@hiic.org.cn',
+  email: 'liusai64@gmail.com',
   github: 'https://github.com/liusai0820',
 };
 
@@ -154,7 +154,7 @@ export const tutorials: Tutorial[] = [
     appId: 'ppt',
     readTime: '5 分钟',
     type: 'quickstart',
-    author: '开发者',
+    author: 'lius',
     publishDate: '2026-01-15',
     content: `# AI 画 PPT 快速入门
 
@@ -168,7 +168,7 @@ AI 画 PPT 是一款基于人工智能的演示文稿生成工具。只需输入
 
 ### 第一步：访问工具
 
-打开浏览器，访问 [ppt.gwy.life](https://ppt.gwy.life)
+打开浏览器，访问 [ppt.hiic.ai](https://ppt.hiic.ai)
 
 ### 第二步：输入主题
 
@@ -221,7 +221,7 @@ A: 默认生成 8-12 页，你也可以在生成前指定页数。
     id: '2',
     title: 'AI 产业链图谱使用指南',
     description: '掌握产业链图谱的核心功能，快速生成清晰的上下游关系图',
-    appId: 'diki',
+    appId: 'chain',
     readTime: '8 分钟',
     type: 'quickstart',
     author: '开发者',
@@ -378,7 +378,7 @@ AI 会自动生成包含以下内容的图谱：
     description: '真实案例分享：如何用 AI 工具提升研究报告的编写效率',
     readTime: '10 分钟',
     type: 'usecase',
-    author: '开发者',
+    author: 'lius',
     publishDate: '2026-01-08',
     content: `# AI 工具在日常工作中的应用
 
