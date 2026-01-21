@@ -112,3 +112,31 @@ export interface ForumPost {
   isAnonymous?: boolean;
   tags?: string[];
 }
+
+// 阅览室相关类型
+export interface JournalSource {
+  id: string;
+  name: string;
+  description: string;
+  cover: string; // 封面图 URL
+  category: 'business' | 'science' | 'technology' | 'internal' | 'general';
+  publisher: string;
+  frequency: string; // 更新频率，如 "Weekly", "Monthly"
+}
+
+export interface JournalIssue {
+  id: string;
+  sourceId: string;
+  title: string;
+  issueNumber: string; // e.g., "Issue 8374"
+  publishDate: string;
+  cover: string;
+  summary: string; // AI 生成的摘要
+  keyTakeaways: string[]; // AI 提取的关键点
+  pdfUrl?: string; // 实际 PDF 链接（mock）
+  tags?: string[];
+  relatedReport?: {
+    title: string;
+    url: string;
+  };
+}

@@ -23,6 +23,18 @@ export const categories: Category[] = [
 
 export const apps: App[] = [
   {
+    id: 'library',
+    name: 'AI 智能阅览室',
+    description: '聚合全球顶级期刊与内部内参，AI 辅助快速提取核心观点与数据',
+    icon: BookOpen,
+    url: '/library', // Internal route
+    category: '研究分析',
+    status: 'online',
+    visitCount: 56,
+    version: '1.0',
+    color: 'indigo',
+  },
+  {
     id: 'ppt',
     name: 'AI 画 PPT',
     description: '输入主题，一键生成专业演示文稿，支持多种模板风格',
@@ -106,6 +118,13 @@ export const apps: App[] = [
 ];
 
 export const announcements: Announcement[] = [
+  {
+    id: '0',
+    date: '2026-01-21',
+    title: 'AI 智能阅览室上线',
+    content: '全新推出 AI 智能阅览室，聚合《经济学人》《彭博商业周刊》等国际顶级期刊，AI 自动生成核心摘要，助你快速掌握全球前沿动态。',
+    type: 'feature',
+  },
   {
     id: '1',
     date: '2026-01-18',
@@ -1258,5 +1277,210 @@ export const forumPosts: ForumPost[] = [
     favorites: 3,
     views: 445,
     tags: ['闲聊', '食堂'],
+  },
+];
+
+// 阅览室 mock 数据
+import { BookOpen } from 'lucide-react';
+import type { JournalSource, JournalIssue } from '../types';
+
+export const journalSources: JournalSource[] = [
+  // 商业财经
+  {
+    id: 'economist',
+    name: 'The Economist',
+    description: '全球视野下的经济与政治分析，提供深度的国际时事评论',
+    cover: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'business',
+    publisher: 'The Economist Group',
+    frequency: 'Weekly',
+  },
+  {
+    id: 'hbr',
+    name: 'Harvard Business Review',
+    description: '专注管理学与商业趋势，为决策者提供前沿的管理理念',
+    cover: 'https://images.unsplash.com/photo-1555449372-8d774888e5b4?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'business',
+    publisher: 'Harvard Business Publishing',
+    frequency: 'Monthly',
+  },
+  {
+    id: 'caixin',
+    name: '财新周刊',
+    description: '提供财经新闻、商业报道和深度分析，是中国最具影响力的财经媒体之一',
+    cover: 'https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'business',
+    publisher: 'Caixin Media',
+    frequency: 'Weekly',
+  },
+  {
+    id: 'barrons',
+    name: "Barron's",
+    description: '美国顶级财经周刊，专注金融市场分析和投资建议',
+    cover: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'business',
+    publisher: 'Dow Jones & Company',
+    frequency: 'Weekly',
+  },
+  {
+    id: 'businessweek',
+    name: 'Bloomberg Businessweek',
+    description: '全球商业新闻周刊，提供深入的商业分析和市场洞察',
+    cover: 'https://images.unsplash.com/photo-1444653614773-995cb1ef902a?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'business',
+    publisher: 'Bloomberg L.P.',
+    frequency: 'Weekly',
+  },
+  {
+    id: 'fortune',
+    name: 'Fortune',
+    description: '美国知名商业杂志，发布世界500强排行榜，关注全球商业领袖与趋势',
+    cover: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'business',
+    publisher: 'Fortune Media',
+    frequency: 'Monthly',
+  },
+  // 前沿科学
+  {
+    id: 'nature',
+    name: 'Nature',
+    description: '国际顶级综合性科学周刊，报道自然科学领域的重要发现',
+    cover: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'science',
+    publisher: 'Nature Portfolio',
+    frequency: 'Weekly',
+  },
+  // 创新技术
+  {
+    id: 'mit-tech',
+    name: 'MIT Technology Review',
+    description: '解读新兴科技及其商业和社会影响，洞察技术未来',
+    cover: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'technology',
+    publisher: 'MIT',
+    frequency: 'Bi-monthly',
+  },
+  {
+    id: 'wired',
+    name: 'Wired',
+    description: '关注科技如何改变文化、经济和政治，发现未来趋势',
+    cover: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'technology',
+    publisher: 'Condé Nast',
+    frequency: 'Monthly',
+  },
+  // 综合人文
+  {
+    id: 'newyorker',
+    name: 'The New Yorker',
+    description: '以其深度报道、政治评论、文化批评和幽默插画而闻名',
+    cover: 'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'general',
+    publisher: 'Condé Nast',
+    frequency: 'Weekly',
+  },
+  {
+    id: 'time',
+    name: 'Time',
+    description: '世界知名新闻周刊，报道国际时事、政治、商业和文化',
+    cover: 'https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'general',
+    publisher: 'Time USA, LLC',
+    frequency: 'Weekly',
+  },
+  {
+    id: 'atlantic',
+    name: 'The Atlantic',
+    description: '深度长篇报道和文化评论，探讨美国社会与全球趋势',
+    cover: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'general',
+    publisher: 'The Atlantic Monthly Group',
+    frequency: 'Monthly',
+  },
+  // 内部资料
+  {
+    id: 'internal',
+    name: '内部内参',
+    description: '深圳国家高技术产业创新中心内部研究简报，汇集各部门研究成果',
+    cover: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'internal',
+    publisher: 'HIIC',
+    frequency: 'Weekly',
+  },
+  {
+    id: 'hiic',
+    name: 'HIIC 内参',
+    description: '深圳国家高技术产业创新中心政策研究与产业洞察报告',
+    cover: 'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&q=80&w=400&h=533',
+    category: 'internal',
+    publisher: 'HIIC',
+    frequency: 'Monthly',
+  },
+];
+
+export const journalIssues: JournalIssue[] = [
+  {
+    id: 'eco-2024-01-20',
+    sourceId: 'economist',
+    title: 'The World in 2026',
+    issueNumber: 'Issue 9382',
+    publishDate: '2026-01-17',
+    cover: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=400&h=533',
+    pdfUrl: 'https://arxiv.org/pdf/2312.11805.pdf', // 示例 PDF (来自 Arxiv 关于 AI 的论文)
+    summary: '本期封面文章探讨了2026年全球地缘政治格局的新变化，以及AI技术在各国产业政策中的核心地位。重点分析了新兴市场国家的经济韧性与供应链重构。',
+    keyTakeaways: [
+      '全球供应链区域化趋势加速，"近岸外包"成为主流',
+      'AI 治理成为各国立法重点，欧盟与美国路径分歧明显',
+      '绿色能源转型进入深水区，储能技术突破是关键',
+      '新兴市场中，东南亚与印度经济增长预期领跑全球',
+    ],
+  },
+  {
+    id: 'nat-2024-01-18',
+    sourceId: 'nature',
+    title: 'Quantum Leap',
+    issueNumber: 'Vol. 625 No. 7995',
+    publishDate: '2026-01-15',
+    cover: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=400&h=533',
+    pdfUrl: 'https://arxiv.org/pdf/2310.16802.pdf', // 示例 PDF
+    summary: '本期重点介绍了一项量子计算纠错技术的重大突破，该技术将量子比特的相干时间延长了10倍，为实用化量子计算机铺平了道路。此外，还探讨了CRISPR疗法在罕见病治疗中的最新临床数据。',
+    keyTakeaways: [
+      '新型量子纠错码方案通过实验验证，容错率提升显著',
+      'CRISPR 2.0 疗法在血液病治疗中展现出长期安全性',
+      '深海采矿对生物多样性的潜在影响评估报告发布',
+      'AI 辅助材料发现：新发现一种超高导热系数的聚合物',
+    ],
+  },
+  {
+    id: 'hbr-2024-01',
+    sourceId: 'hbr',
+    title: 'Leadership in the AI Era',
+    issueNumber: 'Jan-Feb 2026',
+    publishDate: '2026-01-01',
+    cover: 'https://images.unsplash.com/photo-1555449372-8d774888e5b4?auto=format&fit=crop&q=80&w=400&h=533',
+    pdfUrl: 'https://arxiv.org/pdf/2401.03462.pdf', // 示例 PDF
+    summary: '随着生成式 AI 的普及，管理者的核心职能正在发生转变。本期哈佛商业评论聚焦"人机协作型组织"的构建，探讨如何重新设计工作流程以最大化 AI 效能。',
+    keyTakeaways: [
+      '管理者需从"监督者"转型为"AI 协调者"与"教练"',
+      '构建内部数据护城河是企业应用 AI 的关键差异化优势',
+      '软技能（同理心、谈判、战略思维）在 AI 时代溢价提升',
+      '案例研究：一家传统制造企业如何通过 AI 实现柔性生产',
+    ],
+  },
+  {
+    id: 'internal-2024-03',
+    sourceId: 'internal',
+    title: '第3期：低空经济产业调研',
+    issueNumber: 'No. 2026-03',
+    publishDate: '2026-01-19',
+    cover: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=400&h=533',
+    pdfUrl: 'https://arxiv.org/pdf/2309.13809.pdf', // 示例 PDF
+    summary: '本期内参汇总了产业研究部关于深圳市低空经济发展的最新调研成果。报告分析了 eVTOL 技术路径、空域管理政策难点及商业化应用场景。',
+    keyTakeaways: [
+      '深圳低空经济产业规模预计2026年突破1000亿元',
+      '电池能量密度与噪音控制是 eVTOL 商业化落地的两大技术瓶颈',
+      '建议加快低空数字底座建设，实现空域精细化管理',
+      '物流配送与应急救援是目前最成熟的商业应用场景',
+    ],
   },
 ];

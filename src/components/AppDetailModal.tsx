@@ -52,6 +52,11 @@ const appDetails: Record<string, { features: string[]; useCases: string[]; tips:
     useCases: ['政策文件检索', '研究资料查找', '知识库搜索', '文档归档'],
     tips: '使用自然语言描述你要查找的内容，比关键词搜索更精准。',
   },
+  library: {
+    features: ['全球顶级期刊聚合', 'AI 智能速读摘要', '关键数据提取', '内部内参归档'],
+    useCases: ['前沿科技追踪', '宏观经济分析', '竞品情报收集', '内部研究共享'],
+    tips: '点击期刊封面即可进入沉浸式阅读模式，右侧面板会自动显示 AI 提炼的核心观点。',
+  },
 };
 
 export function AppDetailModal({

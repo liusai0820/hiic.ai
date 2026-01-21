@@ -1,4 +1,5 @@
-import { ExternalLink, Clock, MessageSquare } from 'lucide-react';
+import { ExternalLink, Clock, MessageSquare, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import type { App, AppColor } from '../types';
 
 interface AppCardProps {
@@ -26,15 +27,22 @@ const categoryTagColors: Record<string, string> = {
 };
 
 export function AppCard({ app, onVisit, onFeedback, onCardClick, index }: AppCardProps) {
+  const navigate = useNavigate();
   const Icon = app.icon;
   const isDisabled = app.status !== 'online';
   const iconBg = colorConfig[app.color] || 'bg-primary-600';
+  const isInternal = app.url.startsWith('/');
 
   const handleVisit = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (isDisabled) return;
     onVisit(app.id);
-    window.open(app.url, '_blank', 'noopener,noreferrer');
+
+    if (isInternal) {
+      navigate(app.url);
+    } else {
+      window.open(app.url, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const handleFeedback = (e: React.MouseEvent) => {
@@ -82,8 +90,8 @@ export function AppCard({ app, onVisit, onFeedback, onCardClick, index }: AppCar
         {app.name}
       </h3>
 
-      {/* Description */}
-      <p className="text-sm text-slate-600 leading-relaxed mb-5 line-clamp-2">
+      {/* Description - 固定两行高度确保对齐 */}
+      <p className="text-sm text-slate-600 leading-relaxed mb-5 line-clamp-2 min-h-[2.625rem]">
         {app.description}
       </p>
 
@@ -113,14 +121,13 @@ export function AppCard({ app, onVisit, onFeedback, onCardClick, index }: AppCar
           <button
             onClick={handleVisit}
             disabled={isDisabled}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
-              isDisabled
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${isDisabled
                 ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
                 : 'bg-primary-600 text-white hover:bg-primary-700 active:scale-[0.98]'
-            }`}
+              }`}
           >
             {isDisabled ? '即将上线' : '立即使用'}
-            {!isDisabled && <ExternalLink className="w-3.5 h-3.5" />}
+            {!isDisabled && (isInternal ? <ArrowRight className="w-3.5 h-3.5" /> : <ExternalLink className="w-3.5 h-3.5" />)}
           </button>
         </div>
       </div>

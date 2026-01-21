@@ -1,0 +1,17 @@
+{
+  "title": "Issue Title",
+  "issueNumber": "Vol. 123 No. 456",
+  "publishDate": "YYYY-MM-DD",
+  "summary": "AI-generated executive summary of the issue...",
+  "keyTakeaways": [
+    "Key point 1",
+    "Key point 2",
+    "Key point 3",
+    "Key point 4"
+  ],
+  "tags": ["Tag1", "Tag2"],
+  "relatedReport": {
+    "title": "Optional Internal Report Name",
+    "url": "Optional Link"
+  }
+}

@@ -17,7 +17,7 @@ import {
   Footer,
   MobileFeedbackButton,
 } from './components';
-import { TutorialPage, ForumPage } from './pages';
+import { TutorialPage, ForumPage, LibraryPage } from './pages';
 import { apps, categories, announcements, developer, tutorials, forumCategories, forumPosts } from './data';
 import type { Category, App as AppType } from './types';
 
@@ -197,6 +197,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/tutorials/:id" element={<TutorialPage />} />
       <Route path="/community" element={<ForumPage />} />
+      <Route path="/library" element={<LibraryPage />} />
     </Routes>
   );
 }
