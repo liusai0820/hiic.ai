@@ -1399,15 +1399,6 @@ export const journalSources: JournalSource[] = [
   },
   // 内部资料
   {
-    id: 'internal',
-    name: '内部内参',
-    description: '深圳国家高技术产业创新中心内部研究简报，汇集各部门研究成果',
-    cover: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=400&h=533',
-    category: 'internal',
-    publisher: 'HIIC',
-    frequency: 'Weekly',
-  },
-  {
     id: 'hiic',
     name: 'HIIC 内参',
     description: '深圳国家高技术产业创新中心政策研究与产业洞察报告',
