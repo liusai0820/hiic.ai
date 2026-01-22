@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { X, Share2, Download, Sparkles, BookOpen, MessageSquare, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Maximize, Minimize, BookOpenCheck, FileText, PanelRightClose, PanelRight } from 'lucide-react';
+import { X, Share2, Download, Sparkles, BookOpen, MessageSquare, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Maximize, Minimize, BookOpenCheck, FileText, PanelRightClose, PanelRight, List } from 'lucide-react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import type { JournalIssue } from '../../types';
 
@@ -83,6 +83,11 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
   const [showControls, setShowControls] = useState<boolean>(true);
   const [showHints, setShowHints] = useState<boolean>(true);
 
+  // PDF Outline support
+  const [outline, setOutline] = useState<any[] | null>(null);
+  const [showOutline, setShowOutline] = useState<boolean>(false);
+  const [pdfDocument, setPdfDocument] = useState<any>(null);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const readerRef = useRef<HTMLDivElement>(null);
   const theme = themes[currentTheme];
@@ -154,9 +159,33 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
     return () => window.removeEventListener('resize', handleResize);
   }, [isFullscreen, showSidebar]);
 
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-    setNumPages(numPages);
+  function onDocumentLoadSuccess(pdf: any) {
+    setPdfDocument(pdf);
+    setNumPages(pdf.numPages);
+
+    // Get outline
+    pdf.getOutline().then((outline: any) => {
+      if (outline && outline.length > 0) {
+        setOutline(outline);
+      }
+    }).catch((err: any) => {
+      console.error('Error getting outline:', err);
+    });
   }
+
+  const handleOutlineClick = async (item: any) => {
+    if (!pdfDocument || !item.dest) return;
+
+    try {
+      const pageIndex = await pdfDocument.getPageIndex(item.dest);
+      setPageNumber(pageIndex + 1);
+      if (window.innerWidth < 1024) {
+        setShowOutline(false);
+      }
+    } catch (err) {
+      console.error('Error navigating to section:', err);
+    }
+  };
 
   // 双页模式下，每次翻两页
   const changePage = (offset: number) => {
@@ -304,14 +333,27 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
           ${showControls ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 lg:translate-y-0 lg:opacity-100'}
         `}
       >
-        <div className="flex items-center gap-4">
-          <button
-            onClick={onClose}
-            className={`p-2 ${theme.btnHover} rounded-lg transition-colors`}
-            style={{ color: theme.text }}
-          >
-            <X className="w-5 h-5" />
-          </button>
+        <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1">
+            <button
+              onClick={onClose}
+              className={`p-2 ${theme.btnHover} rounded-lg transition-colors`}
+              style={{ color: theme.text }}
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {outline && outline.length > 0 && (
+              <button
+                onClick={() => setShowOutline(!showOutline)}
+                className={`p-2 ${theme.btnHover} rounded-lg transition-colors ${showOutline ? 'bg-black/5' : ''}`}
+                style={{ color: theme.text }}
+                title="目录"
+              >
+                <List className="w-5 h-5" />
+              </button>
+            )}
+          </div>
 
           {/* Desktop Title */}
           <div className="hidden sm:block">
@@ -349,7 +391,71 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
       </header>
 
       {/* Content */}
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden relative">
+        {/* Outline Sidebar */}
+        {showOutline && (
+          <>
+            <div
+              className="fixed inset-0 bg-black/20 z-40 lg:hidden"
+              onClick={() => setShowOutline(false)}
+            />
+            <div
+              className={`
+                absolute top-0 bottom-0 left-0 z-50 w-72 border-r shadow-xl
+                flex flex-col transition-all duration-300
+                ${theme.sidebar} ${theme.borderColor}
+              `}
+            >
+              <div className={`p-4 border-b ${theme.borderColor} flex items-center justify-between`}>
+                <h3 className="font-semibold text-sm" style={{ color: theme.text }}>目录</h3>
+                <button
+                  onClick={() => setShowOutline(false)}
+                  className={`p-1.5 rounded-md ${theme.btnHover}`}
+                  style={{ color: theme.text }}
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+              <div className="flex-1 overflow-y-auto p-2">
+                {outline ? (
+                  <ul className="space-y-1">
+                    {outline.map((item: any, index: number) => (
+                      <li key={index}>
+                        <button
+                          onClick={() => handleOutlineClick(item)}
+                          className={`w-full text-left px-3 py-2 text-sm rounded-md transition-colors ${theme.btnHover}`}
+                          style={{ color: theme.text }}
+                        >
+                          {item.title}
+                        </button>
+                        {item.items && item.items.length > 0 && (
+                          <ul className="pl-4 mt-1 border-l border-black/5 space-y-1">
+                            {item.items.map((subItem: any, subIndex: number) => (
+                              <li key={`${index}-${subIndex}`}>
+                                <button
+                                  onClick={() => handleOutlineClick(subItem)}
+                                  className={`w-full text-left px-3 py-1.5 text-xs rounded-md transition-colors ${theme.btnHover} opacity-80`}
+                                  style={{ color: theme.text }}
+                                >
+                                  {subItem.title}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="p-4 text-center opacity-50 text-sm">
+                    暂无目录
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
+        )}
+
         {/* Left: PDF Viewer */}
         <div className={`flex-1 ${theme.containerBg} relative overflow-hidden flex flex-col transition-colors duration-300`}>
           {/* Toolbar */}
