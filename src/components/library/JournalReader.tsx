@@ -77,20 +77,41 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [scale, setScale] = useState<number>(1.0);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
-  const [viewMode, setViewMode] = useState<ViewMode>('double');
+  const [viewMode, setViewMode] = useState<ViewMode>(() => window.innerWidth < 1024 ? 'single' : 'double');
   const [currentTheme, setCurrentTheme] = useState<ThemeKey>('light');
-  const [showSidebar, setShowSidebar] = useState<boolean>(true);
+  const [showSidebar, setShowSidebar] = useState<boolean>(window.innerWidth >= 1024);
+  const [showControls, setShowControls] = useState<boolean>(true);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const readerRef = useRef<HTMLDivElement>(null);
   const theme = themes[currentTheme];
+
+  const handleContentClick = (e: React.MouseEvent) => {
+    // Only apply smart tap logic on mobile/small screens
+    // On desktop, clicks might be for selecting text or other interactions
+    if (window.innerWidth >= 1024) return;
+
+    const width = window.innerWidth;
+    const x = e.clientX;
+    const threshold = width * 0.3;
+
+    if (x < threshold) {
+      previousPage();
+    } else if (x > width - threshold) {
+      nextPage();
+    } else {
+      setShowControls(!showControls);
+    }
+  };
 
   // 计算页面尺寸
   const calculatePageSize = useCallback(() => {
     if (!containerRef.current) return { width: 400, height: 600 };
 
     const container = containerRef.current;
-    const containerWidth = container.clientWidth - 64; // padding
+    const isMobile = window.innerWidth < 640;
+    const padding = isMobile ? 32 : 64;
+    const containerWidth = container.clientWidth - padding;
     const containerHeight = container.clientHeight - 32;
 
     // A4 比例 约 1:1.414
@@ -262,7 +283,13 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
       style={{ backgroundColor: theme.bg }}
     >
       {/* Header */}
-      <header className={`h-14 ${theme.header} border-b flex items-center justify-between px-4 sm:px-6 flex-shrink-0 z-10 transition-colors duration-300`}>
+      <header
+        className={`
+          absolute lg:static top-0 left-0 right-0 h-14 ${theme.header} border-b
+          flex items-center justify-between px-4 sm:px-6 z-40 transition-all duration-300
+          ${showControls ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 lg:translate-y-0 lg:opacity-100'}
+        `}
+      >
         <div className="flex items-center gap-4">
           <button
             onClick={onClose}
@@ -295,7 +322,13 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
         {/* Left: PDF Viewer */}
         <div className={`flex-1 ${theme.containerBg} relative overflow-hidden flex flex-col transition-colors duration-300`}>
           {/* Toolbar */}
-          <div className={`h-12 ${theme.toolbar} border-b flex items-center justify-center gap-2 sm:gap-4 z-20 shadow-sm transition-colors duration-300`}>
+          <div
+            className={`
+              absolute lg:static bottom-0 left-0 right-0 h-12 ${theme.toolbar} border-t lg:border-t-0 lg:border-b
+              flex items-center justify-start sm:justify-center gap-4 px-4 overflow-x-auto z-40 shadow-sm transition-all duration-300
+              ${showControls ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 lg:translate-y-0 lg:opacity-100'}
+            `}
+          >
             {/* 视图模式切换 */}
             <div className="flex items-center gap-1 p-1 rounded-lg" style={{ backgroundColor: theme.text + '10' }}>
               <button
@@ -404,7 +437,7 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
             {/* 侧边栏切换 */}
             <button
               onClick={() => setShowSidebar(!showSidebar)}
-              className={`p-1.5 ${theme.btnHover} rounded-md transition-colors hidden lg:flex`}
+              className={`p-1.5 ${theme.btnHover} rounded-md transition-colors flex-shrink-0`}
               style={{ color: theme.text }}
               title={showSidebar ? '隐藏侧边栏' : '显示侧边栏'}
             >
@@ -415,7 +448,8 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
           {/* PDF 阅读区域 */}
           <div
             ref={containerRef}
-            className="flex-1 overflow-auto flex items-center justify-center p-4 sm:p-8 transition-colors duration-300"
+            onClick={handleContentClick}
+            className="flex-1 overflow-auto flex items-center justify-center p-4 sm:p-8 transition-colors duration-300 relative h-full pt-14 pb-12 lg:pt-0 lg:pb-0"
             style={{ backgroundColor: theme.bg }}
           >
             {/* Watermark Overlay */}
@@ -529,7 +563,7 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
             <button
               onClick={previousPage}
               disabled={pageNumber <= 1}
-              className="absolute left-0 top-0 bottom-0 w-20 opacity-0 hover:opacity-100 transition-opacity cursor-pointer disabled:cursor-default flex items-center justify-start pl-4"
+              className="absolute left-0 top-0 bottom-0 w-20 opacity-0 hover:opacity-100 transition-opacity cursor-pointer disabled:cursor-default hidden lg:flex items-center justify-start pl-4"
               style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.05), transparent)' }}
             >
               <ChevronLeft className="w-8 h-8 text-slate-400" />
@@ -537,7 +571,7 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
             <button
               onClick={nextPage}
               disabled={viewMode === 'double' ? pageNumber >= numPages - 1 : pageNumber >= numPages}
-              className="absolute right-0 top-0 bottom-0 w-20 opacity-0 hover:opacity-100 transition-opacity cursor-pointer disabled:cursor-default flex items-center justify-end pr-4"
+              className="absolute right-0 top-0 bottom-0 w-20 opacity-0 hover:opacity-100 transition-opacity cursor-pointer disabled:cursor-default hidden lg:flex items-center justify-end pr-4"
               style={{ background: 'linear-gradient(to left, rgba(0,0,0,0.05), transparent)' }}
             >
               <ChevronRight className="w-8 h-8 text-slate-400" />
@@ -549,10 +583,22 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
 
         {/* Right: AI Analysis */}
         {showSidebar && (
-          <div
-            className={`w-80 lg:w-96 ${theme.sidebar} border-l ${theme.borderColor} flex flex-col flex-shrink-0 z-10 transition-all duration-300`}
-          >
-            <div className={`p-6 border-b ${theme.borderColor}`}>
+          <>
+            {/* Mobile Overlay Backdrop */}
+            <div
+              className="fixed inset-0 bg-black/20 z-20 lg:hidden"
+              onClick={() => setShowSidebar(false)}
+            />
+
+            <div
+              className={`
+                fixed inset-y-0 right-0 z-30 w-80 shadow-2xl
+                lg:static lg:shadow-none lg:w-96 lg:z-auto
+                ${theme.sidebar} border-l ${theme.borderColor}
+                flex flex-col flex-shrink-0 transition-all duration-300
+              `}
+            >
+              <div className={`p-6 border-b ${theme.borderColor}`}>
               <div className="flex items-center gap-2 text-indigo-600 mb-2">
                 <Sparkles className="w-4 h-4" />
                 <span className="text-xs font-bold uppercase tracking-wider">AI Insight</span>
@@ -625,7 +671,8 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
                 向 AI 提问本文内容
               </button>
             </div>
-          </div>
+            </div>
+          </>
         )}
       </div>
     </div>

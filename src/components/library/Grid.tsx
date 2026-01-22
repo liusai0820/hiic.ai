@@ -19,25 +19,25 @@ export function Grid({ source, issues, loading, error, onIssueClick }: GridProps
   }
 
   return (
-    <div className="p-8">
+    <div className="p-4 lg:p-8">
       {/* Header */}
-      <div className="flex items-start justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-6 lg:mb-8 gap-4">
         <div>
           <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-3xl font-bold text-slate-900 tracking-tight font-serif">
+            <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight font-serif">
               {source.name}
             </h2>
-            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-medium border border-slate-200">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-medium border border-slate-200 whitespace-nowrap">
               {source.frequency}
             </span>
           </div>
-          <p className="text-slate-500 max-w-2xl text-lg">
+          <p className="text-slate-500 text-sm lg:text-lg max-w-2xl leading-relaxed">
             {source.description}
           </p>
         </div>
 
         {/* Compliance Badge */}
-        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-amber-50 text-amber-700 text-xs font-medium rounded-full border border-amber-100">
+        <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-50 text-amber-700 text-xs font-medium rounded-full border border-amber-100 self-start sm:self-auto">
           <AlertTriangle className="w-3.5 h-3.5" />
           内部研究资料
         </div>
