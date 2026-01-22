@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { X, Share2, Download, Sparkles, BookOpen, MessageSquare, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Maximize, Minimize, BookOpenCheck, FileText, PanelRightClose, PanelRight, List } from 'lucide-react';
+import { X, Share2, Download, Sparkles, MessageSquare, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Maximize, Minimize, BookOpenCheck, FileText, PanelRightClose, PanelRight, List } from 'lucide-react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import type { JournalIssue } from '../../types';
 
@@ -177,8 +177,18 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
     if (!pdfDocument || !item.dest) return;
 
     try {
-      const pageIndex = await pdfDocument.getPageIndex(item.dest);
-      setPageNumber(pageIndex + 1);
+      let dest = item.dest;
+      // If dest is a string, resolve it to an explicit destination array
+      if (typeof dest === 'string') {
+        dest = await pdfDocument.getDestination(dest);
+      }
+
+      // If dest is an array, the first element is the page reference (Ref)
+      if (Array.isArray(dest) && dest.length > 0) {
+        const pageIndex = await pdfDocument.getPageIndex(dest[0]);
+        setPageNumber(pageIndex + 1);
+      }
+
       if (window.innerWidth < 1024) {
         setShowOutline(false);
       }
@@ -342,17 +352,6 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
             >
               <X className="w-5 h-5" />
             </button>
-
-            {outline && outline.length > 0 && (
-              <button
-                onClick={() => setShowOutline(!showOutline)}
-                className={`p-2 ${theme.btnHover} rounded-lg transition-colors ${showOutline ? 'bg-black/5' : ''}`}
-                style={{ color: theme.text }}
-                title="目录"
-              >
-                <List className="w-5 h-5" />
-              </button>
-            )}
           </div>
 
           {/* Desktop Title */}
@@ -401,8 +400,8 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
             />
             <div
               className={`
-                absolute top-0 bottom-0 left-0 z-50 w-72 border-r shadow-xl
-                flex flex-col transition-all duration-300
+                absolute top-14 left-4 z-50 w-64 max-h-[60vh] border rounded-xl shadow-xl
+                flex flex-col transition-all duration-300 overflow-hidden
                 ${theme.sidebar} ${theme.borderColor}
               `}
             >
@@ -466,6 +465,21 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
               ${showControls ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 lg:translate-y-0 lg:opacity-100'}
             `}
           >
+            {/* 目录按钮 */}
+            {outline && outline.length > 0 && (
+              <>
+                <button
+                  onClick={() => setShowOutline(!showOutline)}
+                  className={`p-1.5 rounded-md transition-colors flex-shrink-0 ${showOutline ? 'bg-black/5' : theme.btnHover}`}
+                  style={{ color: theme.text }}
+                  title="目录"
+                >
+                  <List className="w-4 h-4" />
+                </button>
+                <div className="w-px h-6 opacity-20" style={{ backgroundColor: theme.text }} />
+              </>
+            )}
+
             {/* 视图模式切换 (Desktop only) */}
             <div className="hidden sm:flex items-center gap-1 p-1 rounded-lg" style={{ backgroundColor: theme.text + '10' }}>
               <button
@@ -761,78 +775,57 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
               `}
             >
               <div className={`p-6 border-b ${theme.borderColor}`}>
-              <div className="flex items-center gap-2 text-indigo-600 mb-2">
-                <Sparkles className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">AI Insight</span>
+                <div className="flex items-center gap-2 text-indigo-600 mb-2">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-xs font-bold uppercase tracking-wider">AI Insight</span>
+                </div>
+                <h2 className="text-lg font-bold" style={{ color: theme.text }}>智能速读</h2>
               </div>
-              <h2 className="text-lg font-bold" style={{ color: theme.text }}>智能速读</h2>
-            </div>
 
-            <div className="flex-1 overflow-y-auto p-6 space-y-8">
-              <section>
-                <h3 className="text-sm font-semibold mb-3" style={{ color: theme.text }}>核心观点 Summary</h3>
-                <p className="text-sm leading-relaxed text-justify opacity-80" style={{ color: theme.text }}>
-                  {issue.summary || 'Pending AI analysis...'}
-                </p>
-              </section>
+              <div className="flex-1 overflow-y-auto p-6 space-y-8">
+                <section>
+                  <h3 className="text-sm font-semibold mb-3" style={{ color: theme.text }}>核心观点 Summary</h3>
+                  <p className="text-sm leading-relaxed text-justify opacity-80" style={{ color: theme.text }}>
+                    {issue.summary || 'Pending AI analysis...'}
+                  </p>
+                </section>
 
-              <section>
-                <h3 className="text-sm font-semibold mb-3" style={{ color: theme.text }}>关键数据 Key Takeaways</h3>
-                <ul className="space-y-3">
-                  {issue.keyTakeaways && issue.keyTakeaways.length > 0 ? (
-                    issue.keyTakeaways.map((point, i) => (
-                      <li key={i} className="flex gap-3 text-sm" style={{ color: theme.text }}>
-                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs font-medium mt-0.5">
-                          {i + 1}
-                        </span>
-                        <span className="leading-relaxed opacity-80">{point}</span>
+                <section>
+                  <h3 className="text-sm font-semibold mb-3" style={{ color: theme.text }}>关键数据 Key Takeaways</h3>
+                  <ul className="space-y-3">
+                    {issue.keyTakeaways && issue.keyTakeaways.length > 0 ? (
+                      issue.keyTakeaways.map((point, i) => (
+                        <li key={i} className="flex gap-3 text-sm" style={{ color: theme.text }}>
+                          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center text-xs font-medium mt-0.5">
+                            {i + 1}
+                          </span>
+                          <span className="leading-relaxed opacity-80">{point}</span>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="text-sm opacity-60" style={{ color: theme.text }}>
+                        Content to be analyzed
                       </li>
-                    ))
-                  ) : (
-                    <li className="text-sm opacity-60" style={{ color: theme.text }}>
-                      Content to be analyzed
-                    </li>
-                  )}
-                </ul>
-              </section>
+                    )}
+                  </ul>
+                </section>
 
-              <section>
-                <h3 className="text-sm font-semibold mb-3" style={{ color: theme.text }}>延伸阅读</h3>
-                <div
-                  className="p-4 rounded-xl border cursor-pointer transition-colors"
+
+              </div>
+
+              <div className={`p-4 border-t ${theme.borderColor}`} style={{ backgroundColor: theme.text + '05' }}>
+                <button
+                  className="w-full py-2.5 border text-sm font-medium rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2"
                   style={{
-                    backgroundColor: theme.text + '05',
-                    borderColor: theme.text + '10'
+                    backgroundColor: theme.pageBg,
+                    borderColor: theme.text + '20',
+                    color: theme.text
                   }}
                 >
-                  <div className="flex items-start gap-3">
-                    <BookOpen className="w-4 h-4 mt-0.5 opacity-60" style={{ color: theme.text }} />
-                    <div>
-                      <p className="text-xs font-medium mb-1" style={{ color: theme.text }}>
-                        关联内参报告
-                      </p>
-                      <p className="text-xs opacity-60" style={{ color: theme.text }}>
-                        建议阅读《2025全球科技趋势展望》第3章关于此话题的论述。
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-
-            <div className={`p-4 border-t ${theme.borderColor}`} style={{ backgroundColor: theme.text + '05' }}>
-              <button
-                className="w-full py-2.5 border text-sm font-medium rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2"
-                style={{
-                  backgroundColor: theme.pageBg,
-                  borderColor: theme.text + '20',
-                  color: theme.text
-                }}
-              >
-                <MessageSquare className="w-4 h-4 opacity-60" />
-                向 AI 提问本文内容
-              </button>
-            </div>
+                  <MessageSquare className="w-4 h-4 opacity-60" />
+                  向 AI 提问本文内容
+                </button>
+              </div>
             </div>
           </>
         )}
