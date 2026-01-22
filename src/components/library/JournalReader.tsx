@@ -400,40 +400,38 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
               onClick={() => setShowOutline(false)}
             />
 
-            {/* 侧边栏面板 */}
+            {/* 目录面板 - 居中模态框 */}
             <div
               className={`
-                fixed left-0 top-0 bottom-0 z-50 w-80 
-                flex flex-col shadow-2xl
-                transform transition-transform duration-300 ease-out
+                fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50
+                w-[90vw] max-w-md max-h-[75vh]
+                flex flex-col rounded-2xl shadow-2xl overflow-hidden
+                animate-scale-in
                 ${theme.sidebar}
               `}
               style={{
-                borderRight: `1px solid ${theme.text}15`,
+                border: `1px solid ${theme.text}10`,
               }}
             >
               {/* 头部 */}
               <div
-                className="flex items-center justify-between px-6 py-5 border-b"
-                style={{ borderColor: theme.text + '15' }}
+                className="flex items-center justify-between px-5 py-4 border-b flex-shrink-0"
+                style={{ borderColor: theme.text + '10' }}
               >
                 <div className="flex items-center gap-3">
-                  <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center"
-                    style={{ backgroundColor: theme.text + '10' }}
-                  >
-                    <List className="w-4 h-4" style={{ color: theme.text }} />
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-indigo-500/10">
+                    <List className="w-4 h-4 text-indigo-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-base" style={{ color: theme.text }}>目录导航</h3>
+                    <h3 className="font-semibold" style={{ color: theme.text }}>目录</h3>
                     <p className="text-xs opacity-50" style={{ color: theme.text }}>
-                      {outline ? `${outline.length} 个章节` : '加载中...'}
+                      {outline ? `共 ${outline.length} 章` : '加载中...'}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => setShowOutline(false)}
-                  className={`p-2 rounded-lg transition-colors ${theme.btnHover}`}
+                  className={`p-2 rounded-xl transition-colors ${theme.btnHover}`}
                   style={{ color: theme.text }}
                 >
                   <X className="w-5 h-5" />
@@ -441,33 +439,25 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
               </div>
 
               {/* 内容列表 */}
-              <div className="flex-1 overflow-y-auto">
+              <div className="flex-1 overflow-y-auto overscroll-contain">
                 {outline && outline.length > 0 ? (
-                  <ul className="py-3">
+                  <ul className="py-2">
                     {outline.map((item: any, index: number) => (
                       <li key={index}>
                         <button
                           onClick={() => handleOutlineClick(item)}
-                          className={`
-                            w-full text-left px-6 py-3 text-sm transition-all
-                            border-l-2 border-transparent
-                            hover:border-l-indigo-500 hover:bg-black/5
-                          `}
+                          className="w-full text-left px-5 py-3 text-sm transition-all hover:bg-indigo-500/5"
                           style={{ color: theme.text }}
                         >
                           <span className="line-clamp-2 leading-relaxed">{item.title}</span>
                         </button>
                         {item.items && item.items.length > 0 && (
-                          <ul className="bg-black/[0.02]">
+                          <ul style={{ backgroundColor: theme.text + '03' }}>
                             {item.items.map((subItem: any, subIndex: number) => (
                               <li key={`${index}-${subIndex}`}>
                                 <button
                                   onClick={() => handleOutlineClick(subItem)}
-                                  className={`
-                                    w-full text-left pl-10 pr-6 py-2.5 text-xs transition-all
-                                    border-l-2 border-transparent opacity-70
-                                    hover:border-l-indigo-400 hover:bg-black/5 hover:opacity-100
-                                  `}
+                                  className="w-full text-left pl-9 pr-5 py-2.5 text-xs transition-all opacity-60 hover:opacity-100 hover:bg-indigo-500/5"
                                   style={{ color: theme.text }}
                                 >
                                   <span className="line-clamp-2">{subItem.title}</span>
@@ -480,24 +470,11 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
                     ))}
                   </ul>
                 ) : (
-                  <div className="flex flex-col items-center justify-center h-40 opacity-40">
-                    <List className="w-8 h-8 mb-2" style={{ color: theme.text }} />
+                  <div className="flex flex-col items-center justify-center py-12 opacity-40">
+                    <List className="w-10 h-10 mb-3" style={{ color: theme.text }} />
                     <p className="text-sm" style={{ color: theme.text }}>暂无目录信息</p>
                   </div>
                 )}
-              </div>
-
-              {/* 底部提示 */}
-              <div
-                className="px-6 py-4 border-t text-center"
-                style={{
-                  borderColor: theme.text + '10',
-                  backgroundColor: theme.text + '03'
-                }}
-              >
-                <p className="text-xs opacity-40" style={{ color: theme.text }}>
-                  点击章节标题快速跳转
-                </p>
               </div>
             </div>
           </>
