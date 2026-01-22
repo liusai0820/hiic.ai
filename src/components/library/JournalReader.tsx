@@ -449,7 +449,7 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
           <div
             ref={containerRef}
             onClick={handleContentClick}
-            className="flex-1 overflow-auto flex items-center justify-center p-4 sm:p-8 transition-colors duration-300 relative h-full pt-14 pb-12 lg:pt-0 lg:pb-0"
+            className="flex-1 overflow-auto flex items-center justify-center p-4 sm:p-8 transition-colors duration-300 relative h-full"
             style={{ backgroundColor: theme.bg }}
           >
             {/* Watermark Overlay */}
