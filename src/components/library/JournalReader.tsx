@@ -391,73 +391,61 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
 
       {/* Content */}
       <div className="flex-1 flex overflow-hidden relative">
-        {/* Outline Sidebar - 优雅的侧边栏设计 */}
+        {/* 目录下拉面板 - 参考 Apple Books 设计 */}
         {showOutline && (
           <>
-            {/* 背景遮罩 */}
+            {/* 透明点击区域关闭目录 */}
             <div
-              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
+              className="fixed inset-0 z-40"
               onClick={() => setShowOutline(false)}
             />
 
-            {/* 目录面板 - 居中模态框 */}
+            {/* 目录面板 - 从工具栏下方展开 */}
             <div
               className={`
-                fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50
-                w-[90vw] max-w-md max-h-[75vh]
-                flex flex-col rounded-2xl shadow-2xl overflow-hidden
-                animate-scale-in
+                absolute left-4 top-14 z-50
+                w-80 max-h-[70vh]
+                flex flex-col rounded-xl shadow-xl overflow-hidden
                 ${theme.sidebar}
               `}
               style={{
-                border: `1px solid ${theme.text}10`,
+                border: `1px solid ${theme.text}15`,
               }}
             >
               {/* 头部 */}
               <div
-                className="flex items-center justify-between px-5 py-4 border-b flex-shrink-0"
+                className="flex items-center justify-between px-4 py-3 border-b flex-shrink-0"
                 style={{ borderColor: theme.text + '10' }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-indigo-500/10">
-                    <List className="w-4 h-4 text-indigo-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold" style={{ color: theme.text }}>目录</h3>
-                    <p className="text-xs opacity-50" style={{ color: theme.text }}>
-                      {outline ? `共 ${outline.length} 章` : '加载中...'}
-                    </p>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <List className="w-4 h-4 text-indigo-600" />
+                  <span className="font-medium text-sm" style={{ color: theme.text }}>目录</span>
                 </div>
-                <button
-                  onClick={() => setShowOutline(false)}
-                  className={`p-2 rounded-xl transition-colors ${theme.btnHover}`}
-                  style={{ color: theme.text }}
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <span className="text-xs opacity-40" style={{ color: theme.text }}>
+                  {outline ? `共 ${outline.length} 章` : ''}
+                </span>
               </div>
 
               {/* 内容列表 */}
               <div className="flex-1 overflow-y-auto overscroll-contain">
                 {outline && outline.length > 0 ? (
-                  <ul className="py-2">
+                  <ul className="py-1">
                     {outline.map((item: any, index: number) => (
                       <li key={index}>
                         <button
                           onClick={() => handleOutlineClick(item)}
-                          className="w-full text-left px-5 py-3 text-sm transition-all hover:bg-indigo-500/5"
+                          className="w-full text-left px-4 py-2.5 text-sm transition-colors hover:bg-black/5"
                           style={{ color: theme.text }}
                         >
-                          <span className="line-clamp-2 leading-relaxed">{item.title}</span>
+                          <span className="line-clamp-2">{item.title}</span>
                         </button>
                         {item.items && item.items.length > 0 && (
-                          <ul style={{ backgroundColor: theme.text + '03' }}>
+                          <ul style={{ backgroundColor: theme.text + '02' }}>
                             {item.items.map((subItem: any, subIndex: number) => (
                               <li key={`${index}-${subIndex}`}>
                                 <button
                                   onClick={() => handleOutlineClick(subItem)}
-                                  className="w-full text-left pl-9 pr-5 py-2.5 text-xs transition-all opacity-60 hover:opacity-100 hover:bg-indigo-500/5"
+                                  className="w-full text-left pl-8 pr-4 py-2 text-xs transition-colors opacity-60 hover:opacity-100 hover:bg-black/5"
                                   style={{ color: theme.text }}
                                 >
                                   <span className="line-clamp-2">{subItem.title}</span>
@@ -470,9 +458,9 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
                     ))}
                   </ul>
                 ) : (
-                  <div className="flex flex-col items-center justify-center py-12 opacity-40">
-                    <List className="w-10 h-10 mb-3" style={{ color: theme.text }} />
-                    <p className="text-sm" style={{ color: theme.text }}>暂无目录信息</p>
+                  <div className="flex flex-col items-center justify-center py-8 opacity-40">
+                    <List className="w-8 h-8 mb-2" style={{ color: theme.text }} />
+                    <p className="text-sm" style={{ color: theme.text }}>暂无目录</p>
                   </div>
                 )}
               </div>
