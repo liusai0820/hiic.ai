@@ -391,52 +391,86 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
 
       {/* Content */}
       <div className="flex-1 flex overflow-hidden relative">
-        {/* Outline Sidebar */}
+        {/* Outline Sidebar - 优雅的侧边栏设计 */}
         {showOutline && (
           <>
+            {/* 背景遮罩 */}
             <div
-              className="fixed inset-0 bg-black/20 z-40 lg:hidden"
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
               onClick={() => setShowOutline(false)}
             />
+
+            {/* 侧边栏面板 */}
             <div
               className={`
-                absolute top-14 left-4 z-50 w-64 max-h-[60vh] border rounded-xl shadow-xl
-                flex flex-col transition-all duration-300 overflow-hidden
-                ${theme.sidebar} ${theme.borderColor}
+                fixed left-0 top-0 bottom-0 z-50 w-80 
+                flex flex-col shadow-2xl
+                transform transition-transform duration-300 ease-out
+                ${theme.sidebar}
               `}
+              style={{
+                borderRight: `1px solid ${theme.text}15`,
+              }}
             >
-              <div className={`p-4 border-b ${theme.borderColor} flex items-center justify-between`}>
-                <h3 className="font-semibold text-sm" style={{ color: theme.text }}>目录</h3>
+              {/* 头部 */}
+              <div
+                className="flex items-center justify-between px-6 py-5 border-b"
+                style={{ borderColor: theme.text + '15' }}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: theme.text + '10' }}
+                  >
+                    <List className="w-4 h-4" style={{ color: theme.text }} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-base" style={{ color: theme.text }}>目录导航</h3>
+                    <p className="text-xs opacity-50" style={{ color: theme.text }}>
+                      {outline ? `${outline.length} 个章节` : '加载中...'}
+                    </p>
+                  </div>
+                </div>
                 <button
                   onClick={() => setShowOutline(false)}
-                  className={`p-1.5 rounded-md ${theme.btnHover}`}
+                  className={`p-2 rounded-lg transition-colors ${theme.btnHover}`}
                   style={{ color: theme.text }}
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
-              <div className="flex-1 overflow-y-auto p-2">
-                {outline ? (
-                  <ul className="space-y-1">
+
+              {/* 内容列表 */}
+              <div className="flex-1 overflow-y-auto">
+                {outline && outline.length > 0 ? (
+                  <ul className="py-3">
                     {outline.map((item: any, index: number) => (
                       <li key={index}>
                         <button
                           onClick={() => handleOutlineClick(item)}
-                          className={`w-full text-left px-3 py-2 text-sm rounded-md transition-colors ${theme.btnHover}`}
+                          className={`
+                            w-full text-left px-6 py-3 text-sm transition-all
+                            border-l-2 border-transparent
+                            hover:border-l-indigo-500 hover:bg-black/5
+                          `}
                           style={{ color: theme.text }}
                         >
-                          {item.title}
+                          <span className="line-clamp-2 leading-relaxed">{item.title}</span>
                         </button>
                         {item.items && item.items.length > 0 && (
-                          <ul className="pl-4 mt-1 border-l border-black/5 space-y-1">
+                          <ul className="bg-black/[0.02]">
                             {item.items.map((subItem: any, subIndex: number) => (
                               <li key={`${index}-${subIndex}`}>
                                 <button
                                   onClick={() => handleOutlineClick(subItem)}
-                                  className={`w-full text-left px-3 py-1.5 text-xs rounded-md transition-colors ${theme.btnHover} opacity-80`}
+                                  className={`
+                                    w-full text-left pl-10 pr-6 py-2.5 text-xs transition-all
+                                    border-l-2 border-transparent opacity-70
+                                    hover:border-l-indigo-400 hover:bg-black/5 hover:opacity-100
+                                  `}
                                   style={{ color: theme.text }}
                                 >
-                                  {subItem.title}
+                                  <span className="line-clamp-2">{subItem.title}</span>
                                 </button>
                               </li>
                             ))}
@@ -446,10 +480,24 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
                     ))}
                   </ul>
                 ) : (
-                  <div className="p-4 text-center opacity-50 text-sm">
-                    暂无目录
+                  <div className="flex flex-col items-center justify-center h-40 opacity-40">
+                    <List className="w-8 h-8 mb-2" style={{ color: theme.text }} />
+                    <p className="text-sm" style={{ color: theme.text }}>暂无目录信息</p>
                   </div>
                 )}
+              </div>
+
+              {/* 底部提示 */}
+              <div
+                className="px-6 py-4 border-t text-center"
+                style={{
+                  borderColor: theme.text + '10',
+                  backgroundColor: theme.text + '03'
+                }}
+              >
+                <p className="text-xs opacity-40" style={{ color: theme.text }}>
+                  点击章节标题快速跳转
+                </p>
               </div>
             </div>
           </>
