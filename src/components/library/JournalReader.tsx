@@ -298,20 +298,37 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
           >
             <X className="w-5 h-5" />
           </button>
+
+          {/* Desktop Title */}
           <div className="hidden sm:block">
             <h1 className="text-sm font-semibold" style={{ color: theme.text }}>{issue.title}</h1>
             <p className="text-xs opacity-60" style={{ color: theme.text }}>{issue.issueNumber} • {issue.publishDate}</p>
           </div>
+
+          {/* Mobile Page Info */}
+          <div className="sm:hidden text-sm font-medium" style={{ color: theme.text }}>
+            {pageNumber} / {numPages || '-'}
+          </div>
         </div>
 
         <div className="flex items-center gap-1 sm:gap-2">
+          {/* Mobile View Toggle */}
+          <button
+            onClick={() => setViewMode(viewMode === 'single' ? 'double' : 'single')}
+            className={`p-2 ${theme.btnHover} rounded-lg transition-colors sm:hidden`}
+            style={{ color: theme.text }}
+            title="切换视图"
+          >
+            <BookOpenCheck className="w-5 h-5" />
+          </button>
+
           <span className="hidden md:flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-700 text-xs font-medium rounded-full border border-amber-100">
             内部资料 • 严禁外传
           </span>
-          <button className={`p-2 ${theme.btnHover} rounded-lg transition-colors`} style={{ color: theme.text }} title="分享">
+          <button className={`hidden sm:flex p-2 ${theme.btnHover} rounded-lg transition-colors`} style={{ color: theme.text }} title="分享">
             <Share2 className="w-5 h-5" />
           </button>
-          <button className={`p-2 ${theme.btnHover} rounded-lg transition-colors`} style={{ color: theme.text }} title="下载原件">
+          <button className={`hidden sm:flex p-2 ${theme.btnHover} rounded-lg transition-colors`} style={{ color: theme.text }} title="下载原件">
             <Download className="w-5 h-5" />
           </button>
         </div>
@@ -325,12 +342,12 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
           <div
             className={`
               absolute lg:static bottom-0 left-0 right-0 h-12 ${theme.toolbar} border-t lg:border-t-0 lg:border-b
-              flex items-center justify-start sm:justify-center gap-4 px-4 overflow-x-auto z-40 shadow-sm transition-all duration-300
+              flex items-center justify-between sm:justify-center gap-4 px-4 overflow-x-auto z-40 shadow-sm transition-all duration-300
               ${showControls ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 lg:translate-y-0 lg:opacity-100'}
             `}
           >
-            {/* 视图模式切换 */}
-            <div className="flex items-center gap-1 p-1 rounded-lg" style={{ backgroundColor: theme.text + '10' }}>
+            {/* 视图模式切换 (Desktop only) */}
+            <div className="hidden sm:flex items-center gap-1 p-1 rounded-lg" style={{ backgroundColor: theme.text + '10' }}>
               <button
                 onClick={() => setViewMode('single')}
                 className={`p-1.5 rounded-md transition-all ${viewMode === 'single' ? 'bg-indigo-500 text-white shadow-sm' : ''}`}
@@ -349,10 +366,10 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
               </button>
             </div>
 
-            <div className="w-px h-6 opacity-20" style={{ backgroundColor: theme.text }} />
+            <div className="hidden sm:block w-px h-6 opacity-20" style={{ backgroundColor: theme.text }} />
 
-            {/* 翻页控制 */}
-            <div className="flex items-center gap-2">
+            {/* 翻页控制 (Desktop only) */}
+            <div className="hidden sm:flex items-center gap-2">
               <button
                 onClick={previousPage}
                 disabled={pageNumber <= 1}
@@ -377,27 +394,7 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
               </button>
             </div>
 
-            <div className="w-px h-6 opacity-20" style={{ backgroundColor: theme.text }} />
-
-            {/* 缩放控制 */}
-            <div className="flex items-center gap-2">
-              <button onClick={zoomOut} className={`p-1.5 ${theme.btnHover} rounded-md transition-colors`} style={{ color: theme.text }}>
-                <ZoomOut className="w-4 h-4" />
-              </button>
-              <button
-                onClick={resetZoom}
-                className="text-sm font-medium w-14 text-center cursor-pointer hover:opacity-70 transition-opacity"
-                style={{ color: theme.text }}
-                title="重置缩放"
-              >
-                {Math.round(scale * 100)}%
-              </button>
-              <button onClick={zoomIn} className={`p-1.5 ${theme.btnHover} rounded-md transition-colors`} style={{ color: theme.text }}>
-                <ZoomIn className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div className="w-px h-6 opacity-20" style={{ backgroundColor: theme.text }} />
+            <div className="hidden sm:block w-px h-6 opacity-20" style={{ backgroundColor: theme.text }} />
 
             {/* 主题颜色快速切换 - 直接显示4个颜色按钮 */}
             <div className="flex items-center gap-1.5">
@@ -424,10 +421,30 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
 
             <div className="w-px h-6 opacity-20" style={{ backgroundColor: theme.text }} />
 
+            {/* 缩放控制 */}
+            <div className="flex items-center gap-2">
+              <button onClick={zoomOut} className={`p-1.5 ${theme.btnHover} rounded-md transition-colors`} style={{ color: theme.text }}>
+                <ZoomOut className="w-4 h-4" />
+              </button>
+              <button
+                onClick={resetZoom}
+                className="hidden sm:block text-sm font-medium w-14 text-center cursor-pointer hover:opacity-70 transition-opacity"
+                style={{ color: theme.text }}
+                title="重置缩放"
+              >
+                {Math.round(scale * 100)}%
+              </button>
+              <button onClick={zoomIn} className={`p-1.5 ${theme.btnHover} rounded-md transition-colors`} style={{ color: theme.text }}>
+                <ZoomIn className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="hidden sm:block w-px h-6 opacity-20" style={{ backgroundColor: theme.text }} />
+
             {/* 全屏按钮 */}
             <button
               onClick={toggleFullscreen}
-              className={`p-1.5 ${theme.btnHover} rounded-md transition-colors`}
+              className={`p-1.5 ${theme.btnHover} rounded-md transition-colors hidden sm:block`}
               style={{ color: theme.text }}
               title={isFullscreen ? '退出全屏' : '全屏阅读'}
             >
@@ -458,6 +475,25 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
                 HIIC INTERNAL ONLY
               </div>
             </div>
+
+            {/* Mobile Navigation Hints */}
+            {showControls && (
+              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-40 pointer-events-none lg:hidden flex items-center justify-between px-4">
+                <div className="flex flex-col items-center gap-2 animate-pulse">
+                  <div className="p-3 rounded-full bg-black/5 backdrop-blur-[2px] border border-black/5 shadow-sm">
+                    <ChevronLeft className="w-6 h-6" style={{ color: theme.text }} />
+                  </div>
+                  <span className="text-[10px] font-medium opacity-50" style={{ color: theme.text }}>上一页</span>
+                </div>
+
+                <div className="flex flex-col items-center gap-2 animate-pulse">
+                  <div className="p-3 rounded-full bg-black/5 backdrop-blur-[2px] border border-black/5 shadow-sm">
+                    <ChevronRight className="w-6 h-6" style={{ color: theme.text }} />
+                  </div>
+                  <span className="text-[10px] font-medium opacity-50" style={{ color: theme.text }}>下一页</span>
+                </div>
+              </div>
+            )}
 
             {/* 书本容器 */}
             <div
