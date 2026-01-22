@@ -81,6 +81,7 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
   const [currentTheme, setCurrentTheme] = useState<ThemeKey>('light');
   const [showSidebar, setShowSidebar] = useState<boolean>(window.innerWidth >= 1024);
   const [showControls, setShowControls] = useState<boolean>(true);
+  const [showHints, setShowHints] = useState<boolean>(true);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const readerRef = useRef<HTMLDivElement>(null);
@@ -256,6 +257,19 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [pageNumber, numPages, isFullscreen, viewMode]);
+
+  // Auto-hide navigation hints
+  useEffect(() => {
+    if (showControls) {
+      setShowHints(true);
+      const timer = setTimeout(() => {
+        setShowHints(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    } else {
+      setShowHints(false);
+    }
+  }, [showControls]);
 
   const pageSize = calculatePageSize();
 
@@ -478,7 +492,13 @@ export function JournalReader({ issue, onClose }: JournalReaderProps) {
 
             {/* Mobile Navigation Hints */}
             {showControls && (
-              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-40 pointer-events-none lg:hidden flex items-center justify-between px-4">
+              <div
+                className={`
+                  absolute inset-x-0 top-1/2 -translate-y-1/2 z-40 pointer-events-none lg:hidden flex items-center justify-between px-4
+                  transition-opacity duration-500
+                  ${showHints ? 'opacity-100' : 'opacity-0'}
+                `}
+              >
                 <div className="flex flex-col items-center gap-2 animate-pulse">
                   <div className="p-3 rounded-full bg-black/5 backdrop-blur-[2px] border border-black/5 shadow-sm">
                     <ChevronLeft className="w-6 h-6" style={{ color: theme.text }} />
