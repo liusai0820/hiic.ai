@@ -133,38 +133,38 @@ export const apps: App[] = [
 export const announcements: Announcement[] = [
   {
     id: '0',
+    date: '2026-01-27',
+    title: 'AI 每日简报上线',
+    content: '全新推出 AI 每日简报，每个交易日自动生成精炼市场情报，覆盖美股、港股、A股、加密货币及大宗商品，5分钟掌握全球市场脉动。',
+    type: 'feature',
+  },
+  {
+    id: '1',
     date: '2026-01-21',
     title: 'AI 智能阅览室上线',
     content: '全新推出 AI 智能阅览室，聚合《经济学人》《彭博商业周刊》等国际顶级期刊，AI 自动生成核心摘要，助你快速掌握全球前沿动态。',
     type: 'feature',
   },
   {
-    id: '1',
+    id: '2',
     date: '2026-01-18',
     title: 'HIIC AI Lab 正式上线',
     content: '欢迎使用 HIIC AI Lab，这里汇集了各类 AI 工具，助力高效工作。',
     type: 'notice',
   },
   {
-    id: '2',
+    id: '3',
     date: '2026-01-15',
     title: 'AI 产业链图谱 v2.0 发布',
     content: '新增自动布局功能，支持导出高清PNG，体验更流畅。',
     type: 'feature',
   },
   {
-    id: '3',
+    id: '4',
     date: '2026-01-10',
     title: 'AI 画 PPT 新增模板',
     content: '新增商务、科技、简约等10套专业模板，满足不同场景需求。',
     type: 'update',
-  },
-  {
-    id: '4',
-    date: '2026-01-05',
-    title: '优化访问速度',
-    content: '优化了服务器配置，访问速度提升50%。',
-    type: 'fix',
   },
 ];
 

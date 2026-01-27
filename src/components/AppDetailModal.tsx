@@ -57,6 +57,16 @@ const appDetails: Record<string, { features: string[]; useCases: string[]; tips:
     useCases: ['前沿科技追踪', '宏观经济分析', '竞品情报收集', '内部研究共享'],
     tips: '点击期刊封面即可进入沉浸式阅读模式，右侧面板会自动显示 AI 提炼的核心观点。',
   },
+  smartscore: {
+    features: ['多维度权重评分', '利益冲突自动回避', '实时大屏展示', '评审数据导出'],
+    useCases: ['项目评审打分', '专家评审会', '内部竞赛评选', '年度考核评估'],
+    tips: '评审前请先配置评分维度和权重，系统会自动检测评委与项目的利益关联。',
+  },
+  'daily-digest': {
+    features: ['多市场覆盖', 'AI 信息熵减', '多源交叉验证', '每日精炼推送'],
+    useCases: ['晨间市场速览', '投资决策参考', '宏观趋势跟踪', '跨市场联动分析'],
+    tips: '每个交易日早间自动生成简报，覆盖美股、港股、A股、加密货币及大宗商品，5分钟掌握全球市场脉动。',
+  },
 };
 
 export function AppDetailModal({

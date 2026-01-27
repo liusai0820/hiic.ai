@@ -324,3 +324,77 @@ src/
 - **GitHub**: https://github.com/liusai0820
 - **邮箱**: ai@hiic.org.cn
 - **组织**: 深圳国家高技术产业创新中心
+
+---
+
+## 新应用集成流程
+
+当需要将新的 AI 应用集成到首页时，**必须**按以下步骤完成：
+
+### 步骤 1：分析应用
+
+- 访问应用 URL，了解应用的核心功能和定位
+- 如有 GitHub 仓库，查看 README 获取详细信息
+- 确定应用的分类（办公效率/数据可视化/文档处理/研究分析）
+- 选择合适的颜色标识（blue/violet/emerald/amber/rose/indigo）
+- 选择合适的 Lucide 图标
+
+### 步骤 2：更新数据文件 `src/data/index.ts`
+
+1. **导入图标**：在文件顶部的 lucide-react 导入中添加新图标
+2. **添加应用条目**：在 `apps` 数组中添加新应用
+
+```typescript
+{
+  id: 'app-id',           // 唯一标识，用于关联详情
+  name: 'AI 应用名称',
+  description: '简洁描述应用的核心价值（一句话）',
+  icon: IconName,         // Lucide 图标组件
+  url: 'https://xxx.hiic.ai',
+  category: '研究分析',   // 选择合适的分类
+  status: 'online',       // online/coming/maintenance
+  visitCount: 0,
+  version: '1.0',
+  color: 'blue',          // 选择合适的颜色
+}
+```
+
+3. **添加公告**：在 `announcements` 数组**顶部**添加新公告
+
+```typescript
+{
+  id: 'unique-id',
+  date: 'YYYY-MM-DD',     // 当天日期
+  title: 'AI XXX 上线',
+  content: '详细描述应用的功能和价值...',
+  type: 'feature',        // feature/update/fix/notice
+}
+```
+
+### 步骤 3：更新模态框详情 `src/components/AppDetailModal.tsx`
+
+在 `appDetails` 对象中添加应用的详细信息：
+
+```typescript
+'app-id': {
+  features: ['功能1', '功能2', '功能3', '功能4'],  // 4个核心功能
+  useCases: ['场景1', '场景2', '场景3', '场景4'],  // 4个应用场景
+  tips: '使用技巧说明，帮助用户快速上手...',
+}
+```
+
+### 步骤 4：验证与提交
+
+1. 运行 `npm run dev` 检查页面显示是否正常
+2. 点击应用卡片，验证模态框内容是否正确
+3. 检查【最近更新】栏目是否显示新公告
+4. 提交代码：`git add . && git commit -m "feat: 新增 AI XXX 应用"`
+
+### 检查清单
+
+- [ ] 图标已导入
+- [ ] apps 数组已添加新条目
+- [ ] announcements 数组已添加新公告（放在顶部）
+- [ ] appDetails 已添加详细信息（features/useCases/tips）
+- [ ] 页面显示正常
+- [ ] 模态框内容完整且贴切
