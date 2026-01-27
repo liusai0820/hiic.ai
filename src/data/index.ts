@@ -9,7 +9,8 @@ import {
   Lightbulb,
   MessageSquare,
   Megaphone,
-  Award
+  Award,
+  Newspaper
 } from 'lucide-react';
 import type { App, Announcement, Developer, Category, Tutorial, FAQ, ForumCategory, ForumPost } from '../types';
 
@@ -114,6 +115,18 @@ export const apps: App[] = [
     visitCount: 42,
     version: '1.0',
     color: 'amber',
+  },
+  {
+    id: 'daily-digest',
+    name: 'AI 每日简报',
+    description: '每日精炼市场情报，覆盖美股、港股、A股、加密货币及大宗商品，5分钟掌握全球市场脉动',
+    icon: Newspaper,
+    url: 'https://daily.hiic.ai',
+    category: '研究分析',
+    status: 'online',
+    visitCount: 0,
+    version: '1.0',
+    color: 'blue',
   },
 ];
 
