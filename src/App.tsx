@@ -10,15 +10,14 @@ import {
   AppCard,
   AppDetailModal,
   TutorialSection,
-  CommunitySection,
   Changelog,
   DeveloperSection,
   FeedbackModal,
   Footer,
   MobileFeedbackButton,
 } from './components';
-import { TutorialPage, ForumPage, LibraryPage } from './pages';
-import { apps, categories, announcements, developer, tutorials, forumCategories, forumPosts } from './data';
+import { TutorialPage, LibraryPage } from './pages';
+import { apps, categories, announcements, developer, tutorials } from './data';
 import type { Category, App as AppType } from './types';
 
 function HomePage() {
@@ -157,7 +156,6 @@ function HomePage() {
         </section>
 
         <TutorialSection tutorials={tutorials} />
-        <CommunitySection categories={forumCategories} posts={forumPosts} />
         <Changelog announcements={announcements} />
         <DeveloperSection developer={developer} />
       </main>
@@ -196,7 +194,6 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/tutorials/:id" element={<TutorialPage />} />
-      <Route path="/community" element={<ForumPage />} />
       <Route path="/library" element={<LibraryPage />} />
     </Routes>
   );

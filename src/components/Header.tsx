@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Search, Menu, X, Users } from 'lucide-react';
+import { Search, Menu, X, BookOpen } from 'lucide-react';
 import { Logo } from './Logo';
 
 interface HeaderProps {
@@ -52,14 +51,13 @@ export function Header({ searchQuery, onSearchChange, topOffset = 0 }: HeaderPro
           <nav className="hidden md:flex items-center gap-1">
             <a href="#apps" className="btn-ghost">应用</a>
             <a href="#tutorials" className="btn-ghost">教程</a>
-            <a href="#community" className="btn-ghost">交流</a>
             <a href="#updates" className="btn-ghost">更新</a>
             <a href="#about" className="btn-ghost">关于</a>
             <div className="w-px h-5 bg-slate-200 mx-2" />
-            <Link to="/community" className="btn-primary">
-              <Users className="w-4 h-4" />
-              内部社区
-            </Link>
+            <a href="https://library.hiic.ai" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <BookOpen className="w-4 h-4" />
+              智能阅览室
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -87,17 +85,18 @@ export function Header({ searchQuery, onSearchChange, topOffset = 0 }: HeaderPro
             <nav className="flex flex-col gap-1">
               <a href="#apps" className="btn-ghost justify-start" onClick={() => setMobileMenuOpen(false)}>应用</a>
               <a href="#tutorials" className="btn-ghost justify-start" onClick={() => setMobileMenuOpen(false)}>教程</a>
-              <a href="#community" className="btn-ghost justify-start" onClick={() => setMobileMenuOpen(false)}>交流</a>
               <a href="#updates" className="btn-ghost justify-start" onClick={() => setMobileMenuOpen(false)}>更新</a>
               <a href="#about" className="btn-ghost justify-start" onClick={() => setMobileMenuOpen(false)}>关于</a>
-              <Link
-                to="/community"
+              <a
+                href="https://library.hiic.ai"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="btn-primary justify-start"
               >
-                <Users className="w-4 h-4" />
-                内部社区
-              </Link>
+                <BookOpen className="w-4 h-4" />
+                智能阅览室
+              </a>
             </nav>
           </div>
         )}
