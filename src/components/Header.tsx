@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Search, Menu, X, BookOpen } from 'lucide-react';
 import { Logo } from './Logo';
 
@@ -54,10 +55,10 @@ export function Header({ searchQuery, onSearchChange, topOffset = 0 }: HeaderPro
             <a href="#updates" className="btn-ghost">更新</a>
             <a href="#about" className="btn-ghost">关于</a>
             <div className="w-px h-5 bg-slate-200 mx-2" />
-            <a href="https://library.hiic.ai" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <Link to="/library" className="btn-primary">
               <BookOpen className="w-4 h-4" />
               智能阅览室
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -87,16 +88,14 @@ export function Header({ searchQuery, onSearchChange, topOffset = 0 }: HeaderPro
               <a href="#tutorials" className="btn-ghost justify-start" onClick={() => setMobileMenuOpen(false)}>教程</a>
               <a href="#updates" className="btn-ghost justify-start" onClick={() => setMobileMenuOpen(false)}>更新</a>
               <a href="#about" className="btn-ghost justify-start" onClick={() => setMobileMenuOpen(false)}>关于</a>
-              <a
-                href="https://library.hiic.ai"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/library"
                 onClick={() => setMobileMenuOpen(false)}
                 className="btn-primary justify-start"
               >
                 <BookOpen className="w-4 h-4" />
                 智能阅览室
-              </a>
+              </Link>
             </nav>
           </div>
         )}
