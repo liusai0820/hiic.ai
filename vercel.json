@@ -1,6 +1,14 @@
 {
     "rewrites": [
         {
+            "source": "/13f",
+            "destination": "/13f/index.html"
+        },
+        {
+            "source": "/13f/",
+            "destination": "/13f/index.html"
+        },
+        {
             "source": "/((?!api|assets|favicon.ico|.*\\..*).*)",
             "destination": "/index.html"
         }
