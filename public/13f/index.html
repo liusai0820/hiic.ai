@@ -99,7 +99,7 @@
           </div>
 
           <div class="workspace-grid">
-            <div>
+            <div class="manager-pane">
               <div id="manager-grid" class="manager-grid" aria-label="基金经理列表"></div>
             </div>
 
@@ -108,28 +108,30 @@
         </section>
 
         <section id="poster" class="feature-band" aria-labelledby="feature-title">
-          <div class="feature-copy">
-            <p class="eyebrow">Shareable card</p>
-            <h2 id="feature-title">表格负责准确，图卡负责传播。</h2>
-            <p>
-              网页保留完整数据、口径和 SEC 原始链接；图卡只提炼最适合转发的前十大持仓和重点变化。两者不是二选一，而是同一组数据的两个阅读层级。
-            </p>
-          </div>
-          <figure class="poster-preview">
-            <img src="assets/ark-13f-sample.png" alt="ARK 13F 持仓图样例" />
-            <figcaption>图卡样例：适合社媒发布的前十大持仓摘要。</figcaption>
-          </figure>
-        </section>
-
-        <section id="ark" class="ark-band" aria-labelledby="ark-title">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">ARK Daily</p>
-              <h2 id="ark-title">ARK 日更持仓和 13F 不是同一个口径</h2>
+              <p class="eyebrow">Shareable cards</p>
+              <h2 id="feature-title">持仓图卡样例</h2>
+              <p class="section-note">
+                图卡只保留最适合传播的信息：人物标签、前十大持仓和重点变化。完整数据仍以网页表格和 SEC 原始链接为准。
+              </p>
             </div>
-            <p class="section-note">ETF 日终持仓更接近每日组合披露，13F 是季度末快照，两条线可以分开看。</p>
+            <p>
+              表格负责准确，图卡负责传播。
+            </p>
           </div>
-          <div id="ark-funds" class="ark-grid"></div>
+          <div class="poster-grid" aria-label="持仓图卡样例">
+            <article class="poster-card">
+              <figure>
+                <img src="assets/ark-13f-sample.png" alt="Cathie Wood ARK 13F 持仓图卡" />
+              </figure>
+              <div class="poster-card-copy">
+                <span>已生成</span>
+                <h3>Cathie Wood · 木头姐</h3>
+                <p>ARK Investment Management 2026 Q1 13F 前十大持仓图卡。</p>
+              </div>
+            </article>
+          </div>
         </section>
 
         <section id="source" class="source-band" aria-labelledby="source-title">

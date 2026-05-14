@@ -206,20 +206,6 @@ function renderDetail() {
   `;
 }
 
-function renderArkFunds() {
-  document.querySelector("#ark-funds").innerHTML = data.arkFunds
-    .map(
-      (fund) => `
-        <article class="ark-card">
-          <strong>${fund.ticker}</strong>
-          <span>${fund.name}</span>
-          <span>${fund.theme}</span>
-        </article>
-      `,
-    )
-    .join("");
-}
-
 function bindControls() {
   document.querySelectorAll("[data-view]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -246,7 +232,6 @@ function boot() {
   renderHero();
   renderManagerGrid();
   renderDetail();
-  renderArkFunds();
   bindControls();
 }
 
