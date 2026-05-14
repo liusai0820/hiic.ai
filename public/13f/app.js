@@ -206,6 +206,31 @@ function renderDetail() {
   `;
 }
 
+function renderPosterCards() {
+  const cards = data.posterCards || [];
+  const grid = document.querySelector("#poster-grid");
+  if (!cards.length) {
+    grid.innerHTML = `<p class="empty">已披露经理的图卡生成后会显示在这里。</p>`;
+    return;
+  }
+  grid.innerHTML = cards
+    .map(
+      (card) => `
+        <article class="poster-card">
+          <figure>
+            <img src="${card.image}" alt="${card.managerName} ${card.reportDate} 13F 持仓图卡" />
+          </figure>
+          <div class="poster-card-copy">
+            <span>已生成</span>
+            <h3>${card.managerName} · ${card.publicTag || card.firmName}</h3>
+            <p>${card.firmName} ${card.reportDate} 13F 前十大持仓图卡。</p>
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+}
+
 function bindControls() {
   document.querySelectorAll("[data-view]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -232,6 +257,7 @@ function boot() {
   renderHero();
   renderManagerGrid();
   renderDetail();
+  renderPosterCards();
   bindControls();
 }
 
