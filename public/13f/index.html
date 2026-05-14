@@ -2,13 +2,13 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <base href="/13f/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Yzz Smart Money Radar：追踪基金经理 13F 披露、前十大持仓与季度调仓线索。"
     />
     <title>Yzz Smart Money Radar｜13F 基金经理持仓雷达</title>
+    <base href="/13f/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,29 +28,29 @@
           </span>
         </a>
         <nav class="nav-links" aria-label="页面导航">
-          <a href="#radar">13F Radar</a>
-          <a href="#ark">ARK Daily</a>
-          <a href="#source">Data</a>
+          <a href="#radar">13F持仓</a>
+          <a href="#poster">图卡样例</a>
+          <a href="#source">数据声明</a>
         </nav>
       </header>
 
       <main id="top">
         <section class="hero-band" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow">SEC 13F · Yzz整理 · 2026 Q1 Tracker</p>
+            <p class="eyebrow">SEC 13F · Yzz整理 · 2026 Q1</p>
             <h1 id="hero-title">基金经理 13F 持仓雷达</h1>
             <p class="hero-lede">
-              为 Yzz 自媒体更新设计的聪明钱资料库：SEC 官方来源、前十大持仓、组合规模和调仓线索同步沉淀。
+              看懂华尔街知名基金经理最新美股仓位：前十大持仓、组合规模、调仓方向和 SEC 原始披露链接，一页查清。
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#radar">查看基金经理</a>
-              <a class="button ghost" href="#source">看数据口径</a>
+              <a class="button primary" href="#radar">查看持仓雷达</a>
+              <a class="button ghost" href="#source">查看数据来源</a>
             </div>
           </div>
 
           <aside class="hero-board" aria-label="13F 披露状态">
             <div class="board-header">
-              <span>Live filing board</span>
+              <span>披露进度</span>
               <strong id="q1-progress">-- / --</strong>
             </div>
             <div class="progress-track" aria-hidden="true">
@@ -75,21 +75,24 @@
           </div>
           <div class="metric">
             <span>发布形态</span>
-            <strong>图文 + 网页</strong>
+            <strong>数据 + 图卡</strong>
           </div>
         </section>
 
         <section id="radar" class="radar-layout" aria-labelledby="radar-title">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Dashboard</p>
+              <p class="eyebrow">Holdings radar</p>
               <h2 id="radar-title">基金经理 13F 持仓雷达</h2>
+              <p class="section-note">
+                表格用于核验完整持仓，图卡用于社媒传播。这里先放可回查的数据版本。
+              </p>
             </div>
             <div class="toolbar" role="group" aria-label="数据视图">
               <button class="segmented active" type="button" data-view="q1">2026 Q1</button>
-              <button class="segmented" type="button" data-view="latest">Latest</button>
+              <button class="segmented" type="button" data-view="latest">最近披露</button>
               <label class="search-box">
-                <span>Search</span>
+                <span>搜索</span>
                 <input id="manager-search" type="search" placeholder="Buffett / ARK / PLTR" />
               </label>
             </div>
@@ -104,17 +107,17 @@
           </div>
         </section>
 
-        <section class="feature-band" aria-labelledby="feature-title">
+        <section id="poster" class="feature-band" aria-labelledby="feature-title">
           <div class="feature-copy">
-            <p class="eyebrow">Publishing format</p>
-            <h2 id="feature-title">图文是流量入口，网页是可信度和复访入口。</h2>
+            <p class="eyebrow">Shareable card</p>
+            <h2 id="feature-title">表格负责准确，图卡负责传播。</h2>
             <p>
-              小红书发爆款图，网页承接完整前十大、SEC 原始链接和后续更新。等 5月15日集中披露，谁先出就先发谁。
+              网页保留完整数据、口径和 SEC 原始链接；图卡只提炼最适合转发的前十大持仓和重点变化。两者不是二选一，而是同一组数据的两个阅读层级。
             </p>
           </div>
           <figure class="poster-preview">
             <img src="assets/ark-13f-sample.png" alt="ARK 13F 持仓图样例" />
-            <figcaption>样例：ARK Investment Management Q1 13F 前十大持仓图。</figcaption>
+            <figcaption>图卡样例：适合社媒发布的前十大持仓摘要。</figcaption>
           </figure>
         </section>
 
@@ -122,23 +125,23 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">ARK Daily</p>
-              <h2 id="ark-title">ARK 日更线可以独立做成连续栏目</h2>
+              <h2 id="ark-title">ARK 日更持仓和 13F 不是同一个口径</h2>
             </div>
-            <p class="section-note">ETF 日终持仓 ≠ 13F 季度快照，页面先把口径分清楚。</p>
+            <p class="section-note">ETF 日终持仓更接近每日组合披露，13F 是季度末快照，两条线可以分开看。</p>
           </div>
           <div id="ark-funds" class="ark-grid"></div>
         </section>
 
         <section id="source" class="source-band" aria-labelledby="source-title">
           <div>
-            <p class="eyebrow">Data policy</p>
-            <h2 id="source-title">数据口径</h2>
+            <p class="eyebrow">Source & disclaimer</p>
+            <h2 id="source-title">数据来源与必要声明</h2>
           </div>
           <div class="source-grid">
-            <p>13F 是季度末快照，不是实时持仓；通常在季度结束后 45 天内披露。</p>
-            <p>页面展示的是多头 13F 证券，不包含空头、现金、海外非 13F 证券和完整衍生品敞口。</p>
-            <p>加仓/减仓用同一 CUSIP 的股数变化对比，避免把价格涨跌误看成调仓。</p>
-            <p>每个详情页都保留 SEC 原始 XML 链接，方便回查。</p>
+            <p><strong>官方来源</strong>数据来自 SEC EDGAR 的 13F 信息表，详情面板保留原始 XML 链接，便于回查。</p>
+            <p><strong>披露延迟</strong>13F 是季度末快照，通常在季度结束后 45 天内披露，不代表实时持仓。</p>
+            <p><strong>覆盖范围</strong>13F 主要覆盖美国上市证券多头持仓，不完整覆盖空头、现金、海外证券和衍生品风险敞口。</p>
+            <p><strong>非投资建议</strong>本页仅作公开信息整理和研究参考，不构成任何买卖建议或收益承诺。</p>
           </div>
         </section>
       </main>

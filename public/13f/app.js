@@ -67,7 +67,7 @@ function renderHero() {
       <div class="filing-row">
         <div>
           <strong>${item.managerName}</strong>
-          <span>${item.firmName} · ${dateText || "2026-03-31"}</span>
+          <span>${item.publicTag || item.firmName} · ${dateText || "2026-03-31"}</span>
         </div>
         <em class="status-pill ${statusClass}">${statusText}</em>
       </div>
@@ -82,7 +82,7 @@ function renderManagerGrid() {
     .map((item) => {
       const active = item.slug === state.selectedSlug ? "active" : "";
       const statusClass = item.status === "ok" ? "status-ok" : "status-missing";
-      const statusText = item.status === "ok" ? "Ready" : "Waiting";
+      const statusText = item.status === "ok" ? "已披露" : "待披露";
       const report = item.status === "ok" ? item.reportDate : item.requestedReportDate || "2026-03-31";
       const value = item.status === "ok" ? money(item.totalMarketValueUsd) : "未披露";
       return `
@@ -91,7 +91,8 @@ function renderManagerGrid() {
             <h3>${item.managerName}</h3>
             <span class="status-pill ${statusClass}">${statusText}</span>
           </div>
-          <p>${item.firmName}</p>
+          <p class="manager-tag">${item.publicTag || item.hook || item.firmName}</p>
+          <p class="manager-reason">${item.publicReason || item.firmName}</p>
           <div class="manager-meta">
             <span class="mini-chip">${report}</span>
             <span class="mini-chip">${value}</span>
@@ -131,8 +132,10 @@ function renderDetail() {
     panel.innerHTML = `
       <div class="detail-header">
         <div>
-          <p class="eyebrow">Waiting for filing</p>
+          <p class="eyebrow">等待 SEC 披露</p>
           <h3>${item.managerName}</h3>
+          <p class="profile-tag">${item.publicTag || item.hook}</p>
+          <p>${item.publicReason || item.firmName}</p>
           <p>${item.firmName} 的 ${item.requestedReportDate || "2026-03-31"} 13F 还未在 SEC 披露。</p>
         </div>
         <div class="radial-chart" aria-hidden="true"></div>
@@ -176,7 +179,8 @@ function renderDetail() {
       <div>
         <p class="eyebrow">${item.reportDate} · Form 13F-HR</p>
         <h3>${item.managerName}</h3>
-        <p>${item.hook}。披露日 ${item.filingDate}，来自 ${item.firmName}。</p>
+        <p class="profile-tag">${item.publicTag || item.hook}</p>
+        <p>${item.publicReason || item.hook} 披露日 ${item.filingDate}，申报机构为 ${item.firmName}。</p>
       </div>
       <div class="radial-chart" aria-label="前十大权重示意图"></div>
     </div>
@@ -189,11 +193,11 @@ function renderDetail() {
       <thead>
         <tr>
           <th>#</th>
-          <th>Ticker / Company</th>
-          <th>Weight</th>
-          <th>Value</th>
-          <th>Shares</th>
-          <th>Action</th>
+          <th>代码 / 公司</th>
+          <th>组合占比</th>
+          <th>市值</th>
+          <th>股数变化</th>
+          <th>动作</th>
         </tr>
       </thead>
       <tbody>${rows}</tbody>
