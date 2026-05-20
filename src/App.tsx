@@ -17,6 +17,7 @@ import {
   MobileFeedbackButton,
 } from './components';
 import { TutorialPage, LibraryPage } from './pages';
+import Create2026Page from './pages/Create2026Page';
 import { apps, categories, announcements, developer, tutorials } from './data';
 import type { Category, App as AppType } from './types';
 
@@ -193,6 +194,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/create2026" element={<Create2026Page />} />
       <Route path="/tutorials/:id" element={<TutorialPage />} />
       <Route path="/library" element={<LibraryPage />} />
     </Routes>
