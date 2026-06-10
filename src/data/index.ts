@@ -3,6 +3,7 @@ import {
   GitBranch,
   Brain,
   FileText,
+  BookOpen,
   BarChart3,
   Search,
   HelpCircle,
@@ -1294,7 +1295,6 @@ export const forumPosts: ForumPost[] = [
 ];
 
 // 阅览室 mock 数据
-import { BookOpen } from 'lucide-react';
 import type { JournalSource, JournalIssue } from '../types';
 
 export const journalSources: JournalSource[] = [
