@@ -68,13 +68,18 @@
 
 ## 部署
 
-生产部署目标是 Cloudflare Pages 项目 `hiic-ai`。这台机器已有 Cloudflare token 包装脚本，不要向用户索取或回显 secret。
+生产部署目标是 Cloudflare Pages 项目 `hiic-ai`。不要向用户索取或回显 secret。
+
+当前本机可用方式：
+
+- 优先使用 shell 中已经存在的 `CLOUDFLARE_API_TOKEN` 登录态。
+- 旧的 `/Users/lius/.codex/bin/cloudflare-token` 可能失效；若使用它，必须先通过 Cloudflare verify 接口确认有效，且不能打印 token。
 
 常用部署流程：
 
 ```bash
 npm run build
-CF_API_TOKEN=$(/Users/lius/.codex/bin/cloudflare-token 2>/dev/null) npx wrangler@latest pages deploy dist --project-name hiic-ai --branch main
+npx wrangler@latest pages deploy dist --project-name hiic-ai --branch main
 ```
 
 部署后至少验证：
