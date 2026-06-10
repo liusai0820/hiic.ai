@@ -1,13 +1,11 @@
 import { useMemo, useState } from 'react';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import {
-  ArrowDownToLine,
   ArrowRight,
   BookOpen,
   CheckCircle2,
   ChevronRight,
   Clock3,
-  Download,
   FileText,
   Layers,
   Menu,
@@ -16,10 +14,17 @@ import {
   Sparkles,
   X,
 } from 'lucide-react';
-import { AppDetailModal, FeedbackModal } from './components';
-import { TutorialPage, LibraryPage } from './pages';
+import { FeedbackModal } from './components';
+import { ContentDetailPage, ContentListPage, TutorialPage, LibraryPage } from './pages';
 import Create2026Page from './pages/Create2026Page';
-import { apps, tutorials } from './data';
+import { PageMeta } from './components/PageMeta';
+import { apps } from './data';
+import {
+  getFeaturedItems,
+  getItemPath,
+  getPortalItem,
+  portalStats,
+} from './content/portal';
 import type { App as AppType, AppColor } from './types';
 
 const appIconBg: Record<AppColor, string> = {
@@ -31,28 +36,17 @@ const appIconBg: Record<AppColor, string> = {
   indigo: 'bg-indigo-700',
 };
 
-const newsItems = [
-  { time: '09:42', title: 'OpenAI 发布 04-mini：更强的推理与工具调用能力', tag: '模型', tone: 'bg-blue-50 text-blue-700 border-blue-100' },
-  { time: '08:15', title: '谷歌发布 Veo 3：视频生成进入音画同步新阶段', tag: '多模态', tone: 'bg-emerald-50 text-emerald-700 border-emerald-100' },
-  { time: '07:30', title: '英伟达财报：数据中心收入同比增长 427%', tag: '产业', tone: 'bg-amber-50 text-amber-700 border-amber-100' },
-  { time: '07:12', title: '全球首个 AI 安全认证体系发布（ISO/IEC 42001）', tag: '标准', tone: 'bg-indigo-50 text-indigo-700 border-indigo-100' },
-  { time: '06:45', title: '特斯拉 Optimus 进入小批量试生产阶段', tag: '机器人', tone: 'bg-orange-50 text-orange-700 border-orange-100' },
+const toneStyles = [
+  'bg-blue-50 text-blue-700 border-blue-100',
+  'bg-emerald-50 text-emerald-700 border-emerald-100',
+  'bg-amber-50 text-amber-700 border-amber-100',
+  'bg-indigo-50 text-indigo-700 border-indigo-100',
+  'bg-rose-50 text-rose-700 border-rose-100',
 ];
 
-const reportItems = [
-  { title: 'AI 赋能产业链分析方法论 2.0', date: '2026-05-27', type: '产业研究', pages: '28 页' },
-  { title: '生成式 AI 在评审场景的应用与实践', date: '2026-05-24', type: '应用研究', pages: '24 页' },
-  { title: 'AI Agent 在企业流程中的落地路径', date: '2026-05-20', type: '方法论', pages: '31 页' },
-  { title: '深圳智能制造产业图谱（2026 版）', date: '2026-05-18', type: '产业图谱', pages: '45 页' },
-];
-
-const skillItems = [
-  { title: '提示词工程实战指南', meta: '12 分钟 · 1.2k 学习', level: '入门', tone: 'bg-emerald-50 text-emerald-700 border-emerald-100' },
-  { title: 'RAG 检索增强生成实战', meta: '18 分钟 · 856 学习', level: '进阶', tone: 'bg-amber-50 text-amber-700 border-amber-100' },
-  { title: '用 LangChain 快速构建 Agent', meta: '22 分钟 · 673 学习', level: '进阶', tone: 'bg-amber-50 text-amber-700 border-amber-100' },
-  { title: '企业知识库搭建方法论', meta: '15 分钟 · 531 学习', level: '实战', tone: 'bg-emerald-50 text-emerald-700 border-emerald-100' },
-  { title: '数据可视化：从洞察到表达', meta: '14 分钟 · 482 学习', level: '实战', tone: 'bg-emerald-50 text-emerald-700 border-emerald-100' },
-];
+function toneForIndex(index: number): string {
+  return toneStyles[index % toneStyles.length];
+}
 
 const milestoneItems = [
   { title: '试点启动', date: '2024 Q3', note: '确定 3 个试点场景' },
@@ -94,12 +88,12 @@ interface PortalHeaderProps {
 function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navItems = [
-    { label: '应用', href: '#apps' },
-    { label: 'Skill', href: '#skills' },
-    { label: '教程', href: '#skills' },
-    { label: '资讯', href: '#news' },
-    { label: '研究报告', href: '#reports' },
-    { label: '超级 OPC', href: '#opc' },
+    { label: '应用', to: '/apps' },
+    { label: 'Skill', to: '/skills' },
+    { label: '教程', to: '/tutorials' },
+    { label: '资讯', to: '/insights' },
+    { label: '研究报告', to: '/reports' },
+    { label: '专题', to: '/collections' },
   ];
 
   return (
@@ -109,9 +103,9 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
 
         <nav className="hidden items-center gap-8 text-[15px] font-semibold text-slate-900 lg:flex">
           {navItems.map((item) => (
-            <a key={item.label} href={item.href} className="transition-colors hover:text-blue-700">
+            <Link key={item.label} to={item.to} className="transition-colors hover:text-blue-700">
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -126,12 +120,12 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
               className="h-11 w-full rounded-lg border border-slate-200 bg-white pl-11 pr-4 text-sm text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
             />
           </label>
-          <a
-            href="#about"
+          <Link
+            to="/collections/super-opc"
             className="inline-flex h-11 items-center rounded-lg bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800"
           >
-            关于我们
-          </a>
+            能力成果
+          </Link>
         </div>
 
         <button
@@ -158,14 +152,14 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
           </label>
           <nav className="grid grid-cols-2 gap-2 text-sm font-semibold text-slate-800">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.to}
                 onClick={() => setMobileMenuOpen(false)}
                 className="rounded-lg border border-slate-100 px-3 py-2"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>
@@ -177,17 +171,16 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
 interface AppShelfCardProps {
   app: AppType;
   onVisit: (app: AppType) => void;
-  onPreview: (app: AppType) => void;
 }
 
-function AppShelfCard({ app, onVisit, onPreview }: AppShelfCardProps) {
+function AppShelfCard({ app, onVisit }: AppShelfCardProps) {
   const Icon = app.icon;
   const isOnline = app.status === 'online';
 
   return (
-    <article
+    <Link
+      to={`/apps/${app.id}`}
       className="group flex min-h-[76px] cursor-pointer items-center gap-4 rounded-lg border border-slate-200 bg-white px-4 py-3 transition hover:border-slate-300 hover:shadow-sm"
-      onClick={() => onPreview(app)}
     >
       <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${appIconBg[app.color]} text-white`}>
         <Icon className="h-5 w-5" />
@@ -199,6 +192,7 @@ function AppShelfCard({ app, onVisit, onPreview }: AppShelfCardProps) {
           type="button"
           disabled={!isOnline}
           onClick={(event) => {
+            event.preventDefault();
             event.stopPropagation();
             onVisit(app);
           }}
@@ -208,7 +202,7 @@ function AppShelfCard({ app, onVisit, onPreview }: AppShelfCardProps) {
           {isOnline && <ArrowRight className="h-3 w-3" />}
         </button>
       </div>
-    </article>
+    </Link>
   );
 }
 
@@ -216,19 +210,7 @@ function HomePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [feedbackModalOpen, setFeedbackModalOpen] = useState(false);
   const [feedbackAppId, setFeedbackAppId] = useState<string | undefined>();
-  const [selectedApp, setSelectedApp] = useState<AppType | null>(null);
   const navigate = useNavigate();
-  const [appVisits, setAppVisits] = useState<Record<string, number>>(() => {
-    const saved = localStorage.getItem('hiic-ai-visits');
-    if (saved) {
-      try {
-        return JSON.parse(saved) as Record<string, number>;
-      } catch {
-        localStorage.removeItem('hiic-ai-visits');
-      }
-    }
-    return apps.reduce((acc, app) => ({ ...acc, [app.id]: app.visitCount }), {});
-  });
 
   const visibleApps = useMemo(() => {
     return apps.filter((app) => {
@@ -244,15 +226,22 @@ function HomePage() {
 
   const onlineAppsCount = apps.filter((app) => app.status === 'online').length;
   const featuredApps = visibleApps.slice(0, 5);
+  const newsItems = getFeaturedItems('insight', 5);
+  const reportItems = getFeaturedItems('report', 4);
+  const spotlightReport = getPortalItem('report', 'ai-industry-outlook-2026') ?? reportItems[0];
+  const learningItems = [...getFeaturedItems('skill', 3), ...getFeaturedItems('tutorial', 2)].slice(0, 5);
 
   const handleVisit = (app: AppType) => {
     if (app.status !== 'online') return;
 
-    setAppVisits((prev) => {
-      const newVisits = { ...prev, [app.id]: (prev[app.id] || 0) + 1 };
+    try {
+      const saved = localStorage.getItem('hiic-ai-visits');
+      const visits = saved ? (JSON.parse(saved) as Record<string, number>) : {};
+      const newVisits = { ...visits, [app.id]: (visits[app.id] || app.visitCount) + 1 };
       localStorage.setItem('hiic-ai-visits', JSON.stringify(newVisits));
-      return newVisits;
-    });
+    } catch {
+      localStorage.removeItem('hiic-ai-visits');
+    }
 
     if (app.url.startsWith('/')) {
       navigate(app.url);
@@ -268,6 +257,23 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-white text-slate-950">
+      <PageMeta
+        title="HIIC AI Lab - AI Research & Capability Hub"
+        description="HIIC AI Lab 集中展示 AI 应用、Skill、教程、资讯观察与研究报告，是 HIIC 对外展示 AI 综合能力的门户。"
+        canonicalPath="/"
+        image="/reports/ai-industry-outlook-2026.jpg"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'HIIC AI Lab',
+          url: 'https://hiic.ai',
+          description: 'HIIC AI Lab 集中展示 AI 应用、Skill、教程、资讯观察与研究报告。',
+          publisher: {
+            '@type': 'Organization',
+            name: '深圳国家高技术产业创新中心',
+          },
+        }}
+      />
       <PortalHeader searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       <main>
@@ -289,9 +295,9 @@ function HomePage() {
               <div className="mt-7 grid max-w-[560px] grid-cols-4 divide-x divide-slate-200 border-y border-slate-200 py-3">
                 {[
                   { value: `${onlineAppsCount}+`, label: 'AI 应用' },
-                  { value: '126', label: '内部 Skill' },
-                  { value: '34', label: '研究报告' },
-                  { value: '12', label: 'OPC 成果' },
+                  { value: `${portalStats.skills}+`, label: '结构化 Skill' },
+                  { value: `${portalStats.reports}+`, label: '研究报告' },
+                  { value: `${portalStats.collections}+`, label: '专题成果' },
                 ].map((item) => (
                   <div key={item.label} className="px-4 first:pl-0">
                     <div className="text-2xl font-bold tracking-tight text-slate-950">{item.value}</div>
@@ -300,17 +306,17 @@ function HomePage() {
                 ))}
               </div>
 
-              <a href="#about" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-950">
+              <Link to="/collections/super-opc" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-950">
                 了解 HIIC AI Lab <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </div>
 
             <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:p-5">
               <div className="grid gap-7 lg:grid-cols-[220px_1fr]">
                 <div className="h-[310px] self-start overflow-hidden rounded-sm bg-slate-950 shadow-xl">
                   <img
-                    src="/reports/ai-industry-outlook-2026.jpg"
-                    alt="2026 人工智能产业趋势与应用展望报告封面"
+                    src={spotlightReport?.cover ?? '/reports/ai-industry-outlook-2026.jpg'}
+                    alt={`${spotlightReport?.title ?? '重点研究报告'}封面`}
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -321,10 +327,10 @@ function HomePage() {
                       重点研究
                     </span>
                     <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-slate-950">
-                      2026 人工智能产业趋势与应用展望
+                      {spotlightReport?.title ?? '2026 人工智能产业趋势与应用展望'}
                     </h2>
                     <p className="mt-2 line-clamp-2 max-w-[640px] text-sm leading-6 text-slate-600">
-                      报告聚焦大模型演进、Agent 化应用、具身智能与产业落地，结合企业调研与案例，研判未来 12-18 个月的关键趋势与机会点。
+                      {spotlightReport?.summary ?? '聚焦 AI 产业趋势、应用落地与组织能力建设。'}
                     </p>
                   </div>
 
@@ -336,18 +342,18 @@ function HomePage() {
                         </span>
                       ))}
                     </div>
-                    <span className="font-medium text-slate-900">HIIC AI Research Team</span>
-                    <span>2026-05-28</span>
-                    <span>36 页</span>
+                    <span className="font-medium text-slate-900">{spotlightReport?.author ?? 'HIIC AI Research Team'}</span>
+                    <span>{spotlightReport?.date ?? '2026-05-28'}</span>
+                    <span>{spotlightReport?.metrics[0]?.value ?? '报告'}</span>
                   </div>
 
                   <div className="mt-3 flex flex-wrap gap-3">
-                    <Link to="/library" className="inline-flex h-10 items-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800">
+                    <Link to={spotlightReport ? getItemPath(spotlightReport) : '/reports'} className="inline-flex h-10 items-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800">
                       阅读全文
                     </Link>
-                    <button className="inline-flex h-10 items-center gap-2 rounded-md border border-slate-200 px-5 text-sm font-semibold text-slate-900 transition hover:border-slate-300">
-                      下载报告 <Download className="h-4 w-4" />
-                    </button>
+                    <a href="/ai-index.json" className="inline-flex h-10 items-center gap-2 rounded-md border border-slate-200 px-5 text-sm font-semibold text-slate-900 transition hover:border-slate-300">
+                      Agent 索引 <FileText className="h-4 w-4" />
+                    </a>
                   </div>
 
                   <div className="mt-3 border-t border-slate-200 pt-2">
@@ -394,45 +400,45 @@ function HomePage() {
           <div className="mx-auto grid max-w-[1344px] gap-0 px-6 py-5 lg:grid-cols-3 lg:px-10">
             <div className="border-slate-200 pb-6 lg:border-r lg:pb-0 lg:pr-8">
               <div className="mb-3 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-slate-950">今日 AI 讯息</h2>
-                <a href="#news" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
+                <h2 className="text-xl font-bold text-slate-950">AI 观察与速递</h2>
+                <Link to="/insights" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
                   更多 <ChevronRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
               <div className="divide-y divide-slate-100">
-                {newsItems.map((item) => (
-                  <div key={`${item.time}-${item.title}`} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-2">
-                    <time className="text-sm tabular-nums text-slate-500">{item.time}</time>
+                {newsItems.map((item, index) => (
+                  <Link key={item.slug} to={getItemPath(item)} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-2 transition hover:bg-slate-50">
+                    <time className="text-sm tabular-nums text-slate-500">{item.date.slice(5)}</time>
                     <p className="truncate text-sm font-medium text-slate-900">{item.title}</p>
-                    <span className={`rounded-md border px-2 py-0.5 text-xs font-semibold ${item.tone}`}>
-                      {item.tag}
+                    <span className={`rounded-md border px-2 py-0.5 text-xs font-semibold ${toneForIndex(index)}`}>
+                      {item.category}
                     </span>
-                  </div>
+                  </Link>
                 ))}
               </div>
-              <a href="#news" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-950">
+              <Link to="/insights" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-950">
                 查看全部资讯 <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </div>
 
             <div className="border-slate-200 py-6 lg:border-r lg:px-8 lg:py-0" id="reports">
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="text-xl font-bold text-slate-950">最新研究报告</h2>
-                <Link to="/library" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
+                <Link to="/reports" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
                   更多 <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="divide-y divide-slate-100">
                 {reportItems.map((report) => (
-                  <Link key={report.title} to="/library" className="grid grid-cols-[42px_1fr_auto] items-center gap-3 py-2 transition hover:bg-slate-50">
-                    <img src="/reports/ai-industry-outlook-2026.jpg" alt="" className="h-12 w-9 rounded-sm object-cover" />
+                  <Link key={report.slug} to={getItemPath(report)} className="grid grid-cols-[42px_1fr_auto] items-center gap-3 py-2 transition hover:bg-slate-50">
+                    <img src={report.cover} alt="" className="h-12 w-9 rounded-sm object-cover" />
                     <div className="min-w-0">
                       <p className="truncate text-sm font-semibold text-slate-950">{report.title}</p>
                       <p className="mt-1 text-xs text-slate-500">
-                        {report.date} · {report.type} · {report.pages}
+                        {report.date} · {report.category} · {report.metrics[0]?.value ?? '报告'}
                       </p>
                     </div>
-                    <ArrowDownToLine className="h-4 w-4 text-slate-600" />
+                    <ArrowRight className="h-4 w-4 text-slate-600" />
                   </Link>
                 ))}
               </div>
@@ -441,24 +447,24 @@ function HomePage() {
             <div className="pt-6 lg:pl-8 lg:pt-0" id="skills">
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="text-xl font-bold text-slate-950">Skill / 教程</h2>
-                <Link to={`/tutorials/${tutorials[0]?.id ?? '1'}`} className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
+                <Link to="/skills" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
                   更多 <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="divide-y divide-slate-100">
-                {skillItems.map((skill, index) => (
-                  <Link key={skill.title} to={`/tutorials/${tutorials[index % tutorials.length]?.id ?? '1'}`} className="grid grid-cols-[30px_1fr_auto] items-center gap-3 py-2 transition hover:bg-slate-50">
+                {learningItems.map((item, index) => (
+                  <Link key={`${item.kind}-${item.slug}`} to={getItemPath(item)} className="grid grid-cols-[30px_1fr_auto] items-center gap-3 py-2 transition hover:bg-slate-50">
                     <span className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-slate-700">
                       <FileText className="h-4 w-4" />
                     </span>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <p className="truncate text-sm font-semibold text-slate-950">{skill.title}</p>
-                        <span className={`shrink-0 rounded-md border px-1.5 py-0.5 text-[11px] font-semibold ${skill.tone}`}>
-                          {skill.level}
+                        <p className="truncate text-sm font-semibold text-slate-950">{item.title}</p>
+                        <span className={`shrink-0 rounded-md border px-1.5 py-0.5 text-[11px] font-semibold ${toneForIndex(index + 1)}`}>
+                          {item.category}
                         </span>
                       </div>
-                      <p className="mt-1 text-xs text-slate-500">HIIC AI Lab · {skill.meta}</p>
+                      <p className="mt-1 text-xs text-slate-500">{item.author} · {item.metrics[0]?.value ?? '可复用内容'}</p>
                     </div>
                     <PlayCircle className="h-4 w-4 text-slate-600" />
                   </Link>
@@ -487,7 +493,7 @@ function HomePage() {
             {featuredApps.length > 0 ? (
               <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
                 {featuredApps.map((app) => (
-                  <AppShelfCard key={app.id} app={app} onVisit={handleVisit} onPreview={setSelectedApp} />
+                  <AppShelfCard key={app.id} app={app} onVisit={handleVisit} />
                 ))}
               </div>
             ) : (
@@ -501,10 +507,13 @@ function HomePage() {
         <section className="bg-white py-8" id="opc">
           <div className="mx-auto grid max-w-[1344px] gap-7 px-6 lg:grid-cols-[0.9fr_1.4fr_0.9fr] lg:px-10">
             <div>
-              <h2 className="text-xl font-bold text-slate-950">超级 OPC：从试点到组织能力</h2>
+              <h2 className="text-xl font-bold text-slate-950">AI 能力共创：从试点到组织能力</h2>
               <p className="mt-2 max-w-[360px] text-sm leading-6 text-slate-600">
                 以实际项目与成果，沉淀可复用的方法与资产。
               </p>
+              <Link to="/collections/super-opc" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-950">
+                查看专题成果 <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
             <div className="grid gap-3 rounded-lg border border-slate-200 bg-white p-4 sm:grid-cols-4">
               {milestoneItems.map((item, index) => (
@@ -539,10 +548,11 @@ function HomePage() {
           <div className="mx-auto flex max-w-[1344px] flex-col gap-4 px-6 py-7 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-10">
             <p>© 2026 深圳国家高技术产业创新中心（HIIC） AI Lab。保留所有权利。</p>
             <div className="flex items-center gap-6">
-              <a href="#about" className="hover:text-slate-900">隐私政策</a>
-              <a href="#about" className="hover:text-slate-900">使用条款</a>
+              <Link to="/apps" className="hover:text-slate-900">应用</Link>
+              <Link to="/reports" className="hover:text-slate-900">报告</Link>
+              <a href="/llms.txt" className="hover:text-slate-900">llms.txt</a>
+              <a href="/ai-index.json" className="hover:text-slate-900">AI Index</a>
               <button type="button" onClick={() => handleFeedback()} className="hover:text-slate-900">联系我们</button>
-              <span>中 / EN</span>
             </div>
           </div>
         </footer>
@@ -557,21 +567,6 @@ function HomePage() {
         反馈
       </button>
 
-      <AppDetailModal
-        app={selectedApp}
-        visitCount={selectedApp ? (appVisits[selectedApp.id] || selectedApp.visitCount) : 0}
-        isOpen={!!selectedApp}
-        onClose={() => setSelectedApp(null)}
-        onVisit={(appId) => {
-          const app = apps.find((item) => item.id === appId);
-          if (app) handleVisit(app);
-        }}
-        onFeedback={(appId) => {
-          setSelectedApp(null);
-          handleFeedback(appId);
-        }}
-      />
-
       <FeedbackModal
         isOpen={feedbackModalOpen}
         onClose={() => {
@@ -585,12 +580,33 @@ function HomePage() {
   );
 }
 
+function TutorialRoute() {
+  const { id } = useParams<{ id: string }>();
+
+  if (id && getPortalItem('tutorial', id)) {
+    return <ContentDetailPage kind="tutorial" />;
+  }
+
+  return <TutorialPage />;
+}
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/apps" element={<ContentListPage kind="app" />} />
+      <Route path="/apps/:slug" element={<ContentDetailPage kind="app" />} />
+      <Route path="/skills" element={<ContentListPage kind="skill" />} />
+      <Route path="/skills/:slug" element={<ContentDetailPage kind="skill" />} />
+      <Route path="/tutorials" element={<ContentListPage kind="tutorial" />} />
+      <Route path="/tutorials/:id" element={<TutorialRoute />} />
+      <Route path="/insights" element={<ContentListPage kind="insight" />} />
+      <Route path="/insights/:slug" element={<ContentDetailPage kind="insight" />} />
+      <Route path="/reports" element={<ContentListPage kind="report" />} />
+      <Route path="/reports/:slug" element={<ContentDetailPage kind="report" />} />
+      <Route path="/collections" element={<ContentListPage kind="collection" />} />
+      <Route path="/collections/:slug" element={<ContentDetailPage kind="collection" />} />
       <Route path="/create2026" element={<Create2026Page />} />
-      <Route path="/tutorials/:id" element={<TutorialPage />} />
       <Route path="/library" element={<LibraryPage />} />
     </Routes>
   );

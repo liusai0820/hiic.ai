@@ -1,0 +1,56 @@
+{
+  "site": {
+    "name": "HIIC AI Lab",
+    "baseUrl": "https://hiic.ai",
+    "description": "HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展示 AI 应用、Skill、教程、资讯与研究报告。",
+    "language": "zh-CN",
+    "organization": "深圳国家高技术产业创新中心"
+  },
+  "kind": "collection",
+  "items": [
+    {
+      "id": "collection:super-opc",
+      "kind": "collection",
+      "slug": "super-opc",
+      "url": "https://hiic.ai/collections/super-opc",
+      "title": "AI 能力共创与内部创新计划",
+      "summary": "以内部共创方式发现真实场景、沉淀可复用资产，并形成面向外部展示的 AI 能力成果。",
+      "description": "这是 HIIC AI Lab 的组织级 AI 能力沉淀计划，重点展示场景、应用、Skill 和研究成果。",
+      "category": "能力建设",
+      "tags": [
+        "内部共创",
+        "AI 能力",
+        "组织创新"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-01",
+      "updatedAt": "2026-06-10",
+      "status": "active",
+      "ctaUrl": "/collections/super-opc",
+      "agent": {
+        "purpose": "帮助 agent 理解 HIIC AI 能力建设计划和资产分类。",
+        "inputs": [
+          "应用清单",
+          "Skill 清单",
+          "案例材料"
+        ],
+        "outputs": [
+          "能力地图",
+          "成果摘要",
+          "复用建议"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "insight",
+          "slug": "ai-workbench-adoption"
+        },
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        }
+      ]
+    }
+  ]
+}

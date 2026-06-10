@@ -1,0 +1,201 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "HIIC AI Lab",
+  "home_page_url": "https://hiic.ai",
+  "feed_url": "https://hiic.ai/feed.json",
+  "description": "HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展示 AI 应用、Skill、教程、资讯与研究报告。",
+  "language": "zh-CN",
+  "items": [
+    {
+      "id": "insight:ai-workbench-adoption",
+      "url": "https://hiic.ai/insights/ai-workbench-adoption",
+      "title": "AI 工作台从工具集合走向组织能力",
+      "summary": "企业 AI 门户的价值不在于放多少工具，而在于能否沉淀流程、案例和复用资产。",
+      "content_text": "一篇关于企业 AI 门户建设的观察：从工具入口、能力地图到组织协作机制。\n\n核心判断: AI 门户不是工具导航页，而是组织 AI 能力的展示窗口和沉淀容器。\n建设重点: 需要同时维护应用、Skill、教程、案例、报告和更新机制，让外部看到能力，让内部愿意复用。",
+      "date_published": "2026-06-01",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Lab"
+        }
+      ],
+      "tags": [
+        "AI 门户",
+        "组织能力",
+        "应用落地"
+      ]
+    },
+    {
+      "id": "insight:model-cost-and-business-value",
+      "url": "https://hiic.ai/insights/model-cost-and-business-value",
+      "title": "模型成本下降后，AI 应用重新回到业务价值",
+      "summary": "当推理和生成成本持续下降，真正的竞争点会转向流程设计、数据质量和业务闭环。",
+      "content_text": "面向 AI 应用负责人的观察：成本不是终点，业务闭环才是应用能否长期存在的理由。\n\n核心判断: 成本下降会降低试错门槛，但不会自动带来价值。能否嵌入真实流程，才决定应用是否可持续。\n行动建议: 先选高频、低风险、成果可见的场景，把一次性演示做成可重复使用的流程。",
+      "date_published": "2026-05-30",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Lab"
+        }
+      ],
+      "tags": [
+        "模型成本",
+        "业务价值",
+        "AI 应用"
+      ]
+    },
+    {
+      "id": "insight:trusted-ai-knowledge-base",
+      "url": "https://hiic.ai/insights/trusted-ai-knowledge-base",
+      "title": "可信 AI 知识库的关键不是更多资料",
+      "summary": "知识库建设要先回答资料边界、引用、更新和权限，而不是盲目把文档全部塞进去。",
+      "content_text": "一篇关于企业知识库建设的实践观察，强调可信、可追溯和可维护。\n\n核心判断: 资料越多，答案不一定越可信。资料边界、引用来源和更新机制才是基础。\n建设建议: 从一类高频问题开始，做小范围资料闭环，再逐步扩展资料和权限。",
+      "date_published": "2026-05-28",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Lab"
+        }
+      ],
+      "tags": [
+        "知识库",
+        "RAG",
+        "可信 AI"
+      ]
+    },
+    {
+      "id": "report:ai-industry-outlook-2026",
+      "url": "https://hiic.ai/reports/ai-industry-outlook-2026",
+      "title": "2026 人工智能产业趋势与应用展望",
+      "summary": "聚焦大模型演进、Agent 化应用、具身智能与产业落地，研判未来 12-18 个月关键趋势。",
+      "content_text": "HIIC AI Lab 的重点研究报告，面向产业管理者和应用团队提供趋势判断与落地建议。\n\n核心洞察: 大模型能力将继续分化，Agent 化应用会从演示走向流程，具身智能和产业软件结合会成为新的观察重点。\n应用建议: 企业应优先选择资料明确、流程稳定、价值可衡量的场景，先形成可复用工作流，再扩大应用范围。",
+      "date_published": "2026-05-28",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Research Team"
+        }
+      ],
+      "tags": [
+        "AI 趋势",
+        "Agent",
+        "产业落地",
+        "研究报告"
+      ]
+    },
+    {
+      "id": "report:industry-chain-methodology-2",
+      "url": "https://hiic.ai/reports/industry-chain-methodology-2",
+      "title": "AI 赋能产业链分析方法论 2.0",
+      "summary": "围绕产业链拆解、企业识别、关系判断和图谱表达形成一套 AI 辅助研究方法。",
+      "content_text": "把产业研究中的资料整理、节点识别和关系表达转化为可复用工作流。\n\n方法框架: 从产业定义开始，依次完成环节拆解、节点识别、关系判断、图谱表达和人工复核。\n适用范围: 适合新兴产业研究、招商图谱、区域产业分析和企业生态梳理。",
+      "date_published": "2026-05-27",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Research Team"
+        }
+      ],
+      "tags": [
+        "产业链",
+        "方法论",
+        "AI 研究"
+      ]
+    },
+    {
+      "id": "tutorial:knowledge-base-checklist",
+      "url": "https://hiic.ai/tutorials/knowledge-base-checklist",
+      "title": "企业知识库上线检查表",
+      "summary": "从资料边界、权限、引用和更新机制检查知识库是否可用。",
+      "content_text": "适合准备上线 RAG 或知识问答系统前使用，避免只做演示不做长期维护。\n\n上线前必查: 资料范围是否明确、权限是否正确、答案是否带引用、错误答案是否可追溯、更新责任人是否清楚。\n维护机制: 知识库不是一次性项目，必须明确资料更新周期、失效资料处理方式和反馈入口。",
+      "date_published": "2026-05-26",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Lab"
+        }
+      ],
+      "tags": [
+        "知识库",
+        "RAG",
+        "检查表"
+      ]
+    },
+    {
+      "id": "report:generative-ai-review-practice",
+      "url": "https://hiic.ai/reports/generative-ai-review-practice",
+      "title": "生成式 AI 在评审场景的应用与实践",
+      "summary": "总结生成式 AI 在项目评审、材料摘要、风险提示和结果复核中的实践经验。",
+      "content_text": "围绕内部评审场景，沉淀可复制的 AI 辅助流程和治理要求。\n\n实践经验: AI 适合做材料摘要、标准对齐和风险提示，但最终判断仍应由评审专家完成。\n治理边界: 评审场景必须保留人工复核、利益冲突回避和结果追溯机制。",
+      "date_published": "2026-05-24",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Research Team"
+        }
+      ],
+      "tags": [
+        "评审",
+        "生成式 AI",
+        "实践报告"
+      ]
+    },
+    {
+      "id": "report:enterprise-agent-path",
+      "url": "https://hiic.ai/reports/enterprise-agent-path",
+      "title": "AI Agent 在企业流程中的落地路径",
+      "summary": "从单点自动化到跨系统协作，梳理企业 Agent 应用的分阶段建设路径。",
+      "content_text": "面向企业应用负责人，解释 Agent 项目如何从试点进入可维护运营。\n\n核心判断: 企业 Agent 落地要从任务自动化开始，逐步进入流程协同和系统联动。\n落地路径: 建议按场景选择、数据准备、工具接入、人工验收和持续运营五个动作推进。",
+      "date_published": "2026-05-20",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Research Team"
+        }
+      ],
+      "tags": [
+        "Agent",
+        "企业流程",
+        "方法论"
+      ]
+    },
+    {
+      "id": "tutorial:industry-chain-map-workflow",
+      "url": "https://hiic.ai/tutorials/industry-chain-map-workflow",
+      "title": "产业链图谱生成流程",
+      "summary": "用一个产业主题生成上下游图谱，并复核节点与关系。",
+      "content_text": "适合产业研究和招商场景，把产业链图谱工具纳入可复用研究流程。\n\n准备材料: 准备产业名称、关键企业、上下游关键词和已有研究材料。输入越具体，图谱越容易复核。\n复核重点: 重点看节点是否重复、关系是否过度推断、企业是否属于对应环节。",
+      "date_published": "2026-05-19",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Lab"
+        }
+      ],
+      "tags": [
+        "产业链",
+        "教程",
+        "图谱"
+      ]
+    },
+    {
+      "id": "tutorial:ai-ppt-quickstart",
+      "url": "https://hiic.ai/tutorials/ai-ppt-quickstart",
+      "title": "AI 画 PPT 快速入门",
+      "summary": "5 分钟完成从主题输入到 PPTX 下载的完整流程。",
+      "content_text": "适合第一次使用 AI 画 PPT 的同事，按步骤完成一次可编辑演示稿生成。\n\n步骤一：明确主题: 输入主题时写清楚受众、用途和希望覆盖的重点。例如：为内部月度例会生成 8 页 AI 应用进展汇报。\n步骤二：选择风格: 选择商务、科技、简约或培训等风格后，再根据生成结果微调标题和数据页。\n步骤三：导出并复核: 下载 PPTX 后重点复核事实、数据、客户名称和对外表述，确保可以直接进入正式编辑。",
+      "date_published": "2026-05-12",
+      "date_modified": "2026-06-10",
+      "authors": [
+        {
+          "name": "HIIC AI Lab"
+        }
+      ],
+      "tags": [
+        "PPT",
+        "教程",
+        "办公效率"
+      ]
+    }
+  ]
+}

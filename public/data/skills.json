@@ -1,0 +1,187 @@
+{
+  "site": {
+    "name": "HIIC AI Lab",
+    "baseUrl": "https://hiic.ai",
+    "description": "HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展示 AI 应用、Skill、教程、资讯与研究报告。",
+    "language": "zh-CN",
+    "organization": "深圳国家高技术产业创新中心"
+  },
+  "kind": "skill",
+  "items": [
+    {
+      "id": "skill:prompt-engineering-practice",
+      "kind": "skill",
+      "slug": "prompt-engineering-practice",
+      "url": "https://hiic.ai/skills/prompt-engineering-practice",
+      "title": "提示词工程实战指南",
+      "summary": "从目标、上下文、约束和验收标准四个维度写出可复用提示词。",
+      "description": "面向非技术同事的提示词方法，把抽象需求转成可执行、可复盘、可复制的 AI 协作指令。",
+      "category": "入门",
+      "tags": [
+        "Prompt",
+        "AI 协作",
+        "入门"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-10",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/skills/prompt-engineering-practice",
+      "agent": {
+        "purpose": "为 agent 提供统一的提示词模板和验收标准。",
+        "inputs": [
+          "任务目标",
+          "上下文",
+          "约束"
+        ],
+        "outputs": [
+          "可执行 prompt",
+          "验收清单"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "tutorial",
+          "slug": "ai-ppt-quickstart"
+        },
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        }
+      ]
+    },
+    {
+      "id": "skill:rag-knowledge-base",
+      "kind": "skill",
+      "slug": "rag-knowledge-base",
+      "url": "https://hiic.ai/skills/rag-knowledge-base",
+      "title": "RAG 检索增强生成实战",
+      "summary": "把文档库、检索、引用和答案生成串成可落地的知识问答流程。",
+      "description": "面向知识库建设者的 RAG 方法，重点讲清资料整理、切片、检索、引用和权限边界。",
+      "category": "进阶",
+      "tags": [
+        "RAG",
+        "知识库",
+        "检索增强"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-18",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/skills/rag-knowledge-base",
+      "agent": {
+        "purpose": "帮助 agent 按统一口径理解 RAG 系统设计。",
+        "inputs": [
+          "文档集合",
+          "问题",
+          "权限规则"
+        ],
+        "outputs": [
+          "答案",
+          "引用",
+          "检索日志"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "app",
+          "slug": "search"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "knowledge-base-checklist"
+        }
+      ]
+    },
+    {
+      "id": "skill:agent-workflow",
+      "kind": "skill",
+      "slug": "agent-workflow",
+      "url": "https://hiic.ai/skills/agent-workflow",
+      "title": "Agent 工作流设计",
+      "summary": "把复杂任务拆成角色、工具、状态和验收节点，让 AI 工作流真正跑起来。",
+      "description": "面向内部创新项目的 Agent 工作流方法，帮助把一次性 prompt 变成可重复执行的流程。",
+      "category": "进阶",
+      "tags": [
+        "Agent",
+        "工作流",
+        "自动化"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-22",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/skills/agent-workflow",
+      "agent": {
+        "purpose": "为 agent 工作流提供任务拆解和验收框架。",
+        "inputs": [
+          "业务目标",
+          "工具清单",
+          "角色边界"
+        ],
+        "outputs": [
+          "流程图",
+          "任务状态",
+          "交付物"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "collection",
+          "slug": "super-opc"
+        },
+        {
+          "kind": "app",
+          "slug": "smartscore"
+        }
+      ]
+    },
+    {
+      "id": "skill:research-synthesis",
+      "kind": "skill",
+      "slug": "research-synthesis",
+      "url": "https://hiic.ai/skills/research-synthesis",
+      "title": "研究资料综合方法",
+      "summary": "把多来源资料整理成观点、证据和结论，减少信息堆砌。",
+      "description": "帮助研究团队从材料阅读走向判断形成，适合报告、内参和方案写作前的资料整理。",
+      "category": "实战",
+      "tags": [
+        "研究",
+        "资料整理",
+        "综合分析"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-25",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/skills/research-synthesis",
+      "agent": {
+        "purpose": "帮助 agent 将资料综合成观点和证据链。",
+        "inputs": [
+          "资料清单",
+          "研究问题",
+          "输出模板"
+        ],
+        "outputs": [
+          "观点清单",
+          "证据表",
+          "报告大纲"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "app",
+          "slug": "library"
+        },
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        }
+      ]
+    }
+  ]
+}

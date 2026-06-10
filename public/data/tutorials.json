@@ -1,0 +1,143 @@
+{
+  "site": {
+    "name": "HIIC AI Lab",
+    "baseUrl": "https://hiic.ai",
+    "description": "HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展示 AI 应用、Skill、教程、资讯与研究报告。",
+    "language": "zh-CN",
+    "organization": "深圳国家高技术产业创新中心"
+  },
+  "kind": "tutorial",
+  "items": [
+    {
+      "id": "tutorial:ai-ppt-quickstart",
+      "kind": "tutorial",
+      "slug": "ai-ppt-quickstart",
+      "url": "https://hiic.ai/tutorials/ai-ppt-quickstart",
+      "title": "AI 画 PPT 快速入门",
+      "summary": "5 分钟完成从主题输入到 PPTX 下载的完整流程。",
+      "description": "适合第一次使用 AI 画 PPT 的同事，按步骤完成一次可编辑演示稿生成。",
+      "category": "快速入门",
+      "tags": [
+        "PPT",
+        "教程",
+        "办公效率"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-12",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "https://ppt.hiic.ai",
+      "agent": {
+        "purpose": "提供给 agent 的 AI 画 PPT 使用流程说明。",
+        "inputs": [
+          "主题",
+          "模板风格",
+          "页数"
+        ],
+        "outputs": [
+          "PPT 初稿",
+          "可编辑文件"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "app",
+          "slug": "ppt"
+        },
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        }
+      ]
+    },
+    {
+      "id": "tutorial:industry-chain-map-workflow",
+      "kind": "tutorial",
+      "slug": "industry-chain-map-workflow",
+      "url": "https://hiic.ai/tutorials/industry-chain-map-workflow",
+      "title": "产业链图谱生成流程",
+      "summary": "用一个产业主题生成上下游图谱，并复核节点与关系。",
+      "description": "适合产业研究和招商场景，把产业链图谱工具纳入可复用研究流程。",
+      "category": "应用场景",
+      "tags": [
+        "产业链",
+        "教程",
+        "图谱"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-19",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "https://chain.hiic.ai",
+      "agent": {
+        "purpose": "说明产业链图谱生成和人工复核流程。",
+        "inputs": [
+          "产业主题",
+          "企业名单",
+          "资料链接"
+        ],
+        "outputs": [
+          "节点清单",
+          "关系图",
+          "复核表"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "app",
+          "slug": "chain"
+        },
+        {
+          "kind": "report",
+          "slug": "industry-chain-methodology-2"
+        }
+      ]
+    },
+    {
+      "id": "tutorial:knowledge-base-checklist",
+      "kind": "tutorial",
+      "slug": "knowledge-base-checklist",
+      "url": "https://hiic.ai/tutorials/knowledge-base-checklist",
+      "title": "企业知识库上线检查表",
+      "summary": "从资料边界、权限、引用和更新机制检查知识库是否可用。",
+      "description": "适合准备上线 RAG 或知识问答系统前使用，避免只做演示不做长期维护。",
+      "category": "检查表",
+      "tags": [
+        "知识库",
+        "RAG",
+        "检查表"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-26",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/skills/rag-knowledge-base",
+      "agent": {
+        "purpose": "为 agent 提供知识库上线前检查清单。",
+        "inputs": [
+          "资料库",
+          "权限规则",
+          "更新计划"
+        ],
+        "outputs": [
+          "检查结果",
+          "风险项",
+          "修复建议"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "rag-knowledge-base"
+        },
+        {
+          "kind": "app",
+          "slug": "search"
+        }
+      ]
+    }
+  ]
+}

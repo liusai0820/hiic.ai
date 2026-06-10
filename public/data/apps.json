@@ -1,0 +1,386 @@
+{
+  "site": {
+    "name": "HIIC AI Lab",
+    "baseUrl": "https://hiic.ai",
+    "description": "HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展示 AI 应用、Skill、教程、资讯与研究报告。",
+    "language": "zh-CN",
+    "organization": "深圳国家高技术产业创新中心"
+  },
+  "kind": "app",
+  "items": [
+    {
+      "id": "app:library",
+      "kind": "app",
+      "slug": "library",
+      "url": "https://hiic.ai/apps/library",
+      "title": "AI 智能阅览室",
+      "summary": "聚合全球顶级期刊与内部内参，AI 辅助快速提取核心观点与数据。",
+      "description": "面向研究、产业观察和内部学习的智能阅读工作台，用统一入口沉淀可信资料、摘要与可追溯引用。",
+      "category": "研究分析",
+      "tags": [
+        "AI 阅读",
+        "期刊",
+        "内参",
+        "研究分析"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-01-21",
+      "updatedAt": "2026-06-10",
+      "status": "online",
+      "ctaUrl": "/library",
+      "agent": {
+        "purpose": "帮助 agent 查找、摘要和引用研究资料。",
+        "inputs": [
+          "期刊文章",
+          "内部资料",
+          "关键词"
+        ],
+        "outputs": [
+          "摘要",
+          "结构化观点",
+          "引用线索"
+        ],
+        "access": "public-route"
+      },
+      "related": [
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        },
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        }
+      ]
+    },
+    {
+      "id": "app:ppt",
+      "kind": "app",
+      "slug": "ppt",
+      "url": "https://hiic.ai/apps/ppt",
+      "title": "AI 画 PPT",
+      "summary": "输入主题，一键生成专业演示文稿，支持多种模板风格。",
+      "description": "把汇报主题、受众和结构要求转成可编辑的演示稿，降低从空白页到初稿的时间成本。",
+      "category": "办公效率",
+      "tags": [
+        "PPT",
+        "汇报",
+        "办公效率"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-01-10",
+      "updatedAt": "2026-06-10",
+      "status": "online",
+      "ctaUrl": "https://ppt.hiic.ai",
+      "agent": {
+        "purpose": "帮助 agent 根据主题生成汇报大纲和 PPT 初稿。",
+        "inputs": [
+          "主题",
+          "受众",
+          "场景",
+          "页数"
+        ],
+        "outputs": [
+          "PPTX",
+          "汇报大纲",
+          "页级文案"
+        ],
+        "access": "external-link"
+      },
+      "related": [
+        {
+          "kind": "tutorial",
+          "slug": "ai-ppt-quickstart"
+        },
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        }
+      ]
+    },
+    {
+      "id": "app:chain",
+      "kind": "app",
+      "slug": "chain",
+      "url": "https://hiic.ai/apps/chain",
+      "title": "AI 产业链图谱",
+      "summary": "智能分析并生成产业链上下游关系图谱，洞察产业全景。",
+      "description": "围绕企业、产品、技术和区域资源生成产业链关系图，帮助研究者快速形成产业全景。",
+      "category": "数据可视化",
+      "tags": [
+        "产业链",
+        "图谱",
+        "数据可视化",
+        "研究分析"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-01-15",
+      "updatedAt": "2026-06-10",
+      "status": "online",
+      "ctaUrl": "https://chain.hiic.ai",
+      "agent": {
+        "purpose": "帮助 agent 把产业资料转成上下游结构。",
+        "inputs": [
+          "产业主题",
+          "企业名单",
+          "公开资料"
+        ],
+        "outputs": [
+          "产业链节点",
+          "关系图",
+          "分析摘要"
+        ],
+        "access": "external-link"
+      },
+      "related": [
+        {
+          "kind": "report",
+          "slug": "industry-chain-methodology-2"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "industry-chain-map-workflow"
+        }
+      ]
+    },
+    {
+      "id": "app:mind",
+      "kind": "app",
+      "slug": "mind",
+      "url": "https://hiic.ai/apps/mind",
+      "title": "AI 思维导图",
+      "summary": "输入文本自动生成结构化思维导图，理清思路更轻松。",
+      "description": "将长文、会议记录或研究材料转为层级清晰的思维导图，帮助团队快速统一理解。",
+      "category": "办公效率",
+      "tags": [
+        "思维导图",
+        "结构化",
+        "办公效率"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-01-15",
+      "updatedAt": "2026-06-10",
+      "status": "online",
+      "ctaUrl": "https://md2xmind.onrender.com/",
+      "agent": {
+        "purpose": "帮助 agent 将非结构化资料转为层级树。",
+        "inputs": [
+          "长文本",
+          "会议纪要",
+          "文章"
+        ],
+        "outputs": [
+          "思维导图",
+          "层级大纲"
+        ],
+        "access": "external-link"
+      },
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        }
+      ]
+    },
+    {
+      "id": "app:smartscore",
+      "kind": "app",
+      "slug": "smartscore",
+      "url": "https://hiic.ai/apps/smartscore",
+      "title": "AI 智能评审",
+      "summary": "内部项目评审打分系统，支持多维度权重、利益冲突回避和实时大屏展示。",
+      "description": "围绕项目评审流程，提供标准化打分、权重配置、自动汇总与结果展示。",
+      "category": "办公效率",
+      "tags": [
+        "评审",
+        "打分",
+        "流程提效"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-01-27",
+      "updatedAt": "2026-06-10",
+      "status": "online",
+      "ctaUrl": "https://dafen.hiic.ai",
+      "agent": {
+        "purpose": "帮助 agent 理解评审标准并生成项目评审摘要。",
+        "inputs": [
+          "评审标准",
+          "项目材料",
+          "打分记录"
+        ],
+        "outputs": [
+          "评分结果",
+          "评审摘要",
+          "改进建议"
+        ],
+        "access": "external-link"
+      },
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        }
+      ]
+    },
+    {
+      "id": "app:daily-digest",
+      "kind": "app",
+      "slug": "daily-digest",
+      "url": "https://hiic.ai/apps/daily-digest",
+      "title": "AI 每日简报",
+      "summary": "每日精炼市场情报，帮助团队快速掌握全球市场脉动。",
+      "description": "自动汇总多市场信息，形成适合晨会和投研跟踪的每日摘要。",
+      "category": "研究分析",
+      "tags": [
+        "每日简报",
+        "市场情报",
+        "研究分析"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-01-27",
+      "updatedAt": "2026-06-10",
+      "status": "online",
+      "ctaUrl": "https://daily.hiic.ai",
+      "agent": {
+        "purpose": "帮助 agent 获取每日市场摘要和重点线索。",
+        "inputs": [
+          "市场数据",
+          "新闻源",
+          "关注资产"
+        ],
+        "outputs": [
+          "简报",
+          "重点变化",
+          "风险提示"
+        ],
+        "access": "external-link"
+      },
+      "related": [
+        {
+          "kind": "insight",
+          "slug": "ai-workbench-adoption"
+        }
+      ]
+    },
+    {
+      "id": "app:report",
+      "kind": "app",
+      "slug": "report",
+      "url": "https://hiic.ai/apps/report",
+      "title": "AI 研究报告",
+      "summary": "基于资料和数据生成专业研究报告，提升研究效率。",
+      "description": "面向研究团队的报告生成工作流，重点在大纲、资料整理、图表建议和结论表达。",
+      "category": "研究分析",
+      "tags": [
+        "研究报告",
+        "自动写作",
+        "资料整理"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-02-01",
+      "updatedAt": "2026-06-10",
+      "status": "planned",
+      "ctaUrl": "#contact",
+      "agent": {
+        "purpose": "帮助 agent 生成研究报告结构和段落初稿。",
+        "inputs": [
+          "研究问题",
+          "资料包",
+          "数据表"
+        ],
+        "outputs": [
+          "报告大纲",
+          "章节初稿",
+          "图表建议"
+        ],
+        "access": "planned"
+      },
+      "related": [
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        }
+      ]
+    },
+    {
+      "id": "app:chart",
+      "kind": "app",
+      "slug": "chart",
+      "url": "https://hiic.ai/apps/chart",
+      "title": "AI 数据图表",
+      "summary": "智能分析数据并生成可视化图表，让数据会说话。",
+      "description": "从表格数据出发，自动推荐可视化表达、洞察摘要和图表说明。",
+      "category": "数据可视化",
+      "tags": [
+        "图表",
+        "数据分析",
+        "可视化"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-02-01",
+      "updatedAt": "2026-06-10",
+      "status": "planned",
+      "ctaUrl": "#contact",
+      "agent": {
+        "purpose": "帮助 agent 将结构化数据转成图表和解释。",
+        "inputs": [
+          "CSV",
+          "Excel",
+          "指标口径"
+        ],
+        "outputs": [
+          "图表",
+          "洞察摘要",
+          "口径说明"
+        ],
+        "access": "planned"
+      },
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        }
+      ]
+    },
+    {
+      "id": "app:search",
+      "kind": "app",
+      "slug": "search",
+      "url": "https://hiic.ai/apps/search",
+      "title": "AI 智能检索",
+      "summary": "基于语义理解的智能文档检索，快速定位关键信息。",
+      "description": "为内部资料、制度文件和项目文档建立语义检索能力，减少重复查找时间。",
+      "category": "研究分析",
+      "tags": [
+        "语义检索",
+        "知识库",
+        "RAG"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-02-01",
+      "updatedAt": "2026-06-10",
+      "status": "planned",
+      "ctaUrl": "#contact",
+      "agent": {
+        "purpose": "帮助 agent 在知识库中定位答案和引用来源。",
+        "inputs": [
+          "文档库",
+          "问题",
+          "过滤条件"
+        ],
+        "outputs": [
+          "答案",
+          "引用",
+          "相关文档"
+        ],
+        "access": "planned"
+      },
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "rag-knowledge-base"
+        }
+      ]
+    }
+  ]
+}

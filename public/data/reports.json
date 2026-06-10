@@ -1,0 +1,189 @@
+{
+  "site": {
+    "name": "HIIC AI Lab",
+    "baseUrl": "https://hiic.ai",
+    "description": "HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展示 AI 应用、Skill、教程、资讯与研究报告。",
+    "language": "zh-CN",
+    "organization": "深圳国家高技术产业创新中心"
+  },
+  "kind": "report",
+  "items": [
+    {
+      "id": "report:ai-industry-outlook-2026",
+      "kind": "report",
+      "slug": "ai-industry-outlook-2026",
+      "url": "https://hiic.ai/reports/ai-industry-outlook-2026",
+      "title": "2026 人工智能产业趋势与应用展望",
+      "summary": "聚焦大模型演进、Agent 化应用、具身智能与产业落地，研判未来 12-18 个月关键趋势。",
+      "description": "HIIC AI Lab 的重点研究报告，面向产业管理者和应用团队提供趋势判断与落地建议。",
+      "category": "产业研究",
+      "tags": [
+        "AI 趋势",
+        "Agent",
+        "产业落地",
+        "研究报告"
+      ],
+      "author": "HIIC AI Research Team",
+      "date": "2026-05-28",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/reports/ai-industry-outlook-2026",
+      "agent": {
+        "purpose": "帮助 agent 理解 HIIC 对 AI 产业趋势的研究判断。",
+        "inputs": [
+          "公开资料",
+          "企业访谈",
+          "应用案例"
+        ],
+        "outputs": [
+          "趋势判断",
+          "机会点",
+          "行动建议"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "insight",
+          "slug": "model-cost-and-business-value"
+        },
+        {
+          "kind": "collection",
+          "slug": "super-opc"
+        }
+      ]
+    },
+    {
+      "id": "report:industry-chain-methodology-2",
+      "kind": "report",
+      "slug": "industry-chain-methodology-2",
+      "url": "https://hiic.ai/reports/industry-chain-methodology-2",
+      "title": "AI 赋能产业链分析方法论 2.0",
+      "summary": "围绕产业链拆解、企业识别、关系判断和图谱表达形成一套 AI 辅助研究方法。",
+      "description": "把产业研究中的资料整理、节点识别和关系表达转化为可复用工作流。",
+      "category": "产业研究",
+      "tags": [
+        "产业链",
+        "方法论",
+        "AI 研究"
+      ],
+      "author": "HIIC AI Research Team",
+      "date": "2026-05-27",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/reports/industry-chain-methodology-2",
+      "agent": {
+        "purpose": "指导 agent 执行产业链拆解和图谱生成。",
+        "inputs": [
+          "产业主题",
+          "企业资料",
+          "公开信息"
+        ],
+        "outputs": [
+          "产业链结构",
+          "企业节点",
+          "研究结论"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "app",
+          "slug": "chain"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "industry-chain-map-workflow"
+        }
+      ]
+    },
+    {
+      "id": "report:enterprise-agent-path",
+      "kind": "report",
+      "slug": "enterprise-agent-path",
+      "url": "https://hiic.ai/reports/enterprise-agent-path",
+      "title": "AI Agent 在企业流程中的落地路径",
+      "summary": "从单点自动化到跨系统协作，梳理企业 Agent 应用的分阶段建设路径。",
+      "description": "面向企业应用负责人，解释 Agent 项目如何从试点进入可维护运营。",
+      "category": "方法论",
+      "tags": [
+        "Agent",
+        "企业流程",
+        "方法论"
+      ],
+      "author": "HIIC AI Research Team",
+      "date": "2026-05-20",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/reports/enterprise-agent-path",
+      "agent": {
+        "purpose": "帮助 agent 理解企业 Agent 项目的建设路径。",
+        "inputs": [
+          "流程清单",
+          "系统接口",
+          "风险边界"
+        ],
+        "outputs": [
+          "阶段路线",
+          "试点建议",
+          "运营机制"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        },
+        {
+          "kind": "insight",
+          "slug": "ai-workbench-adoption"
+        }
+      ]
+    },
+    {
+      "id": "report:generative-ai-review-practice",
+      "kind": "report",
+      "slug": "generative-ai-review-practice",
+      "url": "https://hiic.ai/reports/generative-ai-review-practice",
+      "title": "生成式 AI 在评审场景的应用与实践",
+      "summary": "总结生成式 AI 在项目评审、材料摘要、风险提示和结果复核中的实践经验。",
+      "description": "围绕内部评审场景，沉淀可复制的 AI 辅助流程和治理要求。",
+      "category": "应用研究",
+      "tags": [
+        "评审",
+        "生成式 AI",
+        "实践报告"
+      ],
+      "author": "HIIC AI Research Team",
+      "date": "2026-05-24",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/reports/generative-ai-review-practice",
+      "agent": {
+        "purpose": "帮助 agent 理解评审辅助场景中的 AI 用法和边界。",
+        "inputs": [
+          "评审材料",
+          "评审标准",
+          "历史案例"
+        ],
+        "outputs": [
+          "材料摘要",
+          "风险提示",
+          "复核建议"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "app",
+          "slug": "smartscore"
+        },
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        }
+      ]
+    }
+  ]
+}

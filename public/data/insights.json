@@ -1,0 +1,143 @@
+{
+  "site": {
+    "name": "HIIC AI Lab",
+    "baseUrl": "https://hiic.ai",
+    "description": "HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展示 AI 应用、Skill、教程、资讯与研究报告。",
+    "language": "zh-CN",
+    "organization": "深圳国家高技术产业创新中心"
+  },
+  "kind": "insight",
+  "items": [
+    {
+      "id": "insight:ai-workbench-adoption",
+      "kind": "insight",
+      "slug": "ai-workbench-adoption",
+      "url": "https://hiic.ai/insights/ai-workbench-adoption",
+      "title": "AI 工作台从工具集合走向组织能力",
+      "summary": "企业 AI 门户的价值不在于放多少工具，而在于能否沉淀流程、案例和复用资产。",
+      "description": "一篇关于企业 AI 门户建设的观察：从工具入口、能力地图到组织协作机制。",
+      "category": "组织应用",
+      "tags": [
+        "AI 门户",
+        "组织能力",
+        "应用落地"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-01",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/insights/ai-workbench-adoption",
+      "agent": {
+        "purpose": "解释 HIIC AI 门户的定位和组织价值。",
+        "inputs": [
+          "工具清单",
+          "流程案例",
+          "组织目标"
+        ],
+        "outputs": [
+          "门户定位",
+          "能力地图",
+          "建设建议"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "collection",
+          "slug": "super-opc"
+        },
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        }
+      ]
+    },
+    {
+      "id": "insight:model-cost-and-business-value",
+      "kind": "insight",
+      "slug": "model-cost-and-business-value",
+      "url": "https://hiic.ai/insights/model-cost-and-business-value",
+      "title": "模型成本下降后，AI 应用重新回到业务价值",
+      "summary": "当推理和生成成本持续下降，真正的竞争点会转向流程设计、数据质量和业务闭环。",
+      "description": "面向 AI 应用负责人的观察：成本不是终点，业务闭环才是应用能否长期存在的理由。",
+      "category": "产业观察",
+      "tags": [
+        "模型成本",
+        "业务价值",
+        "AI 应用"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-30",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/insights/model-cost-and-business-value",
+      "agent": {
+        "purpose": "总结模型成本变化对 AI 应用建设的影响。",
+        "inputs": [
+          "成本趋势",
+          "业务流程",
+          "应用案例"
+        ],
+        "outputs": [
+          "判断",
+          "建设建议",
+          "风险提示"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "app",
+          "slug": "daily-digest"
+        },
+        {
+          "kind": "report",
+          "slug": "enterprise-agent-path"
+        }
+      ]
+    },
+    {
+      "id": "insight:trusted-ai-knowledge-base",
+      "kind": "insight",
+      "slug": "trusted-ai-knowledge-base",
+      "url": "https://hiic.ai/insights/trusted-ai-knowledge-base",
+      "title": "可信 AI 知识库的关键不是更多资料",
+      "summary": "知识库建设要先回答资料边界、引用、更新和权限，而不是盲目把文档全部塞进去。",
+      "description": "一篇关于企业知识库建设的实践观察，强调可信、可追溯和可维护。",
+      "category": "知识管理",
+      "tags": [
+        "知识库",
+        "RAG",
+        "可信 AI"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-05-28",
+      "updatedAt": "2026-06-10",
+      "status": "published",
+      "ctaUrl": "/insights/trusted-ai-knowledge-base",
+      "agent": {
+        "purpose": "说明可信知识库建设的关键判断。",
+        "inputs": [
+          "资料源",
+          "权限",
+          "更新机制"
+        ],
+        "outputs": [
+          "建设原则",
+          "检查清单"
+        ],
+        "access": "public-page"
+      },
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "rag-knowledge-base"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "knowledge-base-checklist"
+        }
+      ]
+    }
+  ]
+}

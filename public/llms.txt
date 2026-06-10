@@ -1,0 +1,63 @@
+# HIIC AI Lab
+
+HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展示 AI 应用、Skill、教程、资讯与研究报告。
+
+## Agent entry points
+
+- [AI Index](https://hiic.ai/ai-index.json)
+- [Sitemap](https://hiic.ai/sitemap.xml)
+- [JSON Feed](https://hiic.ai/feed.json)
+
+## apps
+
+- [Index](https://hiic.ai/apps)
+- [Data](https://hiic.ai/data/apps.json)
+- [AI 智能阅览室](https://hiic.ai/apps/library): 聚合全球顶级期刊与内部内参，AI 辅助快速提取核心观点与数据。
+- [AI 画 PPT](https://hiic.ai/apps/ppt): 输入主题，一键生成专业演示文稿，支持多种模板风格。
+- [AI 产业链图谱](https://hiic.ai/apps/chain): 智能分析并生成产业链上下游关系图谱，洞察产业全景。
+- [AI 思维导图](https://hiic.ai/apps/mind): 输入文本自动生成结构化思维导图，理清思路更轻松。
+- [AI 智能评审](https://hiic.ai/apps/smartscore): 内部项目评审打分系统，支持多维度权重、利益冲突回避和实时大屏展示。
+- [AI 每日简报](https://hiic.ai/apps/daily-digest): 每日精炼市场情报，帮助团队快速掌握全球市场脉动。
+- [AI 研究报告](https://hiic.ai/apps/report): 基于资料和数据生成专业研究报告，提升研究效率。
+- [AI 数据图表](https://hiic.ai/apps/chart): 智能分析数据并生成可视化图表，让数据会说话。
+- [AI 智能检索](https://hiic.ai/apps/search): 基于语义理解的智能文档检索，快速定位关键信息。
+
+## skills
+
+- [Index](https://hiic.ai/skills)
+- [Data](https://hiic.ai/data/skills.json)
+- [提示词工程实战指南](https://hiic.ai/skills/prompt-engineering-practice): 从目标、上下文、约束和验收标准四个维度写出可复用提示词。
+- [RAG 检索增强生成实战](https://hiic.ai/skills/rag-knowledge-base): 把文档库、检索、引用和答案生成串成可落地的知识问答流程。
+- [Agent 工作流设计](https://hiic.ai/skills/agent-workflow): 把复杂任务拆成角色、工具、状态和验收节点，让 AI 工作流真正跑起来。
+- [研究资料综合方法](https://hiic.ai/skills/research-synthesis): 把多来源资料整理成观点、证据和结论，减少信息堆砌。
+
+## tutorials
+
+- [Index](https://hiic.ai/tutorials)
+- [Data](https://hiic.ai/data/tutorials.json)
+- [AI 画 PPT 快速入门](https://hiic.ai/tutorials/ai-ppt-quickstart): 5 分钟完成从主题输入到 PPTX 下载的完整流程。
+- [产业链图谱生成流程](https://hiic.ai/tutorials/industry-chain-map-workflow): 用一个产业主题生成上下游图谱，并复核节点与关系。
+- [企业知识库上线检查表](https://hiic.ai/tutorials/knowledge-base-checklist): 从资料边界、权限、引用和更新机制检查知识库是否可用。
+
+## insights
+
+- [Index](https://hiic.ai/insights)
+- [Data](https://hiic.ai/data/insights.json)
+- [AI 工作台从工具集合走向组织能力](https://hiic.ai/insights/ai-workbench-adoption): 企业 AI 门户的价值不在于放多少工具，而在于能否沉淀流程、案例和复用资产。
+- [模型成本下降后，AI 应用重新回到业务价值](https://hiic.ai/insights/model-cost-and-business-value): 当推理和生成成本持续下降，真正的竞争点会转向流程设计、数据质量和业务闭环。
+- [可信 AI 知识库的关键不是更多资料](https://hiic.ai/insights/trusted-ai-knowledge-base): 知识库建设要先回答资料边界、引用、更新和权限，而不是盲目把文档全部塞进去。
+
+## reports
+
+- [Index](https://hiic.ai/reports)
+- [Data](https://hiic.ai/data/reports.json)
+- [2026 人工智能产业趋势与应用展望](https://hiic.ai/reports/ai-industry-outlook-2026): 聚焦大模型演进、Agent 化应用、具身智能与产业落地，研判未来 12-18 个月关键趋势。
+- [AI 赋能产业链分析方法论 2.0](https://hiic.ai/reports/industry-chain-methodology-2): 围绕产业链拆解、企业识别、关系判断和图谱表达形成一套 AI 辅助研究方法。
+- [AI Agent 在企业流程中的落地路径](https://hiic.ai/reports/enterprise-agent-path): 从单点自动化到跨系统协作，梳理企业 Agent 应用的分阶段建设路径。
+- [生成式 AI 在评审场景的应用与实践](https://hiic.ai/reports/generative-ai-review-practice): 总结生成式 AI 在项目评审、材料摘要、风险提示和结果复核中的实践经验。
+
+## collections
+
+- [Index](https://hiic.ai/collections)
+- [Data](https://hiic.ai/data/collections.json)
+- [AI 能力共创与内部创新计划](https://hiic.ai/collections/super-opc): 以内部共创方式发现真实场景、沉淀可复用资产，并形成面向外部展示的 AI 能力成果。
