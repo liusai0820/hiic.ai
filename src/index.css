@@ -1,6 +1,16 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+  --hiic-brand-blue: #0A04AE;
+  --hiic-brand-indigo: #3B36BE;
+  --hiic-tech-blue: #1F6FEB;
+  --hiic-cyan: #31B7F0;
+  --hiic-sky: #EAF3FF;
+  --hiic-ink: #111827;
+  --hiic-muted: #52637A;
+}
+
 /* 自定义主题变量 */
 @theme {
   /* Primary Colors - 科技蓝 */
@@ -14,6 +24,10 @@
   --color-primary-700: #1D4ED8;
   --color-primary-800: #1E40AF;
   --color-primary-900: #1E3A8A;
+  --color-hiic-blue: #0A04AE;
+  --color-hiic-indigo: #3B36BE;
+  --color-hiic-cyan: #31B7F0;
+  --color-hiic-sky: #EAF3FF;
 
   /* Font Families */
   --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
@@ -53,8 +67,33 @@
   to { transform: translateX(0); }
 }
 
+@keyframes q7-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes q7-pulse {
+  0%, 100% { opacity: 0.45; transform: scaleX(0.96); }
+  50% { opacity: 0.78; transform: scaleX(1.04); }
+}
+
 .animate-slide-in-right {
   animation: slide-in-right 0.3s ease-out forwards;
+}
+
+.q7-float {
+  animation: q7-float 5s ease-in-out infinite;
+}
+
+.q7-shadow {
+  animation: q7-pulse 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .q7-float,
+  .q7-shadow {
+    animation: none;
+  }
 }
 
 /* 基础样式 */
@@ -66,7 +105,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FAFBFC;
+  background-color: #F5F8FF;
   color: #1E293B;
   margin: 0;
   padding: 0;

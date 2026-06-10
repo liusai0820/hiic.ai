@@ -18,6 +18,7 @@ import { FeedbackModal } from './components';
 import { ContentDetailPage, ContentListPage, TutorialPage, LibraryPage } from './pages';
 import Create2026Page from './pages/Create2026Page';
 import { PageMeta } from './components/PageMeta';
+import { XiaoqiGuide } from './components/XiaoqiGuide';
 import { apps } from './data';
 import {
   getFeaturedItems,
@@ -65,7 +66,7 @@ const assetStats = [
 function LogoMark() {
   return (
     <Link to="/" className="flex min-w-0 items-center gap-3">
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white shadow-sm">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#0A04AE] text-white shadow-sm shadow-[#0A04AE]/20">
         <Sparkles className="h-5 w-5" />
       </div>
       <div className="min-w-0 leading-tight">
@@ -97,7 +98,7 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[#d8e4ff] bg-[#f8fbff]/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-[1344px] items-center justify-between gap-6 px-6 lg:px-10">
         <LogoMark />
 
@@ -117,12 +118,12 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
               value={searchQuery}
               onChange={(event) => onSearchChange(event.target.value)}
               placeholder="搜索应用、Skill、报告、资讯..."
-              className="h-11 w-full rounded-lg border border-slate-200 bg-white pl-11 pr-4 text-sm text-slate-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+              className="h-11 w-full rounded-lg border border-[#c9d8ff] bg-white pl-11 pr-4 text-sm text-slate-900 shadow-sm outline-none transition focus:border-[#0A04AE] focus:ring-4 focus:ring-[#0A04AE]/10"
             />
           </label>
           <Link
             to="/collections/super-opc"
-            className="inline-flex h-11 items-center rounded-lg bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800"
+            className="inline-flex h-11 items-center rounded-lg bg-[#0A04AE] px-5 text-sm font-semibold text-white transition hover:bg-[#08038f]"
           >
             能力成果
           </Link>
@@ -139,7 +140,7 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-t border-slate-200 bg-white px-6 py-4 lg:hidden">
+        <div className="border-t border-[#d8e4ff] bg-[#f8fbff] px-6 py-4 lg:hidden">
           <label className="relative mb-4 block">
             <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
             <input
@@ -147,7 +148,7 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
               value={searchQuery}
               onChange={(event) => onSearchChange(event.target.value)}
               placeholder="搜索应用、Skill、报告、资讯..."
-              className="h-11 w-full rounded-lg border border-slate-200 bg-white pl-11 pr-4 text-sm outline-none focus:border-blue-500"
+              className="h-11 w-full rounded-lg border border-[#c9d8ff] bg-white pl-11 pr-4 text-sm outline-none focus:border-[#0A04AE]"
             />
           </label>
           <nav className="grid grid-cols-2 gap-2 text-sm font-semibold text-slate-800">
@@ -156,7 +157,7 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
                 key={item.label}
                 to={item.to}
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg border border-slate-100 px-3 py-2"
+                className="rounded-lg border border-[#d8e4ff] bg-white px-3 py-2"
               >
                 {item.label}
               </Link>
@@ -180,13 +181,13 @@ function AppShelfCard({ app, onVisit }: AppShelfCardProps) {
   return (
     <Link
       to={`/apps/${app.id}`}
-      className="group flex min-h-[76px] cursor-pointer items-center gap-4 rounded-lg border border-slate-200 bg-white px-4 py-3 transition hover:border-slate-300 hover:shadow-sm"
+      className="group flex min-h-[76px] cursor-pointer items-center gap-4 rounded-lg border border-[#d8e4ff] bg-white px-4 py-3 transition hover:border-[#0A04AE] hover:shadow-sm hover:shadow-[#0A04AE]/10"
     >
       <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${appIconBg[app.color]} text-white`}>
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0 flex-1">
-        <h3 className="truncate text-sm font-bold text-slate-950">{app.name}</h3>
+        <h3 className="truncate text-sm font-bold text-slate-950 group-hover:text-[#0A04AE]">{app.name}</h3>
         <p className="mt-1 line-clamp-1 text-xs text-slate-600">{app.description}</p>
         <button
           type="button"
@@ -196,7 +197,7 @@ function AppShelfCard({ app, onVisit }: AppShelfCardProps) {
             event.stopPropagation();
             onVisit(app);
           }}
-          className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-slate-950 disabled:text-slate-400"
+          className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#0A04AE] disabled:text-slate-400"
         >
           {isOnline ? '打开' : '筹备中'}
           {isOnline && <ArrowRight className="h-3 w-3" />}
@@ -277,7 +278,7 @@ function HomePage() {
       <PortalHeader searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       <main>
-        <section className="border-b border-slate-200">
+        <section className="border-b border-[#d8e4ff] bg-[#f5f8ff]">
           <div className="mx-auto grid max-w-[1344px] gap-8 px-6 py-6 lg:grid-cols-[0.74fr_1fr] lg:px-10 lg:py-7">
             <div className="flex flex-col pt-2">
               <h1 className="font-serif text-[52px] font-semibold leading-[0.98] tracking-tight text-slate-950 sm:text-[72px] lg:text-[78px]">
@@ -285,14 +286,14 @@ function HomePage() {
                 <br />
                 Capability Hub
               </h1>
-              <p className="mt-5 text-2xl font-semibold text-slate-950">
+              <p className="mt-5 text-2xl font-semibold text-[#0A04AE]">
                 以研究驱动应用，以能力创造价值
               </p>
               <p className="mt-3 max-w-[520px] text-base leading-7 text-slate-600">
                 汇聚前沿洞察、研究方法与实践工具，展示 HIIC 在 AI 领域的持续探索与产业赋能成果。
               </p>
 
-              <div className="mt-7 grid max-w-[560px] grid-cols-4 divide-x divide-slate-200 border-y border-slate-200 py-3">
+              <div className="mt-7 grid max-w-[560px] grid-cols-4 divide-x divide-[#c9d8ff] border-y border-[#c9d8ff] bg-white/60 py-3">
                 {[
                   { value: `${onlineAppsCount}+`, label: 'AI 应用' },
                   { value: `${portalStats.skills}+`, label: '结构化 Skill' },
@@ -306,12 +307,13 @@ function HomePage() {
                 ))}
               </div>
 
-              <Link to="/collections/super-opc" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-950">
+              <Link to="/collections/super-opc" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#0A04AE]">
                 了解 HIIC AI Lab <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
-            <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:p-5">
+            <div className="space-y-4">
+            <article className="rounded-lg border border-[#c9d8ff] bg-white p-4 shadow-sm shadow-[#0A04AE]/5 lg:p-5">
               <div className="grid gap-7 lg:grid-cols-[220px_1fr]">
                 <div className="h-[310px] self-start overflow-hidden rounded-sm bg-slate-950 shadow-xl">
                   <img
@@ -323,7 +325,7 @@ function HomePage() {
 
                 <div className="flex min-h-[310px] flex-col">
                   <div>
-                    <span className="inline-flex items-center rounded-md bg-slate-950 px-3 py-1 text-xs font-bold text-white">
+                    <span className="inline-flex items-center rounded-md bg-[#0A04AE] px-3 py-1 text-xs font-bold text-white">
                       重点研究
                     </span>
                     <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-slate-950">
@@ -348,10 +350,10 @@ function HomePage() {
                   </div>
 
                   <div className="mt-3 flex flex-wrap gap-3">
-                    <Link to={spotlightReport ? getItemPath(spotlightReport) : '/reports'} className="inline-flex h-10 items-center rounded-md bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800">
+                    <Link to={spotlightReport ? getItemPath(spotlightReport) : '/reports'} className="inline-flex h-10 items-center rounded-md bg-[#0A04AE] px-5 text-sm font-semibold text-white transition hover:bg-[#08038f]">
                       阅读全文
                     </Link>
-                    <a href="/ai-index.json" className="inline-flex h-10 items-center gap-2 rounded-md border border-slate-200 px-5 text-sm font-semibold text-slate-900 transition hover:border-slate-300">
+                    <a href="/ai-index.json" className="inline-flex h-10 items-center gap-2 rounded-md border border-[#c9d8ff] px-5 text-sm font-semibold text-[#0A04AE] transition hover:border-[#0A04AE]">
                       Agent 索引 <FileText className="h-4 w-4" />
                     </a>
                   </div>
@@ -393,22 +395,24 @@ function HomePage() {
                 </div>
               </div>
             </article>
+            <XiaoqiGuide compact />
+            </div>
           </div>
         </section>
 
-        <section className="border-b border-slate-200 bg-white" id="news">
+        <section className="border-b border-[#d8e4ff] bg-white" id="news">
           <div className="mx-auto grid max-w-[1344px] gap-0 px-6 py-5 lg:grid-cols-3 lg:px-10">
-            <div className="border-slate-200 pb-6 lg:border-r lg:pb-0 lg:pr-8">
+            <div className="border-[#d8e4ff] pb-6 lg:border-r lg:pb-0 lg:pr-8">
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="text-xl font-bold text-slate-950">AI 观察与速递</h2>
-                <Link to="/insights" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
+                <Link to="/insights" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0A04AE]">
                   更多 <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="divide-y divide-slate-100">
                 {newsItems.map((item, index) => (
-                  <Link key={item.slug} to={getItemPath(item)} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-2 transition hover:bg-slate-50">
-                    <time className="text-sm tabular-nums text-slate-500">{item.date.slice(5)}</time>
+                  <Link key={item.slug} to={getItemPath(item)} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-2 transition hover:bg-[#f5f8ff]">
+                    <time className="text-sm tabular-nums text-[#52637A]">{item.date.slice(5)}</time>
                     <p className="truncate text-sm font-medium text-slate-900">{item.title}</p>
                     <span className={`rounded-md border px-2 py-0.5 text-xs font-semibold ${toneForIndex(index)}`}>
                       {item.category}
@@ -416,21 +420,21 @@ function HomePage() {
                   </Link>
                 ))}
               </div>
-              <Link to="/insights" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-950">
+              <Link to="/insights" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#0A04AE]">
                 查看全部资讯 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
-            <div className="border-slate-200 py-6 lg:border-r lg:px-8 lg:py-0" id="reports">
+            <div className="border-[#d8e4ff] py-6 lg:border-r lg:px-8 lg:py-0" id="reports">
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="text-xl font-bold text-slate-950">最新研究报告</h2>
-                <Link to="/reports" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
+                <Link to="/reports" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0A04AE]">
                   更多 <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="divide-y divide-slate-100">
                 {reportItems.map((report) => (
-                  <Link key={report.slug} to={getItemPath(report)} className="grid grid-cols-[42px_1fr_auto] items-center gap-3 py-2 transition hover:bg-slate-50">
+                  <Link key={report.slug} to={getItemPath(report)} className="grid grid-cols-[42px_1fr_auto] items-center gap-3 py-2 transition hover:bg-[#f5f8ff]">
                     <img src={report.cover} alt="" className="h-12 w-9 rounded-sm object-cover" />
                     <div className="min-w-0">
                       <p className="truncate text-sm font-semibold text-slate-950">{report.title}</p>
@@ -438,7 +442,7 @@ function HomePage() {
                         {report.date} · {report.category} · {report.metrics[0]?.value ?? '报告'}
                       </p>
                     </div>
-                    <ArrowRight className="h-4 w-4 text-slate-600" />
+                    <ArrowRight className="h-4 w-4 text-[#0A04AE]" />
                   </Link>
                 ))}
               </div>
@@ -447,14 +451,14 @@ function HomePage() {
             <div className="pt-6 lg:pl-8 lg:pt-0" id="skills">
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="text-xl font-bold text-slate-950">Skill / 教程</h2>
-                <Link to="/skills" className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600">
+                <Link to="/skills" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0A04AE]">
                   更多 <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
               <div className="divide-y divide-slate-100">
                 {learningItems.map((item, index) => (
-                  <Link key={`${item.kind}-${item.slug}`} to={getItemPath(item)} className="grid grid-cols-[30px_1fr_auto] items-center gap-3 py-2 transition hover:bg-slate-50">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-slate-700">
+                  <Link key={`${item.kind}-${item.slug}`} to={getItemPath(item)} className="grid grid-cols-[30px_1fr_auto] items-center gap-3 py-2 transition hover:bg-[#f5f8ff]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-md border border-[#c9d8ff] text-[#0A04AE]">
                       <FileText className="h-4 w-4" />
                     </span>
                     <div className="min-w-0">
@@ -466,7 +470,7 @@ function HomePage() {
                       </div>
                       <p className="mt-1 text-xs text-slate-500">{item.author} · {item.metrics[0]?.value ?? '可复用内容'}</p>
                     </div>
-                    <PlayCircle className="h-4 w-4 text-slate-600" />
+                    <PlayCircle className="h-4 w-4 text-[#0A04AE]" />
                   </Link>
                 ))}
               </div>
@@ -474,7 +478,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="border-b border-slate-200 bg-white py-6" id="apps">
+        <section className="border-b border-[#d8e4ff] bg-[#f8fbff] py-6" id="apps">
           <div className="mx-auto max-w-[1344px] px-6 lg:px-10">
             <div className="mb-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
               <div>
@@ -484,7 +488,7 @@ function HomePage() {
               <button
                 type="button"
                 onClick={() => setFeedbackModalOpen(true)}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-950"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#0A04AE]"
               >
                 推荐新应用 <ArrowRight className="h-4 w-4" />
               </button>
@@ -497,7 +501,7 @@ function HomePage() {
                 ))}
               </div>
             ) : (
-              <div className="rounded-lg border border-slate-200 py-12 text-center text-sm text-slate-500">
+              <div className="rounded-lg border border-[#d8e4ff] bg-white py-12 text-center text-sm text-slate-500">
                 未找到相关应用，换个关键词试试。
               </div>
             )}
@@ -511,11 +515,11 @@ function HomePage() {
               <p className="mt-2 max-w-[360px] text-sm leading-6 text-slate-600">
                 以实际项目与成果，沉淀可复用的方法与资产。
               </p>
-              <Link to="/collections/super-opc" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-950">
+              <Link to="/collections/super-opc" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#0A04AE]">
                 查看专题成果 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            <div className="grid gap-3 rounded-lg border border-slate-200 bg-white p-4 sm:grid-cols-4">
+            <div className="grid gap-3 rounded-lg border border-[#d8e4ff] bg-[#f8fbff] p-4 sm:grid-cols-4">
               {milestoneItems.map((item, index) => (
                 <div key={item.title}>
                   <div className="mb-2 flex items-center gap-2">
@@ -529,7 +533,7 @@ function HomePage() {
                 </div>
               ))}
             </div>
-            <div className="rounded-lg border border-slate-200 bg-white p-5" id="about">
+            <div className="rounded-lg border border-[#d8e4ff] bg-white p-5" id="about">
               <h3 className="text-sm font-bold text-slate-950">OPC 产出资产</h3>
               <div className="mt-4 grid grid-cols-2 gap-4">
                 {assetStats.map((asset) => (
@@ -544,7 +548,7 @@ function HomePage() {
           </div>
         </section>
 
-        <footer className="border-t border-slate-200 bg-white">
+        <footer className="border-t border-[#d8e4ff] bg-[#f8fbff]">
           <div className="mx-auto flex max-w-[1344px] flex-col gap-4 px-6 py-7 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-10">
             <p>© 2026 深圳国家高技术产业创新中心（HIIC） AI Lab。保留所有权利。</p>
             <div className="flex items-center gap-6">
@@ -561,7 +565,7 @@ function HomePage() {
       <button
         type="button"
         onClick={() => handleFeedback()}
-        className="fixed bottom-5 right-5 z-40 hidden h-11 items-center gap-2 rounded-full bg-slate-950 px-4 text-sm font-semibold text-white shadow-lg transition hover:bg-slate-800 md:inline-flex"
+        className="fixed bottom-5 right-5 z-40 hidden h-11 items-center gap-2 rounded-full bg-[#0A04AE] px-4 text-sm font-semibold text-white shadow-lg shadow-[#0A04AE]/25 transition hover:bg-[#08038f] md:inline-flex"
       >
         <Clock3 className="h-4 w-4" />
         反馈
