@@ -22,6 +22,9 @@
 - `src/pages/ContentDetailPage.tsx`: 详情页模板。
 - `src/App.tsx`: 首页与全站路由入口。
 - `public/brand/`: 小七 IP 与品牌资产。
+  - `hiic-official-lockup-white.png`: 正式机构 logo 锁定组合。
+  - `xiaoqi-*.png`: 小七官方 IP 素材。
+  - `xiaoqi-boy-standing-3d.png` / `xiaoqi-girl-standing-3d.png`: 七哥、七妹单人站姿透明素材。
 
 ## 开发命令
 
@@ -45,10 +48,13 @@
 
 - 修改页面前先读 `DESIGN.md`。
 - 必须使用深国创品牌蓝和科技辅助色，不能退回纯黑白灰。
+- Header 必须使用正式 HIIC 机构 logo，不要使用临时星星图标或单独 AI 方块替代。
 - 资讯/观察栏目使用时间轴或列表流，不做普通卡片网格。
 - 小七素材必须来自 `public/brand/` 或官方规范，不得用 CSS 手绘、emoji、占位图替代。
 - 不得修改小七比例、颜色、服装、发型、呆毛方向、五官比例。
 - 小七动效只允许轻微漂浮、呼吸、淡入、hover，不做夸张弹跳或低龄化效果。
+- 小七露出必须按页面语境变化素材和文案，不要全站复制同一张图、同一句导览话术、同一种侧边色条卡片。
+- 小七模块应像页面里的自然插画提示，不应写成“AI 助手”“导览机器人”或固定客服组件。
 
 ## SEO / GEO 规则
 

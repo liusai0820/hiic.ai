@@ -19,6 +19,7 @@ import { ContentDetailPage, ContentListPage, TutorialPage, LibraryPage } from '.
 import Create2026Page from './pages/Create2026Page';
 import { PageMeta } from './components/PageMeta';
 import { XiaoqiGuide } from './components/XiaoqiGuide';
+import { OfficialLogo } from './components/OfficialLogo';
 import { apps } from './data';
 import {
   getFeaturedItems,
@@ -63,24 +64,6 @@ const assetStats = [
   { icon: Layers, value: '10+', label: '工具与应用' },
 ];
 
-function LogoMark() {
-  return (
-    <Link to="/" className="flex min-w-0 items-center gap-3">
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#0A04AE] text-white shadow-sm shadow-[#0A04AE]/20">
-        <Sparkles className="h-5 w-5" />
-      </div>
-      <div className="min-w-0 leading-tight">
-        <div className="truncate font-serif text-2xl font-semibold tracking-tight text-slate-950">
-          HIIC AI Lab
-        </div>
-        <div className="truncate text-xs font-medium text-slate-600">
-          深圳国家高技术产业创新中心
-        </div>
-      </div>
-    </Link>
-  );
-}
-
 interface PortalHeaderProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
@@ -100,11 +83,11 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-[#d8e4ff] bg-[#f8fbff]/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-[1344px] items-center justify-between gap-6 px-6 lg:px-10">
-        <LogoMark />
+        <OfficialLogo />
 
-        <nav className="hidden items-center gap-8 text-[15px] font-semibold text-slate-900 lg:flex">
+        <nav className="hidden shrink-0 items-center gap-5 text-[15px] font-semibold text-slate-900 lg:flex xl:gap-7">
           {navItems.map((item) => (
-            <Link key={item.label} to={item.to} className="transition-colors hover:text-blue-700">
+            <Link key={item.label} to={item.to} className="shrink-0 whitespace-nowrap transition-colors hover:text-blue-700">
               {item.label}
             </Link>
           ))}
@@ -123,7 +106,7 @@ function PortalHeader({ searchQuery, onSearchChange }: PortalHeaderProps) {
           </label>
           <Link
             to="/collections/super-opc"
-            className="inline-flex h-11 items-center rounded-lg bg-[#0A04AE] px-5 text-sm font-semibold text-white transition hover:bg-[#08038f]"
+            className="inline-flex h-11 shrink-0 items-center rounded-lg bg-[#0A04AE] px-5 text-sm font-semibold whitespace-nowrap text-white transition hover:bg-[#08038f]"
           >
             能力成果
           </Link>
@@ -395,7 +378,7 @@ function HomePage() {
                 </div>
               </div>
             </article>
-            <XiaoqiGuide compact />
+            <XiaoqiGuide scene="home" compact />
             </div>
           </div>
         </section>

@@ -214,7 +214,7 @@ export function ContentListPage({ kind }: ContentListPageProps) {
               <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
                 <InsightTimeline items={filteredItems} />
                 <div className="space-y-4">
-                  <XiaoqiGuide compact />
+                  <XiaoqiGuide scene="insights" compact />
                   <div className="rounded-lg border border-[#c9d8ff] bg-white p-5">
                     <h2 className="text-sm font-bold text-slate-950">资讯维护提示</h2>
                     <p className="mt-2 text-sm leading-6 text-[#52637A]">

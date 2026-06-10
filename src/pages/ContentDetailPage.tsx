@@ -240,7 +240,7 @@ export function ContentDetailPage({ kind }: ContentDetailPageProps) {
           </article>
 
           <aside className="space-y-5">
-            <XiaoqiGuide compact />
+            <XiaoqiGuide scene={item.kind} compact />
 
             <div className="rounded-lg border border-[#c9d8ff] bg-white p-5">
               <h2 className="text-sm font-bold text-slate-950">Agent 可读信息</h2>
