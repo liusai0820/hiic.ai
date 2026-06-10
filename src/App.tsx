@@ -15,6 +15,7 @@ import {
   X,
 } from 'lucide-react';
 import { FeedbackModal } from './components';
+import { AIConsultingLiveFeed } from './components/AIConsultingLiveFeed';
 import { ContentDetailPage, ContentListPage, TutorialPage, LibraryPage } from './pages';
 import Create2026Page from './pages/Create2026Page';
 import { PageMeta } from './components/PageMeta';
@@ -386,26 +387,7 @@ function HomePage() {
         <section className="border-b border-[#d8e4ff] bg-white" id="news">
           <div className="mx-auto grid max-w-[1344px] gap-0 px-6 py-5 lg:grid-cols-3 lg:px-10">
             <div className="border-[#d8e4ff] pb-6 lg:border-r lg:pb-0 lg:pr-8">
-              <div className="mb-3 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-slate-950">AI 观察与速递</h2>
-                <Link to="/insights" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0A04AE]">
-                  更多 <ChevronRight className="h-4 w-4" />
-                </Link>
-              </div>
-              <div className="divide-y divide-slate-100">
-                {newsItems.map((item, index) => (
-                  <Link key={item.slug} to={getItemPath(item)} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-2 transition hover:bg-[#f5f8ff]">
-                    <time className="text-sm tabular-nums text-[#52637A]">{item.date.slice(5)}</time>
-                    <p className="truncate text-sm font-medium text-slate-900">{item.title}</p>
-                    <span className={`rounded-md border px-2 py-0.5 text-xs font-semibold ${toneForIndex(index)}`}>
-                      {item.category}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-              <Link to="/insights" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#0A04AE]">
-                查看全部资讯 <ArrowRight className="h-4 w-4" />
-              </Link>
+              <AIConsultingLiveFeed fallbackItems={newsItems} />
             </div>
 
             <div className="border-[#d8e4ff] py-6 lg:border-r lg:px-8 lg:py-0" id="reports">

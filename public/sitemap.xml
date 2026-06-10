@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hiic.ai/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://hiic.ai/apps</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hiic.ai/skills</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hiic.ai/tutorials</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hiic.ai/insights</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hiic.ai/reports</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hiic.ai/collections</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -99,6 +99,106 @@
     <loc>https://hiic.ai/skills/research-synthesis</loc>
     <lastmod>2026-06-10</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/office-document-processing</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/ppt-storyline-deck</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/excel-data-cleaning</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/spreadsheet-analysis-dashboard</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/consulting-report-outline</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/market-research-scan</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/policy-brief-writing</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/executive-summary-writing</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/meeting-notes-action-items</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/sop-process-documentation</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/financial-model-review</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/budget-variance-analysis</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/marketing-campaign-brief</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/visual-creative-review</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/hr-job-description</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/hr-interview-scorecard</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/procurement-comparison</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/customer-research-synthesis</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/chart-review-data-story</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hiic.ai/skills/email-communication-polish</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://hiic.ai/tutorials/ai-ppt-quickstart</loc>

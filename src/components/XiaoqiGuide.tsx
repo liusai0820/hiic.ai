@@ -24,9 +24,9 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
 }> = {
   home: {
     image: '/brand/xiaoqi-duo-guide-2d.png',
-    label: '小七带路',
-    title: '从应用入口开始，看见一套 AI 能力是怎么长出来的。',
-    body: '首页的小七只在路径旁边轻轻带一下，把应用、Skill、教程和报告串成一张能力地图。',
+    label: '小七在场',
+    title: '先看应用，再顺着方法和报告往下看。',
+    body: '这里把工具、Skill、教程和研究成果放在同一条路径里，方便外部理解，也方便内部复用。',
     surface: 'border-[#cfe1ff] bg-gradient-to-br from-white via-[#f7fbff] to-[#effdf6]',
     dot: 'bg-[#31B7F0]',
     figureSurface: 'bg-[#eaf3ff]',
@@ -38,9 +38,9 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
   },
   insights: {
     image: '/brand/xiaoqi-boy-standing-3d.png',
-    label: '七哥观察',
-    title: '先看时间，再看判断：把每天的信息变成可追踪的观察。',
-    body: '这里保留日期、分类和趋势摘要，后续新增报道时能自然长成一条智库观察线。',
+    label: '七哥留意到',
+    title: '资讯先看时间线，再看哪些变化值得持续跟踪。',
+    body: '保留日期、分类和摘要，后面新增报道时会自然长成一条智库观察线。',
     surface: 'border-[#d9e5ff] bg-gradient-to-br from-white via-[#f8fbff] to-[#fff7e8]',
     dot: 'bg-[#f5b638]',
     figureSurface: 'bg-[#fff1cc]',
@@ -50,9 +50,9 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
   },
   app: {
     image: '/brand/xiaoqi-product-board-3d.png',
-    label: '应用巡视',
-    title: '这个工具能解决谁的什么问题，先在这里看清楚。',
-    body: '应用详情页重点说清楚输入、输出、适用场景和当前状态。',
+    label: '打开前看一眼',
+    title: '这个工具适合谁用、产出什么，先看清楚。',
+    body: '应用页重点保留输入、输出、适用场景和当前状态。',
     surface: 'border-[#cfe1ff] bg-gradient-to-br from-white via-[#f5f9ff] to-[#edf7ff]',
     dot: 'bg-[#0A04AE]',
     figureSurface: 'bg-[#edf5ff]',
@@ -62,9 +62,9 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
   },
   skill: {
     image: '/brand/xiaoqi-girl-standing-3d.png',
-    label: '七妹提示',
-    title: '把做过一次的经验，整理成下次可以直接复用的做法。',
-    body: '这里更适合放模板、流程、验收标准和可复制经验。',
+    label: '七妹的笔记',
+    title: '能复用的经验，最好写成下次可以照着做的步骤。',
+    body: 'Skill 页重点看输入、输出、流程和验收标准。',
     surface: 'border-[#d2e9de] bg-gradient-to-br from-white via-[#f9fffb] to-[#edf9f3]',
     dot: 'bg-[#35b779]',
     figureSurface: 'bg-[#e8f8ef]',
@@ -74,9 +74,9 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
   },
   tutorial: {
     image: '/brand/xiaoqi-boy-reading-3d.png',
-    label: '学习路径',
-    title: '照着走一遍，能交付一个真实结果。',
-    body: '步骤、注意事项和产出检查，比概念解释更重要。',
+    label: '跟着做',
+    title: '照着走一遍，先拿到一个真实结果。',
+    body: '教程页优先看步骤、注意事项和产出检查。',
     surface: 'border-[#ddd7ff] bg-gradient-to-br from-white via-[#faf8ff] to-[#f3f0ff]',
     dot: 'bg-[#7c5cff]',
     figureSurface: 'bg-[#f0ecff]',
@@ -86,9 +86,9 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
   },
   insight: {
     image: '/brand/xiaoqi-boy-dashboard-2d.png',
-    label: '趋势观察',
-    title: '这条观察先分清事实、判断和还要继续验证的问题。',
-    body: '资讯观察页适合保留时间、来源、主题和对业务的影响。',
+    label: '观察旁注',
+    title: '先分清事实、判断，以及还要继续验证的问题。',
+    body: '资讯观察页适合保留时间、来源、主题和业务影响。',
     surface: 'border-[#d9e5ff] bg-gradient-to-br from-white via-[#f8fbff] to-[#fff7e8]',
     dot: 'bg-[#f5b638]',
     figureSurface: 'bg-[#fff1cc]',
@@ -98,9 +98,9 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
   },
   report: {
     image: '/brand/xiaoqi-boy-trophy-3d.png',
-    label: '研究成果',
-    title: '先抓住核心结论，再看方法和证据。',
-    body: '小七在这里更像成果讲解员，帮助读者快速抓住报告价值。',
+    label: '读报告时',
+    title: '先抓核心结论，再看方法和证据。',
+    body: '报告页重点帮助读者快速判断这份成果的价值。',
     surface: 'border-[#cfe1ff] bg-gradient-to-br from-white via-[#f7fbff] to-[#eef5ff]',
     dot: 'bg-[#1F6FEB]',
     figureSurface: 'bg-[#eaf3ff]',
@@ -110,9 +110,9 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
   },
   collection: {
     image: '/brand/xiaoqi-duo-guide-2d.png',
-    label: '专题导航',
+    label: '专题旁边',
     title: '把阶段动作串起来，看见一条完整的能力建设线。',
-    body: '让外部看到组织能力，也让内部知道下一步怎么继续沉淀。',
+    body: '让外部看到组织能力，也让内部知道下一步怎么沉淀。',
     surface: 'border-[#d6defc] bg-gradient-to-br from-white via-[#f7fbff] to-[#f0f7ff]',
     dot: 'bg-[#31B7F0]',
     figureSurface: 'bg-[#edf7ff]',
@@ -132,8 +132,7 @@ export function XiaoqiGuide({ scene = 'home', compact = false, className = '' }:
       <div className={`pointer-events-none absolute right-[-42px] top-[-42px] h-28 w-28 rounded-full ${guide.figureSurface} blur-2xl`} />
       <div className={`grid items-center gap-4 ${compact ? 'grid-cols-[minmax(0,1fr)_112px]' : 'sm:grid-cols-[minmax(0,1fr)_160px]'}`}>
         <div className="relative z-10">
-          <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold text-[#0A04AE]">
-            <span className={`h-1.5 w-1.5 rounded-full ${guide.dot}`} />
+          <div className="mb-3 text-[11px] font-bold text-[#0A04AE]">
             {guide.label}
           </div>
           <h2 className={`${compact ? 'text-base leading-6' : 'text-xl leading-7'} font-bold tracking-tight text-slate-950`}>

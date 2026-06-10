@@ -30,6 +30,26 @@ HIIC AI Lab 是深圳国家高技术产业创新中心的 AI 门户，集中展�
 - [RAG 检索增强生成实战](https://hiic.ai/skills/rag-knowledge-base): 把文档库、检索、引用和答案生成串成可落地的知识问答流程。
 - [Agent 工作流设计](https://hiic.ai/skills/agent-workflow): 把复杂任务拆成角色、工具、状态和验收节点，让 AI 工作流真正跑起来。
 - [研究资料综合方法](https://hiic.ai/skills/research-synthesis): 把多来源资料整理成观点、证据和结论，减少信息堆砌。
+- [Office 文档处理 Skill](https://hiic.ai/skills/office-document-processing): 面向 Word、PDF、PPT、Excel 的通用文档读取、编辑、转换和摘要工作流。
+- [PPT 叙事与成稿 Skill](https://hiic.ai/skills/ppt-storyline-deck): 把主题、受众和素材转成演示故事线、页级大纲和可生成 PPT 的提示词。
+- [Excel 数据清洗 Skill](https://hiic.ai/skills/excel-data-cleaning): 处理重复值、缺失值、日期格式、字段拆分和异常口径，生成可分析表。
+- [表格分析与看板 Skill](https://hiic.ai/skills/spreadsheet-analysis-dashboard): 从 Excel/CSV 自动生成指标解释、透视表建议和轻量数据看板。
+- [咨询研究报告框架 Skill](https://hiic.ai/skills/consulting-report-outline): 把问题、背景材料和访谈线索整理成咨询报告目录、章节逻辑和证据表。
+- [市场扫描与竞品研究 Skill](https://hiic.ai/skills/market-research-scan): 快速梳理行业规模、竞争格局、代表企业、产品差异和机会点。
+- [政策简报撰写 Skill](https://hiic.ai/skills/policy-brief-writing): 把政策原文、新闻稿和专家观点整理成一页纸政策简报。
+- [领导摘要与一页纸 Skill](https://hiic.ai/skills/executive-summary-writing): 把长报告、会议材料和研究笔记压缩成领导可读的一页纸摘要。
+- [会议纪要与行动项 Skill](https://hiic.ai/skills/meeting-notes-action-items): 把录音转写、聊天记录和会议材料整理成纪要、决议和责任清单。
+- [SOP 流程文档 Skill](https://hiic.ai/skills/sop-process-documentation): 把口头经验和零散说明整理成步骤、角色、输入输出和检查点。
+- [财务模型复核 Skill](https://hiic.ai/skills/financial-model-review): 检查收入、成本、利润、现金流和关键假设之间的逻辑一致性。
+- [预算执行偏差分析 Skill](https://hiic.ai/skills/budget-variance-analysis): 对比预算、实际和上期数据，解释偏差来源并生成管理建议。
+- [营销活动 Brief Skill](https://hiic.ai/skills/marketing-campaign-brief): 把业务目标转成目标人群、核心卖点、内容主题、渠道和创意方向。
+- [营销设计审查 Skill](https://hiic.ai/skills/visual-creative-review): 从品牌一致性、信息层级、视觉焦点和转化动作检查海报、长图和页面。
+- [岗位 JD 与胜任力 Skill](https://hiic.ai/skills/hr-job-description): 把岗位目标、职责、任职要求和能力模型整理成可发布 JD。
+- [面试评分表 Skill](https://hiic.ai/skills/hr-interview-scorecard): 围绕岗位能力设计结构化面试题、评分标准和候选人对比表。
+- [采购比选与供应商评估 Skill](https://hiic.ai/skills/procurement-comparison): 把报价、方案、资质和服务条款整理成供应商比选矩阵。
+- [用户访谈综合 Skill](https://hiic.ai/skills/customer-research-synthesis): 把访谈记录整理成用户画像、痛点、需求证据和产品机会。
+- [图表审查与数据叙事 Skill](https://hiic.ai/skills/chart-review-data-story): 检查图表类型、指标口径、标题结论和读者能否一眼看懂。
+- [职场邮件与沟通润色 Skill](https://hiic.ai/skills/email-communication-polish): 把草稿改成清楚、礼貌、有行动项的邮件、通知和客户消息。
 
 ## tutorials
 

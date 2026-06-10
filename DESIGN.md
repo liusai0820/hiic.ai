@@ -13,6 +13,7 @@
 ## Logo
 
 - Header 使用正式机构锁定组合：`HIIC | 深圳国家高技术产业创新中心`，当前资产为 `public/brand/hiic-official-lockup-white.png`。
+- 当前 Header 只使用左侧 HIIC 标识：`public/brand/hiic-logo-mark-white.png`。如果用户提供新的公司 logo，优先替换这个文件，不改页面结构。
 - `AI Lab` 作为门户属性文字跟随 logo 出现，不替代正式机构 logo。
 - 不再使用临时星星图标或单独的 `AI` 方块作为主 logo。
 
@@ -77,6 +78,7 @@
 
 - 应用、Skill、教程、报告、专题可以使用卡片式布局。
 - 资讯/观察不使用卡片网格，优先使用时间轴或列表流，突出日期、主题和连续更新感。
+- AI 咨询实时动态优先从 AI HOT REST API 接入，RSS 作为公开来源入口，不把实时内容写死进 `content/portal.json`。
 - 每个栏目页都必须保留搜索、分类筛选和 Agent 索引入口。
 
 ### 详情页
@@ -97,6 +99,7 @@
 
 - 每条内容有独立 URL。
 - 构建时必须运行 `npm run generate:seo`。
+- 职场办公 Skill 必须按真实工作场景分类，例如职场办公、PPT 制作、数据处理、数据分析、咨询研究、研究报告、财务分析、行政协同、营销设计、人力资源。
 - 对外索引文件包括：
   - `public/sitemap.xml`
   - `public/feed.json`

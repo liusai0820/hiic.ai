@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CalendarDays, Filter, Search } from 'lucide-react';
 import { PageMeta } from '../components/PageMeta';
+import { AIConsultingLiveFeed } from '../components/AIConsultingLiveFeed';
 import { PortalFooter, PortalTopBar } from '../components/PortalPageChrome';
 import { XiaoqiGuide } from '../components/XiaoqiGuide';
 import {
@@ -214,6 +215,9 @@ export function ContentListPage({ kind }: ContentListPageProps) {
               <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
                 <InsightTimeline items={filteredItems} />
                 <div className="space-y-4">
+                  <div className="rounded-lg border border-[#c9d8ff] bg-white p-5">
+                    <AIConsultingLiveFeed fallbackItems={items.slice(0, 3)} />
+                  </div>
                   <XiaoqiGuide scene="insights" compact />
                   <div className="rounded-lg border border-[#c9d8ff] bg-white p-5">
                     <h2 className="text-sm font-bold text-slate-950">资讯维护提示</h2>

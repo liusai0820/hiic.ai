@@ -14,7 +14,12 @@
       "summary": "聚合全球顶级期刊与内部内参，AI 辅助快速提取核心观点与数据。",
       "description": "面向研究、产业观察和内部学习的智能阅读工作台，用统一入口沉淀可信资料、摘要与可追溯引用。",
       "category": "研究分析",
-      "tags": ["AI 阅读", "期刊", "内参", "研究分析"],
+      "tags": [
+        "AI 阅读",
+        "期刊",
+        "内参",
+        "研究分析"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-01-21",
       "updatedAt": "2026-06-10",
@@ -24,14 +29,31 @@
       "ctaUrl": "/library",
       "featured": true,
       "metrics": [
-        { "label": "资料源", "value": "20+" },
-        { "label": "阅读效率", "value": "3x" },
-        { "label": "可引用摘要", "value": "支持" }
+        {
+          "label": "资料源",
+          "value": "20+"
+        },
+        {
+          "label": "阅读效率",
+          "value": "3x"
+        },
+        {
+          "label": "可引用摘要",
+          "value": "支持"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 查找、摘要和引用研究资料。",
-        "inputs": ["期刊文章", "内部资料", "关键词"],
-        "outputs": ["摘要", "结构化观点", "引用线索"],
+        "inputs": [
+          "期刊文章",
+          "内部资料",
+          "关键词"
+        ],
+        "outputs": [
+          "摘要",
+          "结构化观点",
+          "引用线索"
+        ],
         "access": "public-route"
       },
       "sections": [
@@ -45,8 +67,14 @@
         }
       ],
       "related": [
-        { "kind": "report", "slug": "ai-industry-outlook-2026" },
-        { "kind": "skill", "slug": "research-synthesis" }
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        },
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        }
       ],
       "seo": {
         "title": "AI 智能阅览室 - HIIC AI Lab",
@@ -60,7 +88,11 @@
       "summary": "输入主题，一键生成专业演示文稿，支持多种模板风格。",
       "description": "把汇报主题、受众和结构要求转成可编辑的演示稿，降低从空白页到初稿的时间成本。",
       "category": "办公效率",
-      "tags": ["PPT", "汇报", "办公效率"],
+      "tags": [
+        "PPT",
+        "汇报",
+        "办公效率"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-01-10",
       "updatedAt": "2026-06-10",
@@ -70,14 +102,32 @@
       "ctaUrl": "https://ppt.hiic.ai",
       "featured": true,
       "metrics": [
-        { "label": "平均成稿", "value": "5 分钟" },
-        { "label": "模板风格", "value": "10+" },
-        { "label": "输出格式", "value": "PPTX" }
+        {
+          "label": "平均成稿",
+          "value": "5 分钟"
+        },
+        {
+          "label": "模板风格",
+          "value": "10+"
+        },
+        {
+          "label": "输出格式",
+          "value": "PPTX"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 根据主题生成汇报大纲和 PPT 初稿。",
-        "inputs": ["主题", "受众", "场景", "页数"],
-        "outputs": ["PPTX", "汇报大纲", "页级文案"],
+        "inputs": [
+          "主题",
+          "受众",
+          "场景",
+          "页数"
+        ],
+        "outputs": [
+          "PPTX",
+          "汇报大纲",
+          "页级文案"
+        ],
         "access": "external-link"
       },
       "sections": [
@@ -91,8 +141,14 @@
         }
       ],
       "related": [
-        { "kind": "tutorial", "slug": "ai-ppt-quickstart" },
-        { "kind": "skill", "slug": "prompt-engineering-practice" }
+        {
+          "kind": "tutorial",
+          "slug": "ai-ppt-quickstart"
+        },
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        }
       ],
       "seo": {
         "title": "AI 画 PPT - HIIC AI Lab",
@@ -106,7 +162,12 @@
       "summary": "智能分析并生成产业链上下游关系图谱，洞察产业全景。",
       "description": "围绕企业、产品、技术和区域资源生成产业链关系图，帮助研究者快速形成产业全景。",
       "category": "数据可视化",
-      "tags": ["产业链", "图谱", "数据可视化", "研究分析"],
+      "tags": [
+        "产业链",
+        "图谱",
+        "数据可视化",
+        "研究分析"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-01-15",
       "updatedAt": "2026-06-10",
@@ -116,14 +177,31 @@
       "ctaUrl": "https://chain.hiic.ai",
       "featured": true,
       "metrics": [
-        { "label": "输出图谱", "value": "上下游" },
-        { "label": "导出能力", "value": "PNG" },
-        { "label": "研究场景", "value": "产业分析" }
+        {
+          "label": "输出图谱",
+          "value": "上下游"
+        },
+        {
+          "label": "导出能力",
+          "value": "PNG"
+        },
+        {
+          "label": "研究场景",
+          "value": "产业分析"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 把产业资料转成上下游结构。",
-        "inputs": ["产业主题", "企业名单", "公开资料"],
-        "outputs": ["产业链节点", "关系图", "分析摘要"],
+        "inputs": [
+          "产业主题",
+          "企业名单",
+          "公开资料"
+        ],
+        "outputs": [
+          "产业链节点",
+          "关系图",
+          "分析摘要"
+        ],
         "access": "external-link"
       },
       "sections": [
@@ -137,8 +215,14 @@
         }
       ],
       "related": [
-        { "kind": "report", "slug": "industry-chain-methodology-2" },
-        { "kind": "tutorial", "slug": "industry-chain-map-workflow" }
+        {
+          "kind": "report",
+          "slug": "industry-chain-methodology-2"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "industry-chain-map-workflow"
+        }
       ],
       "seo": {
         "title": "AI 产业链图谱 - HIIC AI Lab",
@@ -152,7 +236,11 @@
       "summary": "输入文本自动生成结构化思维导图，理清思路更轻松。",
       "description": "将长文、会议记录或研究材料转为层级清晰的思维导图，帮助团队快速统一理解。",
       "category": "办公效率",
-      "tags": ["思维导图", "结构化", "办公效率"],
+      "tags": [
+        "思维导图",
+        "结构化",
+        "办公效率"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-01-15",
       "updatedAt": "2026-06-10",
@@ -162,14 +250,30 @@
       "ctaUrl": "https://md2xmind.onrender.com/",
       "featured": true,
       "metrics": [
-        { "label": "输入", "value": "长文本" },
-        { "label": "输出", "value": "XMind" },
-        { "label": "结构层级", "value": "自动" }
+        {
+          "label": "输入",
+          "value": "长文本"
+        },
+        {
+          "label": "输出",
+          "value": "XMind"
+        },
+        {
+          "label": "结构层级",
+          "value": "自动"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 将非结构化资料转为层级树。",
-        "inputs": ["长文本", "会议纪要", "文章"],
-        "outputs": ["思维导图", "层级大纲"],
+        "inputs": [
+          "长文本",
+          "会议纪要",
+          "文章"
+        ],
+        "outputs": [
+          "思维导图",
+          "层级大纲"
+        ],
         "access": "external-link"
       },
       "sections": [
@@ -183,7 +287,10 @@
         }
       ],
       "related": [
-        { "kind": "skill", "slug": "research-synthesis" }
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        }
       ],
       "seo": {
         "title": "AI 思维导图 - HIIC AI Lab",
@@ -197,7 +304,11 @@
       "summary": "内部项目评审打分系统，支持多维度权重、利益冲突回避和实时大屏展示。",
       "description": "围绕项目评审流程，提供标准化打分、权重配置、自动汇总与结果展示。",
       "category": "办公效率",
-      "tags": ["评审", "打分", "流程提效"],
+      "tags": [
+        "评审",
+        "打分",
+        "流程提效"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-01-27",
       "updatedAt": "2026-06-10",
@@ -207,14 +318,31 @@
       "ctaUrl": "https://dafen.hiic.ai",
       "featured": true,
       "metrics": [
-        { "label": "评审维度", "value": "可配置" },
-        { "label": "结果展示", "value": "实时" },
-        { "label": "流程风险", "value": "可回避" }
+        {
+          "label": "评审维度",
+          "value": "可配置"
+        },
+        {
+          "label": "结果展示",
+          "value": "实时"
+        },
+        {
+          "label": "流程风险",
+          "value": "可回避"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 理解评审标准并生成项目评审摘要。",
-        "inputs": ["评审标准", "项目材料", "打分记录"],
-        "outputs": ["评分结果", "评审摘要", "改进建议"],
+        "inputs": [
+          "评审标准",
+          "项目材料",
+          "打分记录"
+        ],
+        "outputs": [
+          "评分结果",
+          "评审摘要",
+          "改进建议"
+        ],
         "access": "external-link"
       },
       "sections": [
@@ -228,7 +356,10 @@
         }
       ],
       "related": [
-        { "kind": "skill", "slug": "agent-workflow" }
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        }
       ],
       "seo": {
         "title": "AI 智能评审 - HIIC AI Lab",
@@ -242,7 +373,11 @@
       "summary": "每日精炼市场情报，帮助团队快速掌握全球市场脉动。",
       "description": "自动汇总多市场信息，形成适合晨会和投研跟踪的每日摘要。",
       "category": "研究分析",
-      "tags": ["每日简报", "市场情报", "研究分析"],
+      "tags": [
+        "每日简报",
+        "市场情报",
+        "研究分析"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-01-27",
       "updatedAt": "2026-06-10",
@@ -252,14 +387,31 @@
       "ctaUrl": "https://daily.hiic.ai",
       "featured": true,
       "metrics": [
-        { "label": "阅读时间", "value": "5 分钟" },
-        { "label": "覆盖市场", "value": "多市场" },
-        { "label": "更新频率", "value": "每日" }
+        {
+          "label": "阅读时间",
+          "value": "5 分钟"
+        },
+        {
+          "label": "覆盖市场",
+          "value": "多市场"
+        },
+        {
+          "label": "更新频率",
+          "value": "每日"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 获取每日市场摘要和重点线索。",
-        "inputs": ["市场数据", "新闻源", "关注资产"],
-        "outputs": ["简报", "重点变化", "风险提示"],
+        "inputs": [
+          "市场数据",
+          "新闻源",
+          "关注资产"
+        ],
+        "outputs": [
+          "简报",
+          "重点变化",
+          "风险提示"
+        ],
         "access": "external-link"
       },
       "sections": [
@@ -273,7 +425,10 @@
         }
       ],
       "related": [
-        { "kind": "insight", "slug": "ai-workbench-adoption" }
+        {
+          "kind": "insight",
+          "slug": "ai-workbench-adoption"
+        }
       ],
       "seo": {
         "title": "AI 每日简报 - HIIC AI Lab",
@@ -287,7 +442,11 @@
       "summary": "基于资料和数据生成专业研究报告，提升研究效率。",
       "description": "面向研究团队的报告生成工作流，重点在大纲、资料整理、图表建议和结论表达。",
       "category": "研究分析",
-      "tags": ["研究报告", "自动写作", "资料整理"],
+      "tags": [
+        "研究报告",
+        "自动写作",
+        "资料整理"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-02-01",
       "updatedAt": "2026-06-10",
@@ -297,14 +456,31 @@
       "ctaUrl": "#contact",
       "featured": false,
       "metrics": [
-        { "label": "状态", "value": "筹备中" },
-        { "label": "目标", "value": "研究提效" },
-        { "label": "输出", "value": "报告初稿" }
+        {
+          "label": "状态",
+          "value": "筹备中"
+        },
+        {
+          "label": "目标",
+          "value": "研究提效"
+        },
+        {
+          "label": "输出",
+          "value": "报告初稿"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 生成研究报告结构和段落初稿。",
-        "inputs": ["研究问题", "资料包", "数据表"],
-        "outputs": ["报告大纲", "章节初稿", "图表建议"],
+        "inputs": [
+          "研究问题",
+          "资料包",
+          "数据表"
+        ],
+        "outputs": [
+          "报告大纲",
+          "章节初稿",
+          "图表建议"
+        ],
         "access": "planned"
       },
       "sections": [
@@ -314,7 +490,10 @@
         }
       ],
       "related": [
-        { "kind": "report", "slug": "ai-industry-outlook-2026" }
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        }
       ],
       "seo": {
         "title": "AI 研究报告 - HIIC AI Lab",
@@ -328,7 +507,11 @@
       "summary": "智能分析数据并生成可视化图表，让数据会说话。",
       "description": "从表格数据出发，自动推荐可视化表达、洞察摘要和图表说明。",
       "category": "数据可视化",
-      "tags": ["图表", "数据分析", "可视化"],
+      "tags": [
+        "图表",
+        "数据分析",
+        "可视化"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-02-01",
       "updatedAt": "2026-06-10",
@@ -338,14 +521,31 @@
       "ctaUrl": "#contact",
       "featured": false,
       "metrics": [
-        { "label": "状态", "value": "筹备中" },
-        { "label": "输入", "value": "表格" },
-        { "label": "输出", "value": "图表" }
+        {
+          "label": "状态",
+          "value": "筹备中"
+        },
+        {
+          "label": "输入",
+          "value": "表格"
+        },
+        {
+          "label": "输出",
+          "value": "图表"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 将结构化数据转成图表和解释。",
-        "inputs": ["CSV", "Excel", "指标口径"],
-        "outputs": ["图表", "洞察摘要", "口径说明"],
+        "inputs": [
+          "CSV",
+          "Excel",
+          "指标口径"
+        ],
+        "outputs": [
+          "图表",
+          "洞察摘要",
+          "口径说明"
+        ],
         "access": "planned"
       },
       "sections": [
@@ -355,7 +555,10 @@
         }
       ],
       "related": [
-        { "kind": "skill", "slug": "research-synthesis" }
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        }
       ],
       "seo": {
         "title": "AI 数据图表 - HIIC AI Lab",
@@ -369,7 +572,11 @@
       "summary": "基于语义理解的智能文档检索，快速定位关键信息。",
       "description": "为内部资料、制度文件和项目文档建立语义检索能力，减少重复查找时间。",
       "category": "研究分析",
-      "tags": ["语义检索", "知识库", "RAG"],
+      "tags": [
+        "语义检索",
+        "知识库",
+        "RAG"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-02-01",
       "updatedAt": "2026-06-10",
@@ -379,14 +586,31 @@
       "ctaUrl": "#contact",
       "featured": false,
       "metrics": [
-        { "label": "状态", "value": "筹备中" },
-        { "label": "检索方式", "value": "语义" },
-        { "label": "引用", "value": "可追溯" }
+        {
+          "label": "状态",
+          "value": "筹备中"
+        },
+        {
+          "label": "检索方式",
+          "value": "语义"
+        },
+        {
+          "label": "引用",
+          "value": "可追溯"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 在知识库中定位答案和引用来源。",
-        "inputs": ["文档库", "问题", "过滤条件"],
-        "outputs": ["答案", "引用", "相关文档"],
+        "inputs": [
+          "文档库",
+          "问题",
+          "过滤条件"
+        ],
+        "outputs": [
+          "答案",
+          "引用",
+          "相关文档"
+        ],
         "access": "planned"
       },
       "sections": [
@@ -396,7 +620,10 @@
         }
       ],
       "related": [
-        { "kind": "skill", "slug": "rag-knowledge-base" }
+        {
+          "kind": "skill",
+          "slug": "rag-knowledge-base"
+        }
       ],
       "seo": {
         "title": "AI 智能检索 - HIIC AI Lab",
@@ -410,7 +637,11 @@
       "summary": "从目标、上下文、约束和验收标准四个维度写出可复用提示词。",
       "description": "面向非技术同事的提示词方法，把抽象需求转成可执行、可复盘、可复制的 AI 协作指令。",
       "category": "入门",
-      "tags": ["Prompt", "AI 协作", "入门"],
+      "tags": [
+        "Prompt",
+        "AI 协作",
+        "入门"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-10",
       "updatedAt": "2026-06-10",
@@ -420,14 +651,30 @@
       "ctaUrl": "/skills/prompt-engineering-practice",
       "featured": true,
       "metrics": [
-        { "label": "阅读时间", "value": "12 分钟" },
-        { "label": "难度", "value": "入门" },
-        { "label": "模板", "value": "4 个" }
+        {
+          "label": "阅读时间",
+          "value": "12 分钟"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "模板",
+          "value": "4 个"
+        }
       ],
       "agent": {
         "purpose": "为 agent 提供统一的提示词模板和验收标准。",
-        "inputs": ["任务目标", "上下文", "约束"],
-        "outputs": ["可执行 prompt", "验收清单"],
+        "inputs": [
+          "任务目标",
+          "上下文",
+          "约束"
+        ],
+        "outputs": [
+          "可执行 prompt",
+          "验收清单"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -441,8 +688,14 @@
         }
       ],
       "related": [
-        { "kind": "tutorial", "slug": "ai-ppt-quickstart" },
-        { "kind": "skill", "slug": "agent-workflow" }
+        {
+          "kind": "tutorial",
+          "slug": "ai-ppt-quickstart"
+        },
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        }
       ],
       "seo": {
         "title": "提示词工程实战指南 - HIIC AI Lab",
@@ -456,7 +709,11 @@
       "summary": "把文档库、检索、引用和答案生成串成可落地的知识问答流程。",
       "description": "面向知识库建设者的 RAG 方法，重点讲清资料整理、切片、检索、引用和权限边界。",
       "category": "进阶",
-      "tags": ["RAG", "知识库", "检索增强"],
+      "tags": [
+        "RAG",
+        "知识库",
+        "检索增强"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-18",
       "updatedAt": "2026-06-10",
@@ -466,14 +723,31 @@
       "ctaUrl": "/skills/rag-knowledge-base",
       "featured": true,
       "metrics": [
-        { "label": "阅读时间", "value": "18 分钟" },
-        { "label": "难度", "value": "进阶" },
-        { "label": "流程图", "value": "支持" }
+        {
+          "label": "阅读时间",
+          "value": "18 分钟"
+        },
+        {
+          "label": "难度",
+          "value": "进阶"
+        },
+        {
+          "label": "流程图",
+          "value": "支持"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 按统一口径理解 RAG 系统设计。",
-        "inputs": ["文档集合", "问题", "权限规则"],
-        "outputs": ["答案", "引用", "检索日志"],
+        "inputs": [
+          "文档集合",
+          "问题",
+          "权限规则"
+        ],
+        "outputs": [
+          "答案",
+          "引用",
+          "检索日志"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -487,8 +761,14 @@
         }
       ],
       "related": [
-        { "kind": "app", "slug": "search" },
-        { "kind": "tutorial", "slug": "knowledge-base-checklist" }
+        {
+          "kind": "app",
+          "slug": "search"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "knowledge-base-checklist"
+        }
       ],
       "seo": {
         "title": "RAG 检索增强生成实战 - HIIC AI Lab",
@@ -502,7 +782,11 @@
       "summary": "把复杂任务拆成角色、工具、状态和验收节点，让 AI 工作流真正跑起来。",
       "description": "面向内部创新项目的 Agent 工作流方法，帮助把一次性 prompt 变成可重复执行的流程。",
       "category": "进阶",
-      "tags": ["Agent", "工作流", "自动化"],
+      "tags": [
+        "Agent",
+        "工作流",
+        "自动化"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-22",
       "updatedAt": "2026-06-10",
@@ -512,14 +796,31 @@
       "ctaUrl": "/skills/agent-workflow",
       "featured": true,
       "metrics": [
-        { "label": "阅读时间", "value": "22 分钟" },
-        { "label": "难度", "value": "进阶" },
-        { "label": "案例", "value": "3 个" }
+        {
+          "label": "阅读时间",
+          "value": "22 分钟"
+        },
+        {
+          "label": "难度",
+          "value": "进阶"
+        },
+        {
+          "label": "案例",
+          "value": "3 个"
+        }
       ],
       "agent": {
         "purpose": "为 agent 工作流提供任务拆解和验收框架。",
-        "inputs": ["业务目标", "工具清单", "角色边界"],
-        "outputs": ["流程图", "任务状态", "交付物"],
+        "inputs": [
+          "业务目标",
+          "工具清单",
+          "角色边界"
+        ],
+        "outputs": [
+          "流程图",
+          "任务状态",
+          "交付物"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -533,8 +834,14 @@
         }
       ],
       "related": [
-        { "kind": "collection", "slug": "super-opc" },
-        { "kind": "app", "slug": "smartscore" }
+        {
+          "kind": "collection",
+          "slug": "super-opc"
+        },
+        {
+          "kind": "app",
+          "slug": "smartscore"
+        }
       ],
       "seo": {
         "title": "Agent 工作流设计 - HIIC AI Lab",
@@ -548,7 +855,11 @@
       "summary": "把多来源资料整理成观点、证据和结论，减少信息堆砌。",
       "description": "帮助研究团队从材料阅读走向判断形成，适合报告、内参和方案写作前的资料整理。",
       "category": "实战",
-      "tags": ["研究", "资料整理", "综合分析"],
+      "tags": [
+        "研究",
+        "资料整理",
+        "综合分析"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-25",
       "updatedAt": "2026-06-10",
@@ -558,14 +869,31 @@
       "ctaUrl": "/skills/research-synthesis",
       "featured": true,
       "metrics": [
-        { "label": "阅读时间", "value": "14 分钟" },
-        { "label": "难度", "value": "实战" },
-        { "label": "适用", "value": "研究报告" }
+        {
+          "label": "阅读时间",
+          "value": "14 分钟"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "适用",
+          "value": "研究报告"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 将资料综合成观点和证据链。",
-        "inputs": ["资料清单", "研究问题", "输出模板"],
-        "outputs": ["观点清单", "证据表", "报告大纲"],
+        "inputs": [
+          "资料清单",
+          "研究问题",
+          "输出模板"
+        ],
+        "outputs": [
+          "观点清单",
+          "证据表",
+          "报告大纲"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -579,12 +907,1550 @@
         }
       ],
       "related": [
-        { "kind": "app", "slug": "library" },
-        { "kind": "report", "slug": "ai-industry-outlook-2026" }
+        {
+          "kind": "app",
+          "slug": "library"
+        },
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        }
       ],
       "seo": {
         "title": "研究资料综合方法 - HIIC AI Lab",
         "description": "把多来源资料整理成观点、证据和结论的 AI 研究方法。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "office-document-processing",
+      "title": "Office 文档处理 Skill",
+      "summary": "面向 Word、PDF、PPT、Excel 的通用文档读取、编辑、转换和摘要工作流。",
+      "description": "把日常 Office 文件处理标准化，适合合同摘要、材料转换、批量格式整理和跨格式内容提取。",
+      "category": "职场办公",
+      "tags": [
+        "Office",
+        "DOCX",
+        "PDF",
+        "PPTX",
+        "XLSX"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/office-document-processing",
+      "featured": true,
+      "metrics": [
+        {
+          "label": "覆盖格式",
+          "value": "4 类"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "适用",
+          "value": "全员"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 按统一流程处理 Office 文档和跨格式转换。",
+        "inputs": [
+          "Word/PDF/PPT/Excel 文件",
+          "处理目标",
+          "输出格式"
+        ],
+        "outputs": [
+          "结构化摘要",
+          "可编辑文档",
+          "转换结果"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合处理 Word、PDF、PPT 和 Excel 之间的读取、摘要、批注、转换与重排，优先服务日常办公流。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先识别文件类型和权限边界，再抽取正文、表格、图像和备注，最后按目标输出为摘要、Markdown、Office 文件或任务清单。"
+        },
+        {
+          "heading": "来源参考",
+          "body": "参考 Anthropic Claude Skills Cookbook 对 Excel、PowerPoint、PDF 工作流的介绍，以及 Office Skills 社区合集中的 DOCX、PPTX、XLSX、PDF 处理范式。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        }
+      ],
+      "seo": {
+        "title": "Office 文档处理 Skill - HIIC AI Lab",
+        "description": "面向 Word、PDF、PPT、Excel 的通用文档读取、编辑、转换和摘要工作流。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "ppt-storyline-deck",
+      "title": "PPT 叙事与成稿 Skill",
+      "summary": "把主题、受众和素材转成演示故事线、页级大纲和可生成 PPT 的提示词。",
+      "description": "面向汇报、路演、培训和项目复盘，先搭结构再成稿，避免 AI 直接堆页面。",
+      "category": "PPT 制作",
+      "tags": [
+        "PPT",
+        "故事线",
+        "汇报"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/ppt-storyline-deck",
+      "featured": true,
+      "metrics": [
+        {
+          "label": "模板",
+          "value": "6 个"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "页级大纲"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 生成有逻辑的演示文稿结构和页级文案。",
+        "inputs": [
+          "汇报主题",
+          "受众",
+          "素材",
+          "页数"
+        ],
+        "outputs": [
+          "故事线",
+          "页级大纲",
+          "PPT 生成提示词"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合月度汇报、项目路演、培训课件和内部复盘，从“想讲什么”转成“每页怎么讲”。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先定义听众和结论，再拆成开场、问题、分析、方案、行动五段，最后输出每页标题、要点、图示建议和讲稿提示。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "每页只承载一个核心信息，图表服务结论，结尾必须有行动项或下一步。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "app",
+          "slug": "ppt"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "ai-ppt-quickstart"
+        }
+      ],
+      "seo": {
+        "title": "PPT 叙事与成稿 Skill - HIIC AI Lab",
+        "description": "把主题、受众和素材转成演示故事线、页级大纲和可生成 PPT 的提示词。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "excel-data-cleaning",
+      "title": "Excel 数据清洗 Skill",
+      "summary": "处理重复值、缺失值、日期格式、字段拆分和异常口径，生成可分析表。",
+      "description": "面向业务同事的表格清洗流程，帮助把杂乱 Excel 变成可统计、可透视、可复核的数据。",
+      "category": "数据处理",
+      "tags": [
+        "Excel",
+        "数据清洗",
+        "表格"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/excel-data-cleaning",
+      "featured": true,
+      "metrics": [
+        {
+          "label": "清洗项",
+          "value": "12 类"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "清洗表"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 识别并修复常见表格质量问题。",
+        "inputs": [
+          "Excel 表格",
+          "字段说明",
+          "统计口径"
+        ],
+        "outputs": [
+          "清洗后表格",
+          "异常记录",
+          "口径说明"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合报名表、调研表、财务流水、客户清单和项目台账的第一轮整理。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先备份原表，再识别列类型、重复记录、空值、日期和金额格式，最后输出清洗日志和可追溯修改说明。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "清洗后的表必须保留原始 ID、字段含义清晰、异常值有单独列表，不能直接覆盖原始数据。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "app",
+          "slug": "mind"
+        },
+        {
+          "kind": "skill",
+          "slug": "spreadsheet-analysis-dashboard"
+        }
+      ],
+      "seo": {
+        "title": "Excel 数据清洗 Skill - HIIC AI Lab",
+        "description": "处理重复值、缺失值、日期格式、字段拆分和异常口径，生成可分析表。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "spreadsheet-analysis-dashboard",
+      "title": "表格分析与看板 Skill",
+      "summary": "从 Excel/CSV 自动生成指标解释、透视表建议和轻量数据看板。",
+      "description": "帮助业务同事把表格变成可讲的分析结果，适合周报、经营分析和项目跟踪。",
+      "category": "数据分析",
+      "tags": [
+        "数据分析",
+        "Dashboard",
+        "Excel"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/spreadsheet-analysis-dashboard",
+      "featured": true,
+      "metrics": [
+        {
+          "label": "指标",
+          "value": "8+"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "产出",
+          "value": "看板草图"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 从结构化表格中提炼指标和可视化方案。",
+        "inputs": [
+          "数据表",
+          "分析问题",
+          "维度字段"
+        ],
+        "outputs": [
+          "指标口径",
+          "图表建议",
+          "分析摘要"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合运营数据、项目进度、报名画像、客户分层和销售漏斗分析。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先识别时间、分类、金额、数量等字段，再建立核心指标，最后按趋势、结构、对比、排名输出图表建议。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "每个图表必须有业务问题、指标口径、分母说明和一句可复述结论。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "app",
+          "slug": "chain"
+        },
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        }
+      ],
+      "seo": {
+        "title": "表格分析与看板 Skill - HIIC AI Lab",
+        "description": "从 Excel/CSV 自动生成指标解释、透视表建议和轻量数据看板。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "consulting-report-outline",
+      "title": "咨询研究报告框架 Skill",
+      "summary": "把问题、背景材料和访谈线索整理成咨询报告目录、章节逻辑和证据表。",
+      "description": "面向咨询研究报告的前期搭框架流程，强调问题树、证据链和结论先行。",
+      "category": "咨询研究",
+      "tags": [
+        "咨询报告",
+        "问题树",
+        "研究框架"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/consulting-report-outline",
+      "featured": true,
+      "metrics": [
+        {
+          "label": "框架",
+          "value": "5 段式"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "产出",
+          "value": "报告大纲"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 快速搭建咨询研究报告的结构。",
+        "inputs": [
+          "研究问题",
+          "背景资料",
+          "访谈纪要"
+        ],
+        "outputs": [
+          "问题树",
+          "章节目录",
+          "证据表"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合产业研究、园区方案、客户诊断、项目复盘和领导汇报材料。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先把问题拆成 Why、What、How，再为每个章节配置证据、数据、案例和需要补充验证的问题。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "报告框架必须能回答一个明确问题，不能只是资料目录；每个结论至少对应一条证据。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        },
+        {
+          "kind": "app",
+          "slug": "library"
+        }
+      ],
+      "seo": {
+        "title": "咨询研究报告框架 Skill - HIIC AI Lab",
+        "description": "把问题、背景材料和访谈线索整理成咨询报告目录、章节逻辑和证据表。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "market-research-scan",
+      "title": "市场扫描与竞品研究 Skill",
+      "summary": "快速梳理行业规模、竞争格局、代表企业、产品差异和机会点。",
+      "description": "用于新行业、新产品、新客户的快速进入，帮助形成第一版市场判断。",
+      "category": "咨询研究",
+      "tags": [
+        "市场研究",
+        "竞品分析",
+        "产业扫描"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/market-research-scan",
+      "featured": true,
+      "metrics": [
+        {
+          "label": "维度",
+          "value": "7 个"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "产出",
+          "value": "扫描表"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 对市场和竞品做结构化扫描。",
+        "inputs": [
+          "行业关键词",
+          "目标公司",
+          "公开资料"
+        ],
+        "outputs": [
+          "市场地图",
+          "竞品表",
+          "机会判断"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合项目启动、客户拜访前准备、招商研究和新产品定位。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "按市场规模、增长驱动、客户痛点、代表玩家、商业模式、技术趋势和监管环境七个维度整理。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "输出中必须区分事实、估算和判断，并标注仍需验证的数据口径。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        },
+        {
+          "kind": "app",
+          "slug": "library"
+        }
+      ],
+      "seo": {
+        "title": "市场扫描与竞品研究 Skill - HIIC AI Lab",
+        "description": "快速梳理行业规模、竞争格局、代表企业、产品差异和机会点。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "policy-brief-writing",
+      "title": "政策简报撰写 Skill",
+      "summary": "把政策原文、新闻稿和专家观点整理成一页纸政策简报。",
+      "description": "面向政策研究和产业智库场景，帮助快速产出领导可读、口径清晰的政策解读。",
+      "category": "研究报告",
+      "tags": [
+        "政策",
+        "简报",
+        "智库写作"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/policy-brief-writing",
+      "featured": true,
+      "metrics": [
+        {
+          "label": "篇幅",
+          "value": "1-2 页"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "简报"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 将政策材料转为结构化简报。",
+        "inputs": [
+          "政策原文",
+          "新闻稿",
+          "地方背景"
+        ],
+        "outputs": [
+          "政策要点",
+          "影响判断",
+          "行动建议"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合政策快评、领导参阅、项目申报背景和产业机会判断。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先摘政策对象、时间、主体和约束，再拆解对企业、园区、产业链和项目的影响。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "简报必须有原文依据，不能把媒体解读写成政策事实。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "consulting-report-outline"
+        },
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        }
+      ],
+      "seo": {
+        "title": "政策简报撰写 Skill - HIIC AI Lab",
+        "description": "把政策原文、新闻稿和专家观点整理成一页纸政策简报。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "executive-summary-writing",
+      "title": "领导摘要与一页纸 Skill",
+      "summary": "把长报告、会议材料和研究笔记压缩成领导可读的一页纸摘要。",
+      "description": "帮助把复杂材料转成“结论、依据、风险、建议”四块内容，减少冗长铺垫。",
+      "category": "职场办公",
+      "tags": [
+        "摘要",
+        "一页纸",
+        "汇报"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/executive-summary-writing",
+      "featured": true,
+      "metrics": [
+        {
+          "label": "结构",
+          "value": "4 块"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "一页纸"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 将长材料压缩成高密度摘要。",
+        "inputs": [
+          "长文材料",
+          "读者身份",
+          "决策问题"
+        ],
+        "outputs": [
+          "领导摘要",
+          "行动建议",
+          "风险提示"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合会议前材料、报告送审、项目请示和客户沟通。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先定位读者关心的决策，再提炼三条结论、三条证据、两个风险和一个建议。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "摘要不超过一页，开头第一句话必须给结论，不能以背景介绍开场。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        },
+        {
+          "kind": "skill",
+          "slug": "office-document-processing"
+        }
+      ],
+      "seo": {
+        "title": "领导摘要与一页纸 Skill - HIIC AI Lab",
+        "description": "把长报告、会议材料和研究笔记压缩成领导可读的一页纸摘要。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "meeting-notes-action-items",
+      "title": "会议纪要与行动项 Skill",
+      "summary": "把录音转写、聊天记录和会议材料整理成纪要、决议和责任清单。",
+      "description": "面向行政、项目管理和团队协作，重点把讨论转成可追踪行动。",
+      "category": "行政协同",
+      "tags": [
+        "会议纪要",
+        "行动项",
+        "协作"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/meeting-notes-action-items",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "字段",
+          "value": "6 个"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "行动表"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 从会议材料中提取决策和任务。",
+        "inputs": [
+          "转写文本",
+          "会议议程",
+          "参会人"
+        ],
+        "outputs": [
+          "会议纪要",
+          "决议",
+          "行动项表"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合例会、项目会、客户会、复盘会和跨部门协调会。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "按议题整理讨论、结论、待办、负责人、截止时间和风险，模糊责任必须标记待确认。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "每个行动项至少包含负责人、交付物和截止时间；无法确定时不要猜。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "sop-process-documentation"
+        }
+      ],
+      "seo": {
+        "title": "会议纪要与行动项 Skill - HIIC AI Lab",
+        "description": "把录音转写、聊天记录和会议材料整理成纪要、决议和责任清单。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "sop-process-documentation",
+      "title": "SOP 流程文档 Skill",
+      "summary": "把口头经验和零散说明整理成步骤、角色、输入输出和检查点。",
+      "description": "用于行政、人力、财务、运营等重复流程沉淀，帮助新同事快速上手。",
+      "category": "行政协同",
+      "tags": [
+        "SOP",
+        "流程",
+        "知识沉淀"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/sop-process-documentation",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "模块",
+          "value": "8 个"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "SOP"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 把经验转成标准流程文档。",
+        "inputs": [
+          "流程说明",
+          "角色分工",
+          "常见问题"
+        ],
+        "outputs": [
+          "SOP 文档",
+          "检查清单",
+          "风险点"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合报销、采购、项目立项、入职、培训和资料归档流程。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "按目的、适用范围、角色、输入、步骤、输出、异常处理和验收标准八块整理。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "一个没有参与过流程的人，按 SOP 能完成 80% 以上操作。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "meeting-notes-action-items"
+        }
+      ],
+      "seo": {
+        "title": "SOP 流程文档 Skill - HIIC AI Lab",
+        "description": "把口头经验和零散说明整理成步骤、角色、输入输出和检查点。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "financial-model-review",
+      "title": "财务模型复核 Skill",
+      "summary": "检查收入、成本、利润、现金流和关键假设之间的逻辑一致性。",
+      "description": "用于商业计划、项目测算和投融资材料的财务表初检，降低公式和口径风险。",
+      "category": "财务分析",
+      "tags": [
+        "财务模型",
+        "测算",
+        "复核"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/financial-model-review",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "检查点",
+          "value": "15+"
+        },
+        {
+          "label": "难度",
+          "value": "进阶"
+        },
+        {
+          "label": "产出",
+          "value": "复核意见"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 审查财务模型的假设和公式风险。",
+        "inputs": [
+          "财务模型",
+          "假设说明",
+          "业务口径"
+        ],
+        "outputs": [
+          "问题清单",
+          "敏感性提示",
+          "修正建议"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合商业计划书、项目测算、投资分析和预算模型复核。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先读假设，再检查公式引用、单位、时间口径、增长率、毛利率、现金流和敏感性。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "复核结果必须指出问题位置、风险影响和建议修正方式。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "spreadsheet-analysis-dashboard"
+        },
+        {
+          "kind": "skill",
+          "slug": "excel-data-cleaning"
+        }
+      ],
+      "seo": {
+        "title": "财务模型复核 Skill - HIIC AI Lab",
+        "description": "检查收入、成本、利润、现金流和关键假设之间的逻辑一致性。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "budget-variance-analysis",
+      "title": "预算执行偏差分析 Skill",
+      "summary": "对比预算、实际和上期数据，解释偏差来源并生成管理建议。",
+      "description": "用于部门经营分析和财务月报，帮助把数据波动解释成可行动原因。",
+      "category": "财务分析",
+      "tags": [
+        "预算",
+        "偏差分析",
+        "月报"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/budget-variance-analysis",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "分析维度",
+          "value": "5 个"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "产出",
+          "value": "偏差报告"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 解释预算执行偏差。",
+        "inputs": [
+          "预算表",
+          "实际发生表",
+          "历史数据"
+        ],
+        "outputs": [
+          "偏差拆解",
+          "原因假设",
+          "管理建议"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合部门预算复盘、项目成本分析、经营月报和费用控制。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "按金额偏差、比例偏差、时间进度、结构变化和一次性因素拆解，避免只报数字不解释。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "每个重大偏差都要说明是否可控、是否持续、责任归属和下一步动作。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "spreadsheet-analysis-dashboard"
+        },
+        {
+          "kind": "skill",
+          "slug": "excel-data-cleaning"
+        }
+      ],
+      "seo": {
+        "title": "预算执行偏差分析 Skill - HIIC AI Lab",
+        "description": "对比预算、实际和上期数据，解释偏差来源并生成管理建议。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "marketing-campaign-brief",
+      "title": "营销活动 Brief Skill",
+      "summary": "把业务目标转成目标人群、核心卖点、内容主题、渠道和创意方向。",
+      "description": "面向市场、品牌和活动运营，帮助把模糊想法转成可执行营销简报。",
+      "category": "营销设计",
+      "tags": [
+        "营销",
+        "Brief",
+        "内容策划"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/marketing-campaign-brief",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "模块",
+          "value": "7 个"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "活动 brief"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 生成结构完整的营销活动简报。",
+        "inputs": [
+          "活动目标",
+          "产品/服务",
+          "目标用户"
+        ],
+        "outputs": [
+          "营销 brief",
+          "内容主题",
+          "渠道建议"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合线上活动、品牌传播、课程推广、产品发布和园区活动策划。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "按目标、受众、洞察、卖点、信息架构、渠道、物料清单七块输出。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "Brief 必须能让设计、文案和运营三方直接开工。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "executive-summary-writing"
+        },
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        }
+      ],
+      "seo": {
+        "title": "营销活动 Brief Skill - HIIC AI Lab",
+        "description": "把业务目标转成目标人群、核心卖点、内容主题、渠道和创意方向。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "visual-creative-review",
+      "title": "营销设计审查 Skill",
+      "summary": "从品牌一致性、信息层级、视觉焦点和转化动作检查海报、长图和页面。",
+      "description": "用于活动海报、社媒图、官网模块和宣传材料的发布前审查。",
+      "category": "营销设计",
+      "tags": [
+        "设计审查",
+        "品牌",
+        "转化"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/visual-creative-review",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "检查项",
+          "value": "10 个"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "产出",
+          "value": "修改建议"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 对营销视觉进行结构化审查。",
+        "inputs": [
+          "设计稿",
+          "目标受众",
+          "发布渠道"
+        ],
+        "outputs": [
+          "问题清单",
+          "优先级",
+          "修改建议"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合发布前检查海报、PPT 封面、活动页、社媒长图和官网模块。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "检查第一眼焦点、品牌色、标题层级、CTA、信息密度、移动端可读性和合规风险。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "建议必须可执行，按 P0/P1/P2 排序，不能只说“更高级”。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "executive-summary-writing"
+        },
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        }
+      ],
+      "seo": {
+        "title": "营销设计审查 Skill - HIIC AI Lab",
+        "description": "从品牌一致性、信息层级、视觉焦点和转化动作检查海报、长图和页面。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "hr-job-description",
+      "title": "岗位 JD 与胜任力 Skill",
+      "summary": "把岗位目标、职责、任职要求和能力模型整理成可发布 JD。",
+      "description": "面向人力和业务负责人，帮助把真实岗位需求写清楚，减少套话。",
+      "category": "人力资源",
+      "tags": [
+        "招聘",
+        "JD",
+        "胜任力"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/hr-job-description",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "模块",
+          "value": "6 个"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "JD"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 生成岗位 JD 和能力模型。",
+        "inputs": [
+          "岗位目标",
+          "团队背景",
+          "能力要求"
+        ],
+        "outputs": [
+          "岗位 JD",
+          "胜任力模型",
+          "面试重点"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合新岗位定义、招聘需求梳理、岗位说明书更新和面试准备。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先明确岗位要解决的问题，再写职责、必备能力、加分项、汇报关系、考核指标和面试题。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "JD 必须让候选人知道每天做什么、如何被评价、需要什么真实能力。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "meeting-notes-action-items"
+        },
+        {
+          "kind": "skill",
+          "slug": "executive-summary-writing"
+        }
+      ],
+      "seo": {
+        "title": "岗位 JD 与胜任力 Skill - HIIC AI Lab",
+        "description": "把岗位目标、职责、任职要求和能力模型整理成可发布 JD。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "hr-interview-scorecard",
+      "title": "面试评分表 Skill",
+      "summary": "围绕岗位能力设计结构化面试题、评分标准和候选人对比表。",
+      "description": "帮助面试从主观印象转向结构化证据，提高候选人比较的一致性。",
+      "category": "人力资源",
+      "tags": [
+        "面试",
+        "评分表",
+        "招聘"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/hr-interview-scorecard",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "维度",
+          "value": "5 个"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "产出",
+          "value": "评分表"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 生成结构化面试评分标准。",
+        "inputs": [
+          "岗位 JD",
+          "候选人简历",
+          "面试记录"
+        ],
+        "outputs": [
+          "面试题",
+          "评分表",
+          "候选人对比"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合多人面试、岗位候选人对比、校招评估和核心岗位复盘。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "按能力维度设计行为问题和追问，定义 1-5 分证据标准，面后生成风险与推荐结论。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "评分必须基于候选人证据，不能用“感觉不错”替代。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "meeting-notes-action-items"
+        },
+        {
+          "kind": "skill",
+          "slug": "executive-summary-writing"
+        }
+      ],
+      "seo": {
+        "title": "面试评分表 Skill - HIIC AI Lab",
+        "description": "围绕岗位能力设计结构化面试题、评分标准和候选人对比表。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "procurement-comparison",
+      "title": "采购比选与供应商评估 Skill",
+      "summary": "把报价、方案、资质和服务条款整理成供应商比选矩阵。",
+      "description": "用于行政采购、软件选型和服务商比较，帮助形成透明可追溯的选择依据。",
+      "category": "行政协同",
+      "tags": [
+        "采购",
+        "供应商",
+        "比选"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/procurement-comparison",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "维度",
+          "value": "8 个"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "比选表"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 生成供应商比选表和推荐理由。",
+        "inputs": [
+          "报价单",
+          "服务方案",
+          "评估标准"
+        ],
+        "outputs": [
+          "比选矩阵",
+          "风险提示",
+          "推荐意见"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合办公用品、软件订阅、活动服务、咨询服务和技术供应商比选。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "按价格、能力、交付、案例、服务、风险、合同条款和长期可维护性评估。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "推荐意见必须解释取舍，而不是只选最低价。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "meeting-notes-action-items"
+        },
+        {
+          "kind": "skill",
+          "slug": "sop-process-documentation"
+        }
+      ],
+      "seo": {
+        "title": "采购比选与供应商评估 Skill - HIIC AI Lab",
+        "description": "把报价、方案、资质和服务条款整理成供应商比选矩阵。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "customer-research-synthesis",
+      "title": "用户访谈综合 Skill",
+      "summary": "把访谈记录整理成用户画像、痛点、需求证据和产品机会。",
+      "description": "适合产品设计、服务优化和客户研究，把零散访谈转成结构化洞察。",
+      "category": "咨询研究",
+      "tags": [
+        "用户研究",
+        "访谈",
+        "需求洞察"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/customer-research-synthesis",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "样本",
+          "value": "N 份"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "产出",
+          "value": "洞察表"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 综合访谈材料并形成用户洞察。",
+        "inputs": [
+          "访谈记录",
+          "研究问题",
+          "用户背景"
+        ],
+        "outputs": [
+          "用户画像",
+          "痛点聚类",
+          "机会点"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合产品需求调研、客户满意度分析、服务流程优化和新业务探索。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先逐份提取事实，再按主题聚类，最后把高频痛点转成需求、证据和机会判断。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "每条洞察都必须回连到原始访谈证据，避免把研究者想法当用户声音。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        },
+        {
+          "kind": "app",
+          "slug": "library"
+        }
+      ],
+      "seo": {
+        "title": "用户访谈综合 Skill - HIIC AI Lab",
+        "description": "把访谈记录整理成用户画像、痛点、需求证据和产品机会。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "chart-review-data-story",
+      "title": "图表审查与数据叙事 Skill",
+      "summary": "检查图表类型、指标口径、标题结论和读者能否一眼看懂。",
+      "description": "用于报告、PPT 和看板发布前的数据可视化审查，避免图表漂亮但不说明问题。",
+      "category": "数据分析",
+      "tags": [
+        "图表",
+        "数据叙事",
+        "可视化"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/chart-review-data-story",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "检查点",
+          "value": "9 个"
+        },
+        {
+          "label": "难度",
+          "value": "实战"
+        },
+        {
+          "label": "产出",
+          "value": "图表建议"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 审查图表是否支撑业务结论。",
+        "inputs": [
+          "图表截图",
+          "源数据",
+          "业务问题"
+        ],
+        "outputs": [
+          "图表问题",
+          "标题建议",
+          "替代图表"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合经营看板、研究报告、PPT 图表和数据新闻式展示。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "检查图表类型、轴标签、单位、排序、颜色、样本量、异常值和标题是否直接讲结论。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "读者不看正文也能知道图表回答了什么问题。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "app",
+          "slug": "chain"
+        },
+        {
+          "kind": "skill",
+          "slug": "research-synthesis"
+        }
+      ],
+      "seo": {
+        "title": "图表审查与数据叙事 Skill - HIIC AI Lab",
+        "description": "检查图表类型、指标口径、标题结论和读者能否一眼看懂。"
+      }
+    },
+    {
+      "kind": "skill",
+      "slug": "email-communication-polish",
+      "title": "职场邮件与沟通润色 Skill",
+      "summary": "把草稿改成清楚、礼貌、有行动项的邮件、通知和客户消息。",
+      "description": "帮助日常沟通减少误会，适合跨部门协作、客户跟进和正式通知。",
+      "category": "职场办公",
+      "tags": [
+        "邮件",
+        "沟通",
+        "客户消息"
+      ],
+      "author": "HIIC AI Lab",
+      "date": "2026-06-11",
+      "updatedAt": "2026-06-11",
+      "status": "published",
+      "cover": "/reports/ai-industry-outlook-2026.jpg",
+      "ctaLabel": "查看 Skill",
+      "ctaUrl": "/skills/email-communication-polish",
+      "featured": false,
+      "metrics": [
+        {
+          "label": "语气",
+          "value": "4 档"
+        },
+        {
+          "label": "难度",
+          "value": "入门"
+        },
+        {
+          "label": "产出",
+          "value": "可发送文本"
+        }
+      ],
+      "agent": {
+        "purpose": "帮助 agent 生成适合场景的职场沟通文本。",
+        "inputs": [
+          "草稿",
+          "对象",
+          "目的",
+          "语气"
+        ],
+        "outputs": [
+          "润色稿",
+          "标题建议",
+          "行动项"
+        ],
+        "access": "public-page"
+      },
+      "sections": [
+        {
+          "heading": "适用场景",
+          "body": "适合客户跟进、跨部门协调、会议通知、催办和正式说明。"
+        },
+        {
+          "heading": "执行流程",
+          "body": "先判断关系和目的，再压缩背景、明确请求、给出截止时间和下一步。"
+        },
+        {
+          "heading": "验收标准",
+          "body": "对方看完应知道为什么收到、要做什么、什么时候回复。"
+        }
+      ],
+      "related": [
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        },
+        {
+          "kind": "skill",
+          "slug": "office-document-processing"
+        }
+      ],
+      "seo": {
+        "title": "职场邮件与沟通润色 Skill - HIIC AI Lab",
+        "description": "把草稿改成清楚、礼貌、有行动项的邮件、通知和客户消息。"
       }
     },
     {
@@ -594,7 +2460,11 @@
       "summary": "5 分钟完成从主题输入到 PPTX 下载的完整流程。",
       "description": "适合第一次使用 AI 画 PPT 的同事，按步骤完成一次可编辑演示稿生成。",
       "category": "快速入门",
-      "tags": ["PPT", "教程", "办公效率"],
+      "tags": [
+        "PPT",
+        "教程",
+        "办公效率"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-12",
       "updatedAt": "2026-06-10",
@@ -604,14 +2474,30 @@
       "ctaUrl": "https://ppt.hiic.ai",
       "featured": true,
       "metrics": [
-        { "label": "学习时间", "value": "5 分钟" },
-        { "label": "步骤", "value": "4 步" },
-        { "label": "产出", "value": "PPTX" }
+        {
+          "label": "学习时间",
+          "value": "5 分钟"
+        },
+        {
+          "label": "步骤",
+          "value": "4 步"
+        },
+        {
+          "label": "产出",
+          "value": "PPTX"
+        }
       ],
       "agent": {
         "purpose": "提供给 agent 的 AI 画 PPT 使用流程说明。",
-        "inputs": ["主题", "模板风格", "页数"],
-        "outputs": ["PPT 初稿", "可编辑文件"],
+        "inputs": [
+          "主题",
+          "模板风格",
+          "页数"
+        ],
+        "outputs": [
+          "PPT 初稿",
+          "可编辑文件"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -629,8 +2515,14 @@
         }
       ],
       "related": [
-        { "kind": "app", "slug": "ppt" },
-        { "kind": "skill", "slug": "prompt-engineering-practice" }
+        {
+          "kind": "app",
+          "slug": "ppt"
+        },
+        {
+          "kind": "skill",
+          "slug": "prompt-engineering-practice"
+        }
       ],
       "seo": {
         "title": "AI 画 PPT 快速入门 - HIIC AI Lab",
@@ -644,7 +2536,11 @@
       "summary": "用一个产业主题生成上下游图谱，并复核节点与关系。",
       "description": "适合产业研究和招商场景，把产业链图谱工具纳入可复用研究流程。",
       "category": "应用场景",
-      "tags": ["产业链", "教程", "图谱"],
+      "tags": [
+        "产业链",
+        "教程",
+        "图谱"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-19",
       "updatedAt": "2026-06-10",
@@ -654,14 +2550,31 @@
       "ctaUrl": "https://chain.hiic.ai",
       "featured": true,
       "metrics": [
-        { "label": "学习时间", "value": "10 分钟" },
-        { "label": "步骤", "value": "5 步" },
-        { "label": "产出", "value": "图谱" }
+        {
+          "label": "学习时间",
+          "value": "10 分钟"
+        },
+        {
+          "label": "步骤",
+          "value": "5 步"
+        },
+        {
+          "label": "产出",
+          "value": "图谱"
+        }
       ],
       "agent": {
         "purpose": "说明产业链图谱生成和人工复核流程。",
-        "inputs": ["产业主题", "企业名单", "资料链接"],
-        "outputs": ["节点清单", "关系图", "复核表"],
+        "inputs": [
+          "产业主题",
+          "企业名单",
+          "资料链接"
+        ],
+        "outputs": [
+          "节点清单",
+          "关系图",
+          "复核表"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -675,8 +2588,14 @@
         }
       ],
       "related": [
-        { "kind": "app", "slug": "chain" },
-        { "kind": "report", "slug": "industry-chain-methodology-2" }
+        {
+          "kind": "app",
+          "slug": "chain"
+        },
+        {
+          "kind": "report",
+          "slug": "industry-chain-methodology-2"
+        }
       ],
       "seo": {
         "title": "产业链图谱生成流程 - HIIC AI Lab",
@@ -690,7 +2609,11 @@
       "summary": "从资料边界、权限、引用和更新机制检查知识库是否可用。",
       "description": "适合准备上线 RAG 或知识问答系统前使用，避免只做演示不做长期维护。",
       "category": "检查表",
-      "tags": ["知识库", "RAG", "检查表"],
+      "tags": [
+        "知识库",
+        "RAG",
+        "检查表"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-26",
       "updatedAt": "2026-06-10",
@@ -700,14 +2623,31 @@
       "ctaUrl": "/skills/rag-knowledge-base",
       "featured": true,
       "metrics": [
-        { "label": "学习时间", "value": "8 分钟" },
-        { "label": "检查项", "value": "12 个" },
-        { "label": "适用", "value": "上线前" }
+        {
+          "label": "学习时间",
+          "value": "8 分钟"
+        },
+        {
+          "label": "检查项",
+          "value": "12 个"
+        },
+        {
+          "label": "适用",
+          "value": "上线前"
+        }
       ],
       "agent": {
         "purpose": "为 agent 提供知识库上线前检查清单。",
-        "inputs": ["资料库", "权限规则", "更新计划"],
-        "outputs": ["检查结果", "风险项", "修复建议"],
+        "inputs": [
+          "资料库",
+          "权限规则",
+          "更新计划"
+        ],
+        "outputs": [
+          "检查结果",
+          "风险项",
+          "修复建议"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -721,8 +2661,14 @@
         }
       ],
       "related": [
-        { "kind": "skill", "slug": "rag-knowledge-base" },
-        { "kind": "app", "slug": "search" }
+        {
+          "kind": "skill",
+          "slug": "rag-knowledge-base"
+        },
+        {
+          "kind": "app",
+          "slug": "search"
+        }
       ],
       "seo": {
         "title": "企业知识库上线检查表 - HIIC AI Lab",
@@ -736,7 +2682,11 @@
       "summary": "企业 AI 门户的价值不在于放多少工具，而在于能否沉淀流程、案例和复用资产。",
       "description": "一篇关于企业 AI 门户建设的观察：从工具入口、能力地图到组织协作机制。",
       "category": "组织应用",
-      "tags": ["AI 门户", "组织能力", "应用落地"],
+      "tags": [
+        "AI 门户",
+        "组织能力",
+        "应用落地"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-06-01",
       "updatedAt": "2026-06-10",
@@ -746,14 +2696,31 @@
       "ctaUrl": "/insights/ai-workbench-adoption",
       "featured": true,
       "metrics": [
-        { "label": "阅读时间", "value": "6 分钟" },
-        { "label": "主题", "value": "门户建设" },
-        { "label": "对象", "value": "管理者" }
+        {
+          "label": "阅读时间",
+          "value": "6 分钟"
+        },
+        {
+          "label": "主题",
+          "value": "门户建设"
+        },
+        {
+          "label": "对象",
+          "value": "管理者"
+        }
       ],
       "agent": {
         "purpose": "解释 HIIC AI 门户的定位和组织价值。",
-        "inputs": ["工具清单", "流程案例", "组织目标"],
-        "outputs": ["门户定位", "能力地图", "建设建议"],
+        "inputs": [
+          "工具清单",
+          "流程案例",
+          "组织目标"
+        ],
+        "outputs": [
+          "门户定位",
+          "能力地图",
+          "建设建议"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -767,8 +2734,14 @@
         }
       ],
       "related": [
-        { "kind": "collection", "slug": "super-opc" },
-        { "kind": "skill", "slug": "agent-workflow" }
+        {
+          "kind": "collection",
+          "slug": "super-opc"
+        },
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        }
       ],
       "seo": {
         "title": "AI 工作台从工具集合走向组织能力 - HIIC AI Lab",
@@ -782,7 +2755,11 @@
       "summary": "当推理和生成成本持续下降，真正的竞争点会转向流程设计、数据质量和业务闭环。",
       "description": "面向 AI 应用负责人的观察：成本不是终点，业务闭环才是应用能否长期存在的理由。",
       "category": "产业观察",
-      "tags": ["模型成本", "业务价值", "AI 应用"],
+      "tags": [
+        "模型成本",
+        "业务价值",
+        "AI 应用"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-30",
       "updatedAt": "2026-06-10",
@@ -792,14 +2769,31 @@
       "ctaUrl": "/insights/model-cost-and-business-value",
       "featured": true,
       "metrics": [
-        { "label": "阅读时间", "value": "5 分钟" },
-        { "label": "主题", "value": "商业化" },
-        { "label": "对象", "value": "应用团队" }
+        {
+          "label": "阅读时间",
+          "value": "5 分钟"
+        },
+        {
+          "label": "主题",
+          "value": "商业化"
+        },
+        {
+          "label": "对象",
+          "value": "应用团队"
+        }
       ],
       "agent": {
         "purpose": "总结模型成本变化对 AI 应用建设的影响。",
-        "inputs": ["成本趋势", "业务流程", "应用案例"],
-        "outputs": ["判断", "建设建议", "风险提示"],
+        "inputs": [
+          "成本趋势",
+          "业务流程",
+          "应用案例"
+        ],
+        "outputs": [
+          "判断",
+          "建设建议",
+          "风险提示"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -813,8 +2807,14 @@
         }
       ],
       "related": [
-        { "kind": "app", "slug": "daily-digest" },
-        { "kind": "report", "slug": "enterprise-agent-path" }
+        {
+          "kind": "app",
+          "slug": "daily-digest"
+        },
+        {
+          "kind": "report",
+          "slug": "enterprise-agent-path"
+        }
       ],
       "seo": {
         "title": "模型成本下降后，AI 应用重新回到业务价值 - HIIC AI Lab",
@@ -828,7 +2828,11 @@
       "summary": "知识库建设要先回答资料边界、引用、更新和权限，而不是盲目把文档全部塞进去。",
       "description": "一篇关于企业知识库建设的实践观察，强调可信、可追溯和可维护。",
       "category": "知识管理",
-      "tags": ["知识库", "RAG", "可信 AI"],
+      "tags": [
+        "知识库",
+        "RAG",
+        "可信 AI"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-05-28",
       "updatedAt": "2026-06-10",
@@ -838,14 +2842,30 @@
       "ctaUrl": "/insights/trusted-ai-knowledge-base",
       "featured": true,
       "metrics": [
-        { "label": "阅读时间", "value": "7 分钟" },
-        { "label": "主题", "value": "知识库" },
-        { "label": "对象", "value": "建设者" }
+        {
+          "label": "阅读时间",
+          "value": "7 分钟"
+        },
+        {
+          "label": "主题",
+          "value": "知识库"
+        },
+        {
+          "label": "对象",
+          "value": "建设者"
+        }
       ],
       "agent": {
         "purpose": "说明可信知识库建设的关键判断。",
-        "inputs": ["资料源", "权限", "更新机制"],
-        "outputs": ["建设原则", "检查清单"],
+        "inputs": [
+          "资料源",
+          "权限",
+          "更新机制"
+        ],
+        "outputs": [
+          "建设原则",
+          "检查清单"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -859,8 +2879,14 @@
         }
       ],
       "related": [
-        { "kind": "skill", "slug": "rag-knowledge-base" },
-        { "kind": "tutorial", "slug": "knowledge-base-checklist" }
+        {
+          "kind": "skill",
+          "slug": "rag-knowledge-base"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "knowledge-base-checklist"
+        }
       ],
       "seo": {
         "title": "可信 AI 知识库的关键不是更多资料 - HIIC AI Lab",
@@ -874,7 +2900,12 @@
       "summary": "聚焦大模型演进、Agent 化应用、具身智能与产业落地，研判未来 12-18 个月关键趋势。",
       "description": "HIIC AI Lab 的重点研究报告，面向产业管理者和应用团队提供趋势判断与落地建议。",
       "category": "产业研究",
-      "tags": ["AI 趋势", "Agent", "产业落地", "研究报告"],
+      "tags": [
+        "AI 趋势",
+        "Agent",
+        "产业落地",
+        "研究报告"
+      ],
       "author": "HIIC AI Research Team",
       "date": "2026-05-28",
       "updatedAt": "2026-06-10",
@@ -884,14 +2915,31 @@
       "ctaUrl": "/reports/ai-industry-outlook-2026",
       "featured": true,
       "metrics": [
-        { "label": "页数", "value": "36 页" },
-        { "label": "趋势", "value": "6 个" },
-        { "label": "案例", "value": "12 个" }
+        {
+          "label": "页数",
+          "value": "36 页"
+        },
+        {
+          "label": "趋势",
+          "value": "6 个"
+        },
+        {
+          "label": "案例",
+          "value": "12 个"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 理解 HIIC 对 AI 产业趋势的研究判断。",
-        "inputs": ["公开资料", "企业访谈", "应用案例"],
-        "outputs": ["趋势判断", "机会点", "行动建议"],
+        "inputs": [
+          "公开资料",
+          "企业访谈",
+          "应用案例"
+        ],
+        "outputs": [
+          "趋势判断",
+          "机会点",
+          "行动建议"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -905,8 +2953,14 @@
         }
       ],
       "related": [
-        { "kind": "insight", "slug": "model-cost-and-business-value" },
-        { "kind": "collection", "slug": "super-opc" }
+        {
+          "kind": "insight",
+          "slug": "model-cost-and-business-value"
+        },
+        {
+          "kind": "collection",
+          "slug": "super-opc"
+        }
       ],
       "seo": {
         "title": "2026 人工智能产业趋势与应用展望 - HIIC AI Lab",
@@ -920,7 +2974,11 @@
       "summary": "围绕产业链拆解、企业识别、关系判断和图谱表达形成一套 AI 辅助研究方法。",
       "description": "把产业研究中的资料整理、节点识别和关系表达转化为可复用工作流。",
       "category": "产业研究",
-      "tags": ["产业链", "方法论", "AI 研究"],
+      "tags": [
+        "产业链",
+        "方法论",
+        "AI 研究"
+      ],
       "author": "HIIC AI Research Team",
       "date": "2026-05-27",
       "updatedAt": "2026-06-10",
@@ -930,14 +2988,31 @@
       "ctaUrl": "/reports/industry-chain-methodology-2",
       "featured": true,
       "metrics": [
-        { "label": "页数", "value": "28 页" },
-        { "label": "流程", "value": "5 步" },
-        { "label": "图谱", "value": "支持" }
+        {
+          "label": "页数",
+          "value": "28 页"
+        },
+        {
+          "label": "流程",
+          "value": "5 步"
+        },
+        {
+          "label": "图谱",
+          "value": "支持"
+        }
       ],
       "agent": {
         "purpose": "指导 agent 执行产业链拆解和图谱生成。",
-        "inputs": ["产业主题", "企业资料", "公开信息"],
-        "outputs": ["产业链结构", "企业节点", "研究结论"],
+        "inputs": [
+          "产业主题",
+          "企业资料",
+          "公开信息"
+        ],
+        "outputs": [
+          "产业链结构",
+          "企业节点",
+          "研究结论"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -951,8 +3026,14 @@
         }
       ],
       "related": [
-        { "kind": "app", "slug": "chain" },
-        { "kind": "tutorial", "slug": "industry-chain-map-workflow" }
+        {
+          "kind": "app",
+          "slug": "chain"
+        },
+        {
+          "kind": "tutorial",
+          "slug": "industry-chain-map-workflow"
+        }
       ],
       "seo": {
         "title": "AI 赋能产业链分析方法论 2.0 - HIIC AI Lab",
@@ -966,7 +3047,11 @@
       "summary": "从单点自动化到跨系统协作，梳理企业 Agent 应用的分阶段建设路径。",
       "description": "面向企业应用负责人，解释 Agent 项目如何从试点进入可维护运营。",
       "category": "方法论",
-      "tags": ["Agent", "企业流程", "方法论"],
+      "tags": [
+        "Agent",
+        "企业流程",
+        "方法论"
+      ],
       "author": "HIIC AI Research Team",
       "date": "2026-05-20",
       "updatedAt": "2026-06-10",
@@ -976,14 +3061,31 @@
       "ctaUrl": "/reports/enterprise-agent-path",
       "featured": true,
       "metrics": [
-        { "label": "页数", "value": "31 页" },
-        { "label": "阶段", "value": "4 个" },
-        { "label": "案例", "value": "8 个" }
+        {
+          "label": "页数",
+          "value": "31 页"
+        },
+        {
+          "label": "阶段",
+          "value": "4 个"
+        },
+        {
+          "label": "案例",
+          "value": "8 个"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 理解企业 Agent 项目的建设路径。",
-        "inputs": ["流程清单", "系统接口", "风险边界"],
-        "outputs": ["阶段路线", "试点建议", "运营机制"],
+        "inputs": [
+          "流程清单",
+          "系统接口",
+          "风险边界"
+        ],
+        "outputs": [
+          "阶段路线",
+          "试点建议",
+          "运营机制"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -997,8 +3099,14 @@
         }
       ],
       "related": [
-        { "kind": "skill", "slug": "agent-workflow" },
-        { "kind": "insight", "slug": "ai-workbench-adoption" }
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        },
+        {
+          "kind": "insight",
+          "slug": "ai-workbench-adoption"
+        }
       ],
       "seo": {
         "title": "AI Agent 在企业流程中的落地路径 - HIIC AI Lab",
@@ -1012,7 +3120,11 @@
       "summary": "总结生成式 AI 在项目评审、材料摘要、风险提示和结果复核中的实践经验。",
       "description": "围绕内部评审场景，沉淀可复制的 AI 辅助流程和治理要求。",
       "category": "应用研究",
-      "tags": ["评审", "生成式 AI", "实践报告"],
+      "tags": [
+        "评审",
+        "生成式 AI",
+        "实践报告"
+      ],
       "author": "HIIC AI Research Team",
       "date": "2026-05-24",
       "updatedAt": "2026-06-10",
@@ -1022,14 +3134,31 @@
       "ctaUrl": "/reports/generative-ai-review-practice",
       "featured": true,
       "metrics": [
-        { "label": "页数", "value": "24 页" },
-        { "label": "场景", "value": "评审" },
-        { "label": "流程", "value": "闭环" }
+        {
+          "label": "页数",
+          "value": "24 页"
+        },
+        {
+          "label": "场景",
+          "value": "评审"
+        },
+        {
+          "label": "流程",
+          "value": "闭环"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 理解评审辅助场景中的 AI 用法和边界。",
-        "inputs": ["评审材料", "评审标准", "历史案例"],
-        "outputs": ["材料摘要", "风险提示", "复核建议"],
+        "inputs": [
+          "评审材料",
+          "评审标准",
+          "历史案例"
+        ],
+        "outputs": [
+          "材料摘要",
+          "风险提示",
+          "复核建议"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -1043,8 +3172,14 @@
         }
       ],
       "related": [
-        { "kind": "app", "slug": "smartscore" },
-        { "kind": "skill", "slug": "agent-workflow" }
+        {
+          "kind": "app",
+          "slug": "smartscore"
+        },
+        {
+          "kind": "skill",
+          "slug": "agent-workflow"
+        }
       ],
       "seo": {
         "title": "生成式 AI 在评审场景的应用与实践 - HIIC AI Lab",
@@ -1058,7 +3193,11 @@
       "summary": "以内部共创方式发现真实场景、沉淀可复用资产，并形成面向外部展示的 AI 能力成果。",
       "description": "这是 HIIC AI Lab 的组织级 AI 能力沉淀计划，重点展示场景、应用、Skill 和研究成果。",
       "category": "能力建设",
-      "tags": ["内部共创", "AI 能力", "组织创新"],
+      "tags": [
+        "内部共创",
+        "AI 能力",
+        "组织创新"
+      ],
       "author": "HIIC AI Lab",
       "date": "2026-06-01",
       "updatedAt": "2026-06-10",
@@ -1068,14 +3207,31 @@
       "ctaUrl": "/collections/super-opc",
       "featured": true,
       "metrics": [
-        { "label": "应用", "value": "10+" },
-        { "label": "Skill", "value": "120+" },
-        { "label": "报告", "value": "34+" }
+        {
+          "label": "应用",
+          "value": "10+"
+        },
+        {
+          "label": "Skill",
+          "value": "120+"
+        },
+        {
+          "label": "报告",
+          "value": "34+"
+        }
       ],
       "agent": {
         "purpose": "帮助 agent 理解 HIIC AI 能力建设计划和资产分类。",
-        "inputs": ["应用清单", "Skill 清单", "案例材料"],
-        "outputs": ["能力地图", "成果摘要", "复用建议"],
+        "inputs": [
+          "应用清单",
+          "Skill 清单",
+          "案例材料"
+        ],
+        "outputs": [
+          "能力地图",
+          "成果摘要",
+          "复用建议"
+        ],
         "access": "public-page"
       },
       "sections": [
@@ -1089,8 +3245,14 @@
         }
       ],
       "related": [
-        { "kind": "insight", "slug": "ai-workbench-adoption" },
-        { "kind": "report", "slug": "ai-industry-outlook-2026" }
+        {
+          "kind": "insight",
+          "slug": "ai-workbench-adoption"
+        },
+        {
+          "kind": "report",
+          "slug": "ai-industry-outlook-2026"
+        }
       ],
       "seo": {
         "title": "AI 能力共创与内部创新计划 - HIIC AI Lab",

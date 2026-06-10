@@ -17,11 +17,13 @@
 - `content/portal.json`: 门户内容主数据源。
 - `content/README.md`: 内容维护说明。
 - `scripts/generate-seo-artifacts.mjs`: 生成 SEO/GEO 公开文件。
+- `functions/api/ai-consulting.js`: 从 AI HOT 拉取实时 AI 咨询动态。
 - `src/content/portal.ts`: 前端内容类型和查询方法。
 - `src/pages/ContentListPage.tsx`: 栏目页模板。
 - `src/pages/ContentDetailPage.tsx`: 详情页模板。
 - `src/App.tsx`: 首页与全站路由入口。
 - `public/brand/`: 小七 IP 与品牌资产。
+  - `hiic-logo-mark-white.png`: Header 当前使用的 HIIC 左侧标识。用户提供新 logo 时优先替换这个文件。
   - `hiic-official-lockup-white.png`: 正式机构 logo 锁定组合。
   - `xiaoqi-*.png`: 小七官方 IP 素材。
   - `xiaoqi-boy-standing-3d.png` / `xiaoqi-girl-standing-3d.png`: 七哥、七妹单人站姿透明素材。
@@ -43,6 +45,18 @@
 4. `related` 只能引用已经存在的 `kind + slug`。
 5. 运行 `npm run generate:seo`。
 6. 运行 `npm run build`。
+
+职场办公 Skill 维护口径：
+
+- 优先覆盖真实办公场景：职场办公、PPT 制作、数据处理、数据分析、咨询研究、研究报告、财务分析、行政协同、营销设计、人力资源。
+- 每条 Skill 必须有独立详情页、可执行输入输出、验收标准和 agent metadata。
+- 新增 Skill 后必须确认 `related` 引用存在，避免详情页断链。
+
+AI 咨询实时内容：
+
+- 首页和资讯页的实时动态来自 `/api/ai-consulting`。
+- 上游源是 `https://aihot.virxact.com/agent`，优先 REST API：`/api/public/items?mode=selected&take=...`，RSS 入口是 `/feed.xml`。
+- 实时动态不写死进 `content/portal.json`；如果外部源失败，前端会回退到本地资讯。
 
 ## 设计维护规则
 
