@@ -1,6 +1,6 @@
 const AIHOT_BASE_URL = 'https://aihot.virxact.com';
-const DEFAULT_TAKE = 8;
-const MAX_TAKE = 20;
+const DEFAULT_TAKE = 50;
+const MAX_TAKE = 100;
 
 const categoryLabels = {
   'ai-products': 'AI 产品',
@@ -24,6 +24,10 @@ function normalizeTake(value) {
   const parsed = Number.parseInt(value ?? '', 10);
   if (Number.isNaN(parsed)) return DEFAULT_TAKE;
   return Math.min(Math.max(parsed, 1), MAX_TAKE);
+}
+
+function normalizeMode(value) {
+  return value === 'selected' ? 'selected' : 'all';
 }
 
 async function fetchJson(pathname, searchParams = {}) {
@@ -76,10 +80,11 @@ function normalizeDailySection(section) {
 export async function onRequestGet(context) {
   const requestUrl = new URL(context.request.url);
   const take = normalizeTake(requestUrl.searchParams.get('take'));
+  const mode = normalizeMode(requestUrl.searchParams.get('mode'));
 
   try {
     const [itemsPayload, dailyPayload] = await Promise.all([
-      fetchJson('/api/public/items', { mode: 'selected', take }),
+      fetchJson('/api/public/items', { mode, take }),
       fetchJson('/api/public/daily'),
     ]);
 
@@ -88,11 +93,14 @@ export async function onRequestGet(context) {
         name: 'AI HOT',
         homepage: AIHOT_BASE_URL,
         agent: `${AIHOT_BASE_URL}/agent`,
-        api: `${AIHOT_BASE_URL}/api/public/items?mode=selected&take=${take}`,
+        api: `${AIHOT_BASE_URL}/api/public/items?mode=${mode}&take=${take}`,
         rss: `${AIHOT_BASE_URL}/feed.xml`,
       },
       generatedAt: new Date().toISOString(),
       items: Array.isArray(itemsPayload.items) ? itemsPayload.items.map(normalizeItem) : [],
+      count: itemsPayload.count,
+      hasNext: itemsPayload.hasNext,
+      nextCursor: itemsPayload.nextCursor,
       daily: {
         date: dailyPayload.date,
         generatedAt: dailyPayload.generatedAt,

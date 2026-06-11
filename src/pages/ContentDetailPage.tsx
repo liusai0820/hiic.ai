@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm';
 import { ArrowLeft, ArrowRight, CalendarDays, Database, ExternalLink, FileText, UserRound } from 'lucide-react';
 import { PageMeta } from '../components/PageMeta';
 import { PortalFooter, PortalTopBar } from '../components/PortalPageChrome';
+import { SkillDocument } from '../components/SkillDocument';
 import { XiaoqiGuide } from '../components/XiaoqiGuide';
 import {
   getCanonicalUrl,
@@ -40,6 +41,18 @@ function formatDate(dateString: string): string {
 }
 
 function DetailCta({ item }: { item: PortalContentItem }) {
+  if (item.kind === 'skill') {
+    return (
+      <a
+        href="#skill-document"
+        className="inline-flex h-11 items-center gap-2 rounded-lg bg-[#0A04AE] px-5 text-sm font-semibold text-white transition hover:bg-[#08038f]"
+      >
+        查看文档
+        <ArrowRight className="h-4 w-4" />
+      </a>
+    );
+  }
+
   if (item.ctaUrl.startsWith('/')) {
     return (
       <Link
@@ -220,23 +233,29 @@ export function ContentDetailPage({ kind }: ContentDetailPageProps) {
 
         <section className="mx-auto grid max-w-[1344px] gap-8 px-6 py-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:px-10 lg:py-10">
           <article className="min-w-0">
-            <div className="border-b border-[#d8e4ff] pb-6">
-              <h2 className="text-2xl font-bold tracking-tight text-slate-950">内容概览</h2>
-              <p className="mt-3 max-w-[760px] text-base leading-7 text-[#52637A]">
-                {item.description}
-              </p>
-            </div>
+            {item.kind === 'skill' ? (
+              <SkillDocument item={item} />
+            ) : (
+              <>
+                <div className="border-b border-[#d8e4ff] pb-6">
+                  <h2 className="text-2xl font-bold tracking-tight text-slate-950">内容概览</h2>
+                  <p className="mt-3 max-w-[760px] text-base leading-7 text-[#52637A]">
+                    {item.description}
+                  </p>
+                </div>
 
-            <div className="mt-7 space-y-8">
-              {item.sections.map((section) => (
-                <section key={section.heading} className="border-b border-[#edf2ff] pb-8 last:border-b-0">
-                  <h2 className="text-xl font-bold text-slate-950">{section.heading}</h2>
-                  <div className="prose prose-slate mt-3 max-w-none text-slate-700 prose-p:leading-7 prose-a:font-semibold prose-a:text-blue-700">
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{section.body}</ReactMarkdown>
-                  </div>
-                </section>
-              ))}
-            </div>
+                <div className="mt-7 space-y-8">
+                  {item.sections.map((section) => (
+                    <section key={section.heading} className="border-b border-[#edf2ff] pb-8 last:border-b-0">
+                      <h2 className="text-xl font-bold text-slate-950">{section.heading}</h2>
+                      <div className="prose prose-slate mt-3 max-w-none text-slate-700 prose-p:leading-7 prose-a:font-semibold prose-a:text-blue-700">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{section.body}</ReactMarkdown>
+                      </div>
+                    </section>
+                  ))}
+                </div>
+              </>
+            )}
           </article>
 
           <aside className="space-y-5">

@@ -104,26 +104,6 @@ function buildLiveTimelineItems(payload: LiveFeedPayload): TimelineItem[] {
   const items: TimelineItem[] = [];
   const seen = new Set<string>();
 
-  const dailyLead = payload.daily?.sections?.find((section) => section.items.length > 0);
-  const dailyItem = dailyLead?.items[0];
-
-  if (dailyLead && dailyItem) {
-    const id = dailyItem.url || dailyItem.title;
-    seen.add(id);
-    items.push({
-      id: `daily-${id}`,
-      title: dailyItem.title,
-      summary: dailyItem.summary,
-      category: dailyLead.label,
-      tags: [],
-      date: normalizeLiveDate(payload.daily?.generatedAt ?? payload.generatedAt ?? payload.daily?.date),
-      href: dailyItem.url,
-      external: true,
-      showTime: true,
-      actionLabel: '查看资讯',
-    });
-  }
-
   payload.items?.forEach((item) => {
     const id = item.url || item.id || item.title;
     if (seen.has(id)) return;
@@ -143,7 +123,7 @@ function buildLiveTimelineItems(payload: LiveFeedPayload): TimelineItem[] {
     });
   });
 
-  return items.slice(0, 8);
+  return items.slice(0, 50);
 }
 
 function sortTimelineItems(items: TimelineItem[]): TimelineItem[] {
@@ -258,7 +238,7 @@ export function ContentListPage({ kind }: ContentListPageProps) {
 
     async function loadLiveItems() {
       try {
-        const response = await fetch('/api/ai-consulting?take=8', {
+        const response = await fetch('/api/ai-consulting?mode=all&take=50', {
           headers: { accept: 'application/json' },
         });
         if (!response.ok) throw new Error(`AI consulting feed returned ${response.status}`);
