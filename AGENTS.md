@@ -17,7 +17,8 @@
 - `content/portal.json`: 门户内容主数据源。
 - `content/README.md`: 内容维护说明。
 - `scripts/generate-seo-artifacts.mjs`: 生成 SEO/GEO 公开文件。
-- `functions/api/ai-consulting.js`: 从 AI HOT 拉取实时 AI 咨询动态。
+- `functions/api/ai-news.js`: 拉取每日 AI News RSS，拆分为议题级动态，并按配置调用 DeepSeek 做中文精编。
+- `functions/api/ai-consulting.js`: 旧入口兼容跳转到 `/api/ai-news`，不要再接入新页面。
 - `src/content/portal.ts`: 前端内容类型和查询方法。
 - `src/pages/ContentListPage.tsx`: 栏目页模板。
 - `src/pages/ContentDetailPage.tsx`: 详情页模板。
@@ -52,13 +53,14 @@
 - 每条 Skill 必须有独立详情页、可执行输入输出、验收标准和 agent metadata。
 - 新增 Skill 后必须确认 `related` 引用存在，避免详情页断链。
 
-AI 咨询实时内容：
+每日 AI 动态内容：
 
-- 首页和资讯页的实时动态来自 `/api/ai-consulting`。
-- 上游源是 `https://aihot.virxact.com/agent`，优先 REST API：`/api/public/items?mode=all&take=...`，RSS 入口是 `/feed.xml`。
+- 首页和资讯页的动态来自 `/api/ai-news`，旧 `/api/ai-consulting` 只保留为兼容跳转。
+- 默认上游源是 Latent.Space AINews RSS：`https://www.latent.space/feed`，后续如要换成 Gmail/RSS 内部源，配置 `AI_NEWS_FEED_URL` 即可。
+- DeepSeek 精编通过环境变量配置：`DEEPSEEK_API_KEY`、`DEEPSEEK_BASE_URL`、`DEEPSEEK_MODEL`。不要把 key 写入代码、文档或聊天输出。
 - 实时动态不写死进 `content/portal.json`；如果外部源失败，前端会回退到本地资讯。
-- 资讯页必须把实时动态并入主时间轴，默认拉取 50 条全量流，不要再做右侧实时资讯卡。
-- 用户界面不展示“来源 / AI HOT / RSS / REST API”等维护入口；这些只保留在代码和维护文档里。
+- 资讯页必须把动态并入主时间轴，默认拉取 50 条议题级内容，不要再做右侧实时资讯卡。
+- 用户界面不展示“来源 / RSS / REST API”等维护入口；这些只保留在代码和维护文档里。
 
 Skill 详情页：
 

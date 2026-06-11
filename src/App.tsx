@@ -15,7 +15,7 @@ import {
   X,
 } from 'lucide-react';
 import { FeedbackModal } from './components';
-import { AIConsultingLiveFeed } from './components/AIConsultingLiveFeed';
+import { DailyAINewsFeed } from './components/DailyAINewsFeed';
 import { ContentDetailPage, ContentListPage, TutorialPage, LibraryPage } from './pages';
 import Create2026Page from './pages/Create2026Page';
 import { PageMeta } from './components/PageMeta';
@@ -387,7 +387,7 @@ function HomePage() {
         <section className="border-b border-[#d8e4ff] bg-white" id="news">
           <div className="mx-auto grid max-w-[1344px] gap-0 px-6 py-5 lg:grid-cols-3 lg:px-10">
             <div className="border-[#d8e4ff] pb-6 lg:border-r lg:pb-0 lg:pr-8">
-              <AIConsultingLiveFeed fallbackItems={newsItems} />
+              <DailyAINewsFeed fallbackItems={newsItems} />
             </div>
 
             <div className="border-[#d8e4ff] py-6 lg:border-r lg:px-8 lg:py-0" id="reports">

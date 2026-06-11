@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, RefreshCw } from 'lucide-react';
 import { getItemPath, type PortalContentItem } from '../content/portal';
 
-interface LiveFeedItem {
+interface DailyNewsItem {
   id: string;
   title: string;
   summary: string;
@@ -11,10 +11,10 @@ interface LiveFeedItem {
   source: string;
   publishedAt: string;
   category: string;
-  score?: number;
+  tags?: string[];
 }
 
-interface LiveDailySection {
+interface DailyNewsSection {
   label: string;
   items: Array<{
     title: string;
@@ -24,23 +24,23 @@ interface LiveDailySection {
   }>;
 }
 
-interface LiveFeedPayload {
+interface DailyNewsPayload {
   generatedAt: string;
-  source: {
-    name: string;
-    agent: string;
-    rss?: string;
+  processing?: {
+    mode: string;
+    model: string | null;
+    language: string;
   };
-  items: LiveFeedItem[];
+  items: DailyNewsItem[];
   daily?: {
     date?: string;
     generatedAt?: string;
-    sections?: LiveDailySection[];
+    sections?: DailyNewsSection[];
   };
   error?: string;
 }
 
-interface AIConsultingLiveFeedProps {
+interface DailyAINewsFeedProps {
   fallbackItems: PortalContentItem[];
 }
 
@@ -56,8 +56,8 @@ function formatTime(value: string): string {
   }).format(date);
 }
 
-export function AIConsultingLiveFeed({ fallbackItems }: AIConsultingLiveFeedProps) {
-  const [payload, setPayload] = useState<LiveFeedPayload | null>(null);
+export function DailyAINewsFeed({ fallbackItems }: DailyAINewsFeedProps) {
+  const [payload, setPayload] = useState<DailyNewsPayload | null>(null);
   const [status, setStatus] = useState<'loading' | 'ready' | 'fallback'>('loading');
 
   useEffect(() => {
@@ -65,13 +65,13 @@ export function AIConsultingLiveFeed({ fallbackItems }: AIConsultingLiveFeedProp
 
     async function loadFeed() {
       try {
-        const response = await fetch('/api/ai-consulting?take=6', {
+        const response = await fetch('/api/ai-news?take=6', {
           headers: { accept: 'application/json' },
         });
         if (!response.ok) {
-          throw new Error(`AI consulting feed returned ${response.status}`);
+          throw new Error(`AI news feed returned ${response.status}`);
         }
-        const data = (await response.json()) as LiveFeedPayload;
+        const data = (await response.json()) as DailyNewsPayload;
         if (!cancelled) {
           setPayload(data);
           setStatus(data.items.length > 0 ? 'ready' : 'fallback');
@@ -97,11 +97,14 @@ export function AIConsultingLiveFeed({ fallbackItems }: AIConsultingLiveFeedProp
   if (status === 'ready' && payload) {
     return (
       <div>
-        <div className="mb-3 flex items-center justify-between">
+        <div className="mb-3 flex items-center justify-between gap-3">
           <div>
-            <h2 className="text-xl font-bold text-slate-950">AI 咨询实时动态</h2>
-            <p className="mt-1 text-xs text-slate-500">持续更新的 AI 产品、模型与行业变化</p>
+            <h2 className="text-xl font-bold text-slate-950">每日 AI 动态</h2>
+            <p className="mt-1 text-xs text-slate-500">工作日更新，聚合模型、Agent、开源与产业进展</p>
           </div>
+          <Link to="/insights" className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-[#0A04AE]">
+            全部 <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
         {dailyLead && (
@@ -122,7 +125,7 @@ export function AIConsultingLiveFeed({ fallbackItems }: AIConsultingLiveFeedProp
         )}
 
         <div className="divide-y divide-slate-100">
-          {payload.items.slice(0, 5).map((item) => (
+          {payload.items.slice(0, 6).map((item) => (
             <a
               key={item.id}
               href={item.url}
@@ -140,9 +143,12 @@ export function AIConsultingLiveFeed({ fallbackItems }: AIConsultingLiveFeedProp
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
-          <span className="text-xs text-slate-500">
-            更新 {formatTime(payload.generatedAt)}
-          </span>
+          <span className="text-xs text-slate-500">更新 {formatTime(payload.generatedAt)}</span>
+          {payload.processing?.mode === 'deepseek' && (
+            <span className="rounded-md bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-700">
+              中文精编
+            </span>
+          )}
         </div>
       </div>
     );
@@ -153,10 +159,10 @@ export function AIConsultingLiveFeed({ fallbackItems }: AIConsultingLiveFeedProp
       <div className="mb-3 flex items-center justify-between">
         <div>
           <h2 className="flex items-center gap-2 text-xl font-bold text-slate-950">
-            AI 观察与速递
+            每日 AI 动态
             {status === 'loading' && <RefreshCw className="h-4 w-4 animate-spin text-[#0A04AE]" />}
           </h2>
-          <p className="mt-1 text-xs text-slate-500">实时源不可用时展示本地精选内容</p>
+          <p className="mt-1 text-xs text-slate-500">每日源更新中，先展示本地精选观察</p>
         </div>
         <Link to="/insights" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0A04AE]">
           更多 <ArrowRight className="h-4 w-4" />

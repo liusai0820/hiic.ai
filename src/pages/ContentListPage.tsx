@@ -20,7 +20,7 @@ const listIntros: Record<PortalContentKind, string> = {
   app: '集中展示同事们已经上线或正在筹备的 AI 应用，让外部看到能力，让内部更容易复用。',
   skill: '沉淀可复制的方法、提示词和工作流，把一次性经验变成组织能力。',
   tutorial: '用步骤化教程帮助同事快速上手工具，并把最佳实践稳定传递下去。',
-  insight: '记录 AI 相关资讯、产业观察和应用判断，形成可持续更新的外部窗口。',
+  insight: '按工作日更新 AI 进展，把外部资讯转成更适合智库门户阅读的中文动态。',
   report: '展示 HIIC AI Lab 的研究报告、方法论和对产业趋势的判断。',
   collection: '把阶段性计划、专题成果和能力地图组织成可以连续追踪的展示页。',
 };
@@ -36,6 +36,7 @@ interface LiveFeedItem {
   url: string;
   publishedAt: string;
   category: string;
+  tags?: string[];
 }
 
 interface LiveDailySection {
@@ -105,7 +106,7 @@ function buildLiveTimelineItems(payload: LiveFeedPayload): TimelineItem[] {
   const seen = new Set<string>();
 
   payload.items?.forEach((item) => {
-    const id = item.url || item.id || item.title;
+    const id = item.id || item.url || item.title;
     if (seen.has(id)) return;
     seen.add(id);
 
@@ -114,12 +115,12 @@ function buildLiveTimelineItems(payload: LiveFeedPayload): TimelineItem[] {
       title: item.title,
       summary: item.summary,
       category: item.category,
-      tags: [],
+      tags: item.tags ?? [],
       date: normalizeLiveDate(item.publishedAt),
       href: item.url,
       external: true,
       showTime: true,
-      actionLabel: '查看资讯',
+      actionLabel: '查看原文',
     });
   });
 
@@ -141,7 +142,7 @@ function InsightTimeline({ items }: { items: TimelineItem[] }) {
             <CalendarDays className="h-4 w-4" />
           </span>
           <div>
-            <h2 className="text-lg font-bold text-slate-950">AI 资讯时间轴</h2>
+            <h2 className="text-lg font-bold text-slate-950">每日 AI 动态时间轴</h2>
             <p className="text-sm text-[#52637A]">按发布时间持续更新，保留趋势观察和应用判断。</p>
           </div>
         </div>
@@ -238,10 +239,10 @@ export function ContentListPage({ kind }: ContentListPageProps) {
 
     async function loadLiveItems() {
       try {
-        const response = await fetch('/api/ai-consulting?mode=all&take=50', {
+        const response = await fetch('/api/ai-news?take=12', {
           headers: { accept: 'application/json' },
         });
-        if (!response.ok) throw new Error(`AI consulting feed returned ${response.status}`);
+        if (!response.ok) throw new Error(`AI news feed returned ${response.status}`);
         const payload = (await response.json()) as LiveFeedPayload;
         if (!cancelled) {
           setLiveItems(buildLiveTimelineItems(payload));
