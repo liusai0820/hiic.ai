@@ -57,6 +57,8 @@ AI 咨询实时内容：
 - 首页和资讯页的实时动态来自 `/api/ai-consulting`。
 - 上游源是 `https://aihot.virxact.com/agent`，优先 REST API：`/api/public/items?mode=selected&take=...`，RSS 入口是 `/feed.xml`。
 - 实时动态不写死进 `content/portal.json`；如果外部源失败，前端会回退到本地资讯。
+- 资讯页必须把实时动态并入主时间轴，不要再做右侧实时资讯卡。
+- 用户界面不展示“来源 / AI HOT / RSS / REST API”等维护入口；这些只保留在代码和维护文档里。
 
 ## 设计维护规则
 

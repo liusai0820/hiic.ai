@@ -1,8 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CalendarDays, Filter, Search } from 'lucide-react';
 import { PageMeta } from '../components/PageMeta';
-import { AIConsultingLiveFeed } from '../components/AIConsultingLiveFeed';
 import { PortalFooter, PortalTopBar } from '../components/PortalPageChrome';
 import { XiaoqiGuide } from '../components/XiaoqiGuide';
 import {
@@ -30,15 +29,130 @@ interface ContentListPageProps {
   kind: PortalContentKind;
 }
 
-function formatTimelineDate(dateString: string): { monthDay: string; year: string } {
+interface LiveFeedItem {
+  id: string;
+  title: string;
+  summary: string;
+  url: string;
+  publishedAt: string;
+  category: string;
+}
+
+interface LiveDailySection {
+  label: string;
+  items: Array<{
+    title: string;
+    summary: string;
+    url: string;
+  }>;
+}
+
+interface LiveFeedPayload {
+  generatedAt?: string;
+  items?: LiveFeedItem[];
+  daily?: {
+    date?: string;
+    generatedAt?: string;
+    sections?: LiveDailySection[];
+  };
+}
+
+interface TimelineItem {
+  id: string;
+  title: string;
+  summary: string;
+  category: string;
+  tags: string[];
+  date: string;
+  href: string;
+  external: boolean;
+  showTime: boolean;
+  actionLabel: string;
+}
+
+function formatTimelineDate(dateString: string): { monthDay: string; year: string; time: string } {
   const date = new Date(dateString);
   return {
     monthDay: new Intl.DateTimeFormat('zh-CN', { month: '2-digit', day: '2-digit' }).format(date),
     year: new Intl.DateTimeFormat('zh-CN', { year: 'numeric' }).format(date),
+    time: new Intl.DateTimeFormat('zh-CN', { hour: '2-digit', minute: '2-digit' }).format(date),
   };
 }
 
-function InsightTimeline({ items }: { items: PortalContentItem[] }) {
+function normalizeLiveDate(value?: string): string {
+  if (!value) return new Date().toISOString();
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString();
+}
+
+function toLocalTimelineItem(item: PortalContentItem): TimelineItem {
+  return {
+    id: `${item.kind}-${item.slug}`,
+    title: item.title,
+    summary: item.summary,
+    category: item.category,
+    tags: item.tags,
+    date: item.date,
+    href: getItemPath(item),
+    external: false,
+    showTime: false,
+    actionLabel: '阅读观察',
+  };
+}
+
+function buildLiveTimelineItems(payload: LiveFeedPayload): TimelineItem[] {
+  const items: TimelineItem[] = [];
+  const seen = new Set<string>();
+
+  const dailyLead = payload.daily?.sections?.find((section) => section.items.length > 0);
+  const dailyItem = dailyLead?.items[0];
+
+  if (dailyLead && dailyItem) {
+    const id = dailyItem.url || dailyItem.title;
+    seen.add(id);
+    items.push({
+      id: `daily-${id}`,
+      title: dailyItem.title,
+      summary: dailyItem.summary,
+      category: dailyLead.label,
+      tags: [],
+      date: normalizeLiveDate(payload.daily?.generatedAt ?? payload.generatedAt ?? payload.daily?.date),
+      href: dailyItem.url,
+      external: true,
+      showTime: true,
+      actionLabel: '查看资讯',
+    });
+  }
+
+  payload.items?.forEach((item) => {
+    const id = item.url || item.id || item.title;
+    if (seen.has(id)) return;
+    seen.add(id);
+
+    items.push({
+      id: `live-${item.id}`,
+      title: item.title,
+      summary: item.summary,
+      category: item.category,
+      tags: [],
+      date: normalizeLiveDate(item.publishedAt),
+      href: item.url,
+      external: true,
+      showTime: true,
+      actionLabel: '查看资讯',
+    });
+  });
+
+  return items.slice(0, 8);
+}
+
+function sortTimelineItems(items: TimelineItem[]): TimelineItem[] {
+  return [...items].sort((left, right) => {
+    return new Date(right.date).getTime() - new Date(left.date).getTime();
+  });
+}
+
+function InsightTimeline({ items }: { items: TimelineItem[] }) {
   return (
     <div className="relative overflow-hidden rounded-lg border border-[#c9d8ff] bg-white">
       <div className="border-b border-[#d8e4ff] bg-[#f5f8ff] px-5 py-4">
@@ -57,19 +171,14 @@ function InsightTimeline({ items }: { items: PortalContentItem[] }) {
         <div className="absolute bottom-8 left-[108px] top-8 hidden w-px bg-[#c9d8ff] sm:block" />
         {items.map((item) => {
           const date = formatTimelineDate(item.date);
-
-          return (
-            <Link
-              key={`${item.kind}-${item.slug}`}
-              to={getItemPath(item)}
-              className="group relative grid gap-4 px-5 py-5 transition hover:bg-[#f8fbff] sm:grid-cols-[130px_1fr]"
-            >
+          const content = (
+            <>
               <div className="flex items-start gap-3 sm:block">
                 <time className="block font-serif text-3xl font-semibold leading-none text-[#0A04AE]">
                   {date.monthDay}
                 </time>
                 <span className="mt-1 block text-xs font-bold uppercase tracking-[0.16em] text-[#52637A]">
-                  {date.year}
+                  {item.showTime ? `${date.year} · ${date.time}` : date.year}
                 </span>
               </div>
 
@@ -88,13 +197,37 @@ function InsightTimeline({ items }: { items: PortalContentItem[] }) {
                 <h3 className="mt-3 text-xl font-bold leading-tight tracking-tight text-slate-950 group-hover:text-[#0A04AE]">
                   {item.title}
                 </h3>
-                <p className="mt-2 max-w-[760px] text-sm leading-6 text-[#52637A]">
+                <p className="mt-2 max-w-[900px] text-sm leading-6 text-[#52637A]">
                   {item.summary}
                 </p>
                 <div className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0A04AE]">
-                  阅读观察 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                  {item.actionLabel} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                 </div>
               </div>
+            </>
+          );
+
+          if (item.external) {
+            return (
+              <a
+                key={item.id}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative grid gap-4 px-5 py-5 transition hover:bg-[#f8fbff] sm:grid-cols-[130px_1fr]"
+              >
+                {content}
+              </a>
+            );
+          }
+
+          return (
+            <Link
+              key={item.id}
+              to={item.href}
+              className="group relative grid gap-4 px-5 py-5 transition hover:bg-[#f8fbff] sm:grid-cols-[130px_1fr]"
+            >
+              {content}
             </Link>
           );
         })}
@@ -106,8 +239,46 @@ function InsightTimeline({ items }: { items: PortalContentItem[] }) {
 export function ContentListPage({ kind }: ContentListPageProps) {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('全部');
+  const [liveItems, setLiveItems] = useState<TimelineItem[]>([]);
   const items = getItemsByKind(kind);
-  const categories = ['全部', ...Array.from(new Set(items.map((item) => item.category)))];
+  const insightTimelineItems = useMemo(() => {
+    if (kind !== 'insight') return [];
+    return sortTimelineItems([...liveItems, ...items.map(toLocalTimelineItem)]);
+  }, [items, kind, liveItems]);
+
+  const categories = useMemo(() => {
+    const categoryItems = kind === 'insight' ? insightTimelineItems : items;
+    return ['全部', ...Array.from(new Set(categoryItems.map((item) => item.category)))];
+  }, [insightTimelineItems, items, kind]);
+
+  useEffect(() => {
+    if (kind !== 'insight') return;
+
+    let cancelled = false;
+
+    async function loadLiveItems() {
+      try {
+        const response = await fetch('/api/ai-consulting?take=8', {
+          headers: { accept: 'application/json' },
+        });
+        if (!response.ok) throw new Error(`AI consulting feed returned ${response.status}`);
+        const payload = (await response.json()) as LiveFeedPayload;
+        if (!cancelled) {
+          setLiveItems(buildLiveTimelineItems(payload));
+        }
+      } catch {
+        if (!cancelled) {
+          setLiveItems([]);
+        }
+      }
+    }
+
+    void loadLiveItems();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [kind]);
 
   const filteredItems = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -123,6 +294,21 @@ export function ContentListPage({ kind }: ContentListPageProps) {
       return matchesCategory && matchesQuery;
     });
   }, [category, items, query]);
+
+  const filteredTimelineItems = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return insightTimelineItems.filter((item) => {
+      const matchesCategory = category === '全部' || item.category === category;
+      const matchesQuery =
+        normalizedQuery.length === 0 ||
+        item.title.toLowerCase().includes(normalizedQuery) ||
+        item.summary.toLowerCase().includes(normalizedQuery) ||
+        item.tags.some((tag) => tag.toLowerCase().includes(normalizedQuery));
+
+      return matchesCategory && matchesQuery;
+    });
+  }, [category, insightTimelineItems, query]);
 
   const pageTitle = `${kindPluralLabels[kind]} - ${siteConfig.name}`;
   const canonicalPath = kindRoutes[kind];
@@ -203,28 +389,19 @@ export function ContentListPage({ kind }: ContentListPageProps) {
         <section className="mx-auto max-w-[1344px] px-6 py-8 lg:px-10 lg:py-10">
           <div className="mb-4 flex items-center justify-between border-b border-[#d8e4ff] pb-3">
             <p className="text-sm font-semibold text-[#52637A]">
-              共 {filteredItems.length} 项内容
+              共 {kind === 'insight' ? filteredTimelineItems.length : filteredItems.length} 项内容
             </p>
             <a href="/ai-index.json" className="text-sm font-semibold text-[#0A04AE] hover:text-[#08038f]">
               Agent 索引
             </a>
           </div>
 
-          {filteredItems.length > 0 ? (
+          {(kind === 'insight' ? filteredTimelineItems.length : filteredItems.length) > 0 ? (
             kind === 'insight' ? (
-              <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-                <InsightTimeline items={filteredItems} />
-                <div className="space-y-4">
-                  <div className="rounded-lg border border-[#c9d8ff] bg-white p-5">
-                    <AIConsultingLiveFeed fallbackItems={items.slice(0, 3)} />
-                  </div>
+              <div className="space-y-5">
+                <InsightTimeline items={filteredTimelineItems} />
+                <div className="max-w-[760px]">
                   <XiaoqiGuide scene="insights" compact />
-                  <div className="rounded-lg border border-[#c9d8ff] bg-white p-5">
-                    <h2 className="text-sm font-bold text-slate-950">资讯维护提示</h2>
-                    <p className="mt-2 text-sm leading-6 text-[#52637A]">
-                      新增资讯时请保留日期、分类、来源判断和摘要，避免把未经核实的信息写成确定性事实。
-                    </p>
-                  </div>
                 </div>
               </div>
             ) : (

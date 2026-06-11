@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ExternalLink, RefreshCw, Wifi } from 'lucide-react';
+import { ArrowRight, RefreshCw } from 'lucide-react';
 import { getItemPath, type PortalContentItem } from '../content/portal';
 
 interface LiveFeedItem {
@@ -99,20 +99,9 @@ export function AIConsultingLiveFeed({ fallbackItems }: AIConsultingLiveFeedProp
       <div>
         <div className="mb-3 flex items-center justify-between">
           <div>
-            <h2 className="flex items-center gap-2 text-xl font-bold text-slate-950">
-              AI 咨询实时动态
-              <span className="inline-flex items-center gap-1 rounded-md bg-emerald-50 px-2 py-1 text-xs font-bold text-emerald-700">
-                <Wifi className="h-3 w-3" />
-                Live
-              </span>
-            </h2>
-            <p className="mt-1 text-xs text-slate-500">
-              来自 AI HOT，约 5 分钟刷新一次
-            </p>
+            <h2 className="text-xl font-bold text-slate-950">AI 咨询实时动态</h2>
+            <p className="mt-1 text-xs text-slate-500">持续更新的 AI 产品、模型与行业变化</p>
           </div>
-          <a href={payload.source.agent} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0A04AE]">
-            来源 <ExternalLink className="h-3.5 w-3.5" />
-          </a>
         </div>
 
         {dailyLead && (
@@ -151,9 +140,6 @@ export function AIConsultingLiveFeed({ fallbackItems }: AIConsultingLiveFeedProp
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
-          <a href={payload.source.rss} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0A04AE]">
-            RSS / REST API <ArrowRight className="h-4 w-4" />
-          </a>
           <span className="text-xs text-slate-500">
             更新 {formatTime(payload.generatedAt)}
           </span>

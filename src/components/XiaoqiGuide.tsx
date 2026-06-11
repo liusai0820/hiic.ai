@@ -42,7 +42,7 @@ const sceneGuide: Record<NonNullable<XiaoqiGuideProps['scene']>, {
     image: '/brand/xiaoqi-girl-guide-2d.png',
     label: '小七翻到这里',
     title: '资讯先按时间看，再挑值得追踪的变化。',
-    body: '每条资讯都保留来源、日期和判断，不把热闹误写成结论。',
+    body: '每条资讯都保留日期、分类和判断，不把热闹误写成结论。',
     surface: 'border border-[#f3dca4] bg-white/90 shadow-sm shadow-[#f5b638]/10',
     labelSurface: 'bg-[#fff4d6] text-[#8a5a00]',
     glow: 'bg-[#ffefbd]',
